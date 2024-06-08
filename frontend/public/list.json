@@ -1,0 +1,17 @@
+[
+    
+    {
+        "id":1,
+        "name":"Data Structures & Algorithms",
+        "title":"Data Structures and Algorithms is a fundamental computer science subject focused on organizing and manipulating data efficiently. It explores various data organization techniques, like arrays, linked lists, trees, and graphs, along with algorithms for searching, sorting, and optimizing performance. This subject equips students with problem-solving skills crucial for software development, ensuring they can design efficient solutions for real-world problems. It also lays the groundwork for understanding complex computational problems and designing algorithms to solve them effectively.",
+        "image": "dsa.jpg"
+    },
+    
+    {
+        "id":2,
+        "name":"Cloud Computing",
+        "title":"Cloud Computing is a transformative field in computer science that revolutionizes how businesses and individuals access and manage computing resources over the internet. It encompasses a range of services, including infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). Students study the principles, architectures, and technologies behind cloud computing, enabling them to deploy scalable, flexible, and cost-effective solutions. This subject is crucial for modern IT professionals, facilitating innovation and efficiency in various industries.",
+        "image": "cloud.jpg"
+    }
+
+]
