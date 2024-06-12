@@ -1,15 +1,17 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Banner from "../components/Banner";
 import Footer from "../components/Footer";
+import Subject from "../components/Subject";
+import Landing from "../components/Landing";
 
 function Home() {
 
     return (
         <>
             <Navbar />
-            <Banner />
+            <Subject/>
             <Footer />
+            {/* <Landing/> */}
         </>
     )
 

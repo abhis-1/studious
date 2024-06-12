@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React from "react";
 
 export default function Navbar() {
   const [sticky, setSticky] = useState(false);
@@ -21,13 +22,13 @@ export default function Navbar() {
   const Navitems = (
     <>
       <li>
-        <a>Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
-        <a>Courses</a>
+        <a href="/subject">Courses</a>
       </li>
       <li>
-        <a>About</a>
+        <a href="/about">About</a>
       </li>
     </>
   );
@@ -35,12 +36,12 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 z-50 ${
+        className={`w-full fixed top-0 left-0 right-0 z-50 ${
           sticky ? "sticky-navbar shadow-md duration-300 transition-all ease-in-out" : ""
         }`}
         style={{ backgroundColor: 'rgb(25,118,210)', color: 'white' }}
       >
-        <div className="navbar">
+        <div className="navbar max-w-screen-2xl container mx-auto md:px-20 px-4">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -65,20 +66,20 @@ export default function Navbar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-blue-500 rounded-box w-52"
               >
                 {Navitems}
               </ul>
             </div>
-            <a className="text-2xl font-bold cursor-pointer">Studious</a>
+            <a className="text-3xl font-bold cursor-pointer">Studious</a>
           </div>
 
           <div className="navbar-end space-x-3">
             <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">{Navitems}</ul>
+              <ul className="menu menu-horizontal px-1 text-lg">{Navitems}</ul>
             </div>
             <div>
-              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 cursor-pointer">
+              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-900 cursor-pointer text-lg">
                 Signin
               </a>
             </div>

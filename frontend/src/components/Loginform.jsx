@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-function Login() {
+function Loginform() {
 
     const {
         register,
@@ -59,4 +59,4 @@ function Login() {
 
 }
 
-export default Login;
+export default Loginform;
