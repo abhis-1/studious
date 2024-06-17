@@ -46,7 +46,7 @@ export default function Signin() {
             />
             <InputBox
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="johndoe@gmail.com"
+              placeholder="johndoe@iic.ac.in"
               label={"Email"} />
 
 

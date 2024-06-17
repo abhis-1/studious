@@ -89,80 +89,82 @@
 
 // export default Cards;
 
-// import React from 'react';
-// import { Card, CardContent, Typography, CardActionArea, CardMedia, Grid } from '@mui/material';
-// import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Card, CardContent, Typography, CardActionArea, Grid, Box, Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
-// const SemesterCard = ({ semester, courses, image, imageTitle }) => {
-//   const navigate = useNavigate();
+const SemesterCard = ({ semester, courses, image, imageTitle }) => {
+  const navigate = useNavigate();
 
-//   const handleCardClick = (semester) => {
-//     navigate(`/semester/${semester}`);
-//   };
+  const handleCardClick = (semester) => {
+    navigate(`/semester/${semester}`);
+  };
 
-//   return (
-//     <Grid item xs={12} sm={6} md={6} lg={6} >
-//       <Card sx={{ maxWidth: 400, height:400 }} onClick={() => handleCardClick(semester)}>
-//         <CardActionArea>
-//           <CardMedia
-//             component="img"
-//             height="180"
-//             width="180"
-//             image={image}
-//             alt={imageTitle}
-//           />
-//           <CardContent>
-//             <Typography gutterBottom variant="h5" component="div" fontWeight={"bold"} fontSize={30}>
-//               {semester}
-//             </Typography>
-//             <Typography variant="subtitle1" color="text.secondary">
-//               List of courses
-//             </Typography>
-//             <Typography variant="body2" color="text.secondary">
-//               {courses.join(", ")}
-//             </Typography>
-//           </CardContent>
-//         </CardActionArea>
-//       </Card>
-//     </Grid>
-//   );
-// };
+  return (
+    <Grid item xs={12} sm={6} md={6} lg={6} >
+      <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', boxShadow: 3 }}>
+        <CardActionArea onClick={() => handleCardClick(semester)} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', height: '100%' }}>
+          <Box
+            sx={{
+              height: 180,
+              background: `url(${image}) center/cover no-repeat`,
+            }}
+          />
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography gutterBottom variant="h5" component="div" fontWeight={"bold"} fontSize={30}>
+              {semester}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              List of courses
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {courses.join(", ")}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="contained" color="primary" onClick={() => handleCardClick(semester)}>
+            Start
+          </Button>
+        </Box>
+      </Card>
+    </Grid>
+  );
+};
 
-// export default function Cards() {
-//   const semesters = [
-//     {
-//       semester: "Semester 1",
-//       courses: ["Course 1A", "Course 1B", "Course 1C"],
-//       image: "https://via.placeholder.com/150",
-//       imageTitle: "Semester 1 Image"
-//     },
-//     {
-//       semester: "Semester 2",
-//       courses: ["Course 2A", "Course 2B", "Course 2C"],
-//       image: "https://via.placeholder.com/150",
-//       imageTitle: "Semester 2 Image"
-//     },
-//     {
-//       semester: "Semester 3",
-//       courses: ["Course 3A", "Course 3B", "Course 3C"],
-//       image: "https://via.placeholder.com/150",
-//       imageTitle: "Semester 3 Image"
-//     },
-//     {
-//       semester: "Semester 4",
-//       courses: ["Course 4A", "Course 4B", "Course 4C"],
-//       image: "https://via.placeholder.com/150",
-//       imageTitle: "Semester 4 Image"
-//     }
-//   ];
+export default function Cards() {
+  const semesters = [
+    {
+      semester: "Semester 1",
+      courses: ["Course 1A", "Course 1B", "Course 1C"],
+      image: "https://via.placeholder.com/400",
+      imageTitle: "Semester 1 Image"
+    },
+    {
+      semester: "Semester 2",
+      courses: ["Course 2A", "Course 2B", "Course 2C"],
+      image: "https://via.placeholder.com/400",
+      imageTitle: "Semester 2 Image"
+    },
+    {
+      semester: "Semester 3",
+      courses: ["Course 3A", "Course 3B", "Course 3C"],
+      image: "https://via.placeholder.com/400",
+      imageTitle: "Semester 3 Image"
+    },
+    {
+      semester: "Semester 4",
+      courses: ["Course 4A", "Course 4B", "Course 4C"],
+      image: "https://via.placeholder.com/400",
+      imageTitle: "Semester 4 Image"
+    }
+  ];
 
-//   return (
-//     <Grid container spacing={2}>
-//       {semesters.map((semester, index) => (
-//         <SemesterCard key={index} {...semester} />
-//       ))}
-//     </Grid>
-//   );
-// }
-
-
+  return (
+    <Grid container spacing={2}>
+      {semesters.map((semester, index) => (
+        <SemesterCard key={index} {...semester} />
+      ))}
+    </Grid>
+  );
+}

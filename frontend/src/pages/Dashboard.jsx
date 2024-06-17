@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Cards2 from "../components/Cards2";
+import Cards from "../components/Cards";
+import NotionEmbed from "../components/NotionEmbed";
 
 
 
@@ -10,10 +11,10 @@ function Dashboard() {
     return (
         <>
             <Navbar />
-            <div>
-                <Cards2></Cards2>
-            </div>
-            
+            {/* <div>
+                <Cards />
+            </div> */}
+            <iframe src="Chapter 0 Introduction 00456ae74cf14527837c6c79b88eedf6" frameborder="0"></iframe>
             <Footer />
 
 
