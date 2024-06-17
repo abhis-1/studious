@@ -28,7 +28,7 @@ function Cards2({ }) {
 
                         <Card key={item.id} sx={{
                             width: '30%',
-                            maxWidth: 350,
+                            maxWidth: 250,
                             // margin:'16px',
                             '&:hover': {
                                 transform: 'scale(1.05)',     

@@ -34,7 +34,7 @@ function SubjectContent() {
             //<div style={{ width: '20%', paddingRight: '20px' }}>
               //  <div className="sidebar" style={{ position: 'fixed', top: '60px', left: '0', height: '100vh', backgroundColor: '#F3F4F6', padding: '20px' }}>
               <div className='flex' style={{marginTop:'64px'}}>
-                <div className='w-1/6 h-screen fixed top-12 left-0 bg-gray-100 p-4 overflow-y-auto mt-4 '>
+                <div className='w-1/5 h-screen fixed top-12 left-0 bg-gray-100 p-4 overflow-y-auto mt-4 '>
                     <h3 className="mb-4 px-2 py-2 font-bold text-md">{subject.name} </h3>
                     <ul className="space-y-2 text-sm font-semibold mb-20 ">
                         {subject.topics.map((topic, idx) => (
@@ -44,8 +44,8 @@ function SubjectContent() {
                 </div>
                 {/* <div className='ml-40 p-8 mt-90' dangerouslySetInnerHTML={{__html:htmlContent}}></div> */}
                 {/* <div className='px-20 h-full ml-1/6'>{reactElements}</div> */}
-                <div className='w-full'>
-                    <iframe src={htmlFilePath} className='w-full h-screen border-none ' ></iframe>
+                <div className=''>
+                    <iframe src={htmlFilePath} className='w-full h-screen  border-none mx-80' ></iframe>
                 </div>
             </div>
             
@@ -53,4 +53,5 @@ function SubjectContent() {
 }
 
 export default SubjectContent;
+
 
