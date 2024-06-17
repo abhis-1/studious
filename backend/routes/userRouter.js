@@ -74,11 +74,10 @@ router.post("/signup", validate(userSchema), async (req, res) => {
       let tempUser = { firstname, lastname, email, password, accountType, course, batch, otp };
       console.log(tempUser)
       req.session.tempUser = tempUser;
-      res.status(200).send({ msg: message }); // Redirect to OTP verification page
+      res.status(200).send({ msg: message });
     } catch (err) {
       console.error('Error sending OTP:', err);
       req.session.errors = [{ msg: 'Failed to send OTP. Please try again later.' }];
-      res.redirect('/signup'); // Redirect to signup page with error message
     }
   } catch (err) {
     console.error(err.message);
