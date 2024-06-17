@@ -44,8 +44,8 @@ function SubjectContent() {
                 </div>
                 {/* <div className='ml-40 p-8 mt-90' dangerouslySetInnerHTML={{__html:htmlContent}}></div> */}
                 {/* <div className='px-20 h-full ml-1/6'>{reactElements}</div> */}
-                <div className=''>
-                    <iframe src={htmlFilePath} className='w-full h-screen mx-80 border-none' ></iframe>
+                <div className='w-full'>
+                    <iframe src={htmlFilePath} className='w-full h-screen border-none ' ></iframe>
                 </div>
             </div>
             
