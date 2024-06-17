@@ -25,10 +25,10 @@ const generateOTP = () => {
 const router = express.Router();
 router.use(express.json());
 router.use(cookieParser());
-router.use(cors({
-  credentials: true,
-  origin: process.env.CLIENT_URL
-}))
+// router.use(cors({
+//   credentials: true,
+//   origin: process.env.CLIENT_URL
+// }))
 router.use(express.urlencoded({ extended: true }));
 
 
@@ -55,7 +55,7 @@ router.post("/signup", validate(userSchema), async (req, res) => {
     let existingUser = await User.findOne({ email });
     if (existingUser) {
       req.session.errors = [{ msg: 'This Email is already registered. Please try another email.' }];
-      return res.status(400).json({msg: "Email is already registered"}).redirect('/signup'); // Redirect to signup page with error message
+      return res.status(400).json({msg: "Email is already registered"});
     }
 
     const otp = generateOTP();
