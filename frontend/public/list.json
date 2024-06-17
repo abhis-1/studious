@@ -2,16 +2,130 @@
     
     {
         "id":1,
-        "name":"Data Structures & Algorithms",
-        "title":"Data Structures and Algorithms is a fundamental computer science subject focused on organizing and manipulating data efficiently. It explores various data organization techniques, like arrays, linked lists, trees, and graphs, along with algorithms for searching, sorting, and optimizing performance. This subject equips students with problem-solving skills crucial for software development, ensuring they can design efficient solutions for real-world problems. It also lays the groundwork for understanding complex computational problems and designing algorithms to solve them effectively.",
-        "image": "dsa.jpg"
+        "name":"Mathematical Foundation of Computing",
+        "title":"Semester 1 - Learn about countable structures and their combinatorial, logical properties. Explore graphs, integers, statements in logic.",
+        "image": "https://media.istockphoto.com/id/1442048478/vector/mathematics-vector-colorful-thin-line-banner.jpg?s=612x612&w=0&k=20&c=d9kB3BiLpsl_g_9DBKluKSzapsIYKTWz9pPmKlCu8Ak=",
+        "topics":["Rudiments of Mathematical Logic & Set Theory","Proof Methods","Relations & Functions","Combinatorics","Rudiments of Graph Theory","Trees","Recurrences","Divide & Conquer","Mathematical Logic & Methods of Computation","Regular Set","Finite Automata"]
     },
     
     {
         "id":2,
+        "name":"Software Design & Programming",
+        "title":"Semester 1 - Create efficient, maintainable solutions to problems. Explore C, C++, concepts of OOPS.",
+        "image": "https://cdn.sanity.io/images/tlr8oxjg/production/f2fb25c9cafe100e220f0caf70f92cf19a6ec3dc-1456x816.png?w=3840&q=80&fit=clip&auto=format",
+        "topics":["Introduction to Programming Methodlogy","Variables & Expresssions","Types","Operators & Expressions","Control Flow","Functions & Program Structure","Pointers & Arrays","Pointer Conversion","Structures","Structure & Union Declarations","File Descriptors","UNIX System Interface","Enumerators","Declarators","Typedef","Identifiers","Preprocessing","Object Model","Inheritance","Polymorphism","Abstraction","Language Features","Abstract Data Type","Modularity","Using UML","Class Diagram","Design Patterns"]
+    },
+
+    {
+        "id":3,
+        "name":"Algorithms & Data Structure",
+        "title" : "Semester 1 - Learn to organize and store data efficiently and provide methods for processing and manipulating it.",
+        "image" : "https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_structure_interview_questions.jpg",
+        "topics":["Analysis of Algorithms","Asymptotic Notation","Recurrence Relation","Linked Lists","Queues","Trees","Tree Traversals","Priority Queues","Binary Search Trees","AVL Trees","Hashing","Graphs","Divide & Conquer","Greedy Methods","Minimum Spanning Trees","Single Source Shortest Paths","Dynamic Programming","All Pair Shortest Paths","Backtracking","Resource Allocation Problem","Branch & Bound","Complexity Theory"]
+    },
+
+    {
+        "id":4,
+        "name":"Computer System Architecture",
+        "title":"Semester 1 - Get to learn about computer system hardware design, digital computer organization principles and operation functionality.",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxcdUqGNGCTbNDFxZLQjA0Q4Kt7yUPnHK7HQ&s",
+        "topics":["Evolution of Computer Architecture","Instruction Set Design","Processor Micro-architecture","Pipelining","Cache & Virtual Memory Organization","Protection & Sharing","I/O & Interrupts","VLIW Machines","Multithreaded Architectures","Symmetric Multiprocessors","Parallel Computers","Segmentation","Paging","CISC & RISC Processors","Addressing Modes","Instruction Sets","Memory Hierarchies","Memory Technologies"]
+    },
+
+    {
+        "id":5,
+        "name":"Computer Communication & Networks",
+        "title":"Semester 2 - Learn network basics, architecture, data transmission, security, wireless, protocols, routing and management.",
+        "image":"https://media.licdn.com/dms/image/D5612AQH7Ka9cpyMa5A/article-cover_image-shrink_600_2000/0/1707035530376?e=2147483647&v=beta&t=5hXiRDV3r9WlOWhZcM4scZck9t3_tAmzhL_ZGFj2t2c",
+        "topics":["Basics of networking","OSI Model","Error Detection Codes","Flow Control","Routing","Medium Access Control","High-speed Networks","Data communications","Network Architectures","Communication Protocols","Data Link Control","LAN, MAN & WAN","Fourier Analysis","Maximum Data Rate of a Channel","Data Transmission Modes","IPv4 & IPv6","Subnetting & IP Routing","UDP & TCP Protocols","Address Resolution Protocol","Network Address Translation","Stream Control Transmission Protocol","Quality of Service","Data Traffic","Congestion Control","WWW & HTTP","Network Management"]
+    },
+
+    {
+        "id":6,
+        "name":"Database Systems",
+        "title":"Semester 2 - Explore concepts involving & related to design, modelling, query languages, management, security, relational model, Structured Query Language and performance tuning.",
+        "image":"https://s3-us-west-2.amazonaws.com/aa.techdemand.io/wp-content/uploads/2023/09/08174444/Database-Management-Systems.jpg",
+        "topics":["Introduction to Database Concepts","Data Organization & Management Techniques","Goals of DBMS","DBMS Models","Relational Database Design","Functional & Multi Valued Dependencies & Normal Forms","Database Query Optimization","Data Abstraction & Modelling","Normalization","Query Processing","Crash Recovery","Distributed Database","Obect Oriented Database","Data Mining","The ER Model","Relational Model","Relational Algebra & Query Languages","SQL","Data Constraints","Functional Dependencies","Relational Database Design","Transaction Management"]
+    },
+
+    {
+        "id":7,
+        "name":"Operating Systems",
+        "title":"Semester 2 - Learm about process and memory management, different types of operating systems, file systems, scheduling, deadlock conditions, thrashing, resource allocation and networking.",
+        "image":"https://media.istockphoto.com/id/1301392763/vector/isometric-projection-of-a-laptop-with-business-graphs-the-concept-of-data-analysis-on.jpg?s=612x612&w=0&k=20&c=B6cr_9qZ5SPWqbgWVYh1hLVXPdpSSH28MCiGmt9brwk=",
+        "topics":["OS Structure","Processes","Deadlocks & Deadlock Handling","Memory Management","Input-Output Management","Disk Devices & File Systems","Security","UNIX System Tools","Inter Process Communication","File Concept","Access Methods","File System Structure","Allocation Methods","Free-Space Management","Critical Section","Mutual Exclusion","IPC Race Conditions","Classical IPC Problems"]
+    },
+
+    {
+        "id":8,
+        "name":"Applied Machine Learning",
+        "title":"Semester 2 - Covers data preprocessing, model selection, training, evaluation, deployment and optimization.",
+        "image":"https://media.licdn.com/dms/image/D4D12AQGurjz_4yVgxQ/article-cover_image-shrink_600_2000/0/1693987602621?e=2147483647&v=beta&t=ICJSg_1lm9Z_ICVaa8OQ5a1MfU0TpehXZez0sZPLCqw",
+        "topics":["Maths & Probability","Naive Bayes","Decision Trees","Generalisation & Evaluation","Linear Regression","Logistic Regression","Optimisation & Regularisation","Support Vector Machines","Nearest Neighbours","K-Means","Prinicipal Component Analysis","Neural Networks","Propositional & First-Order","Artificial Neural Networks","Perceptrons","Language Learning"]
+    },
+
+    {
+        "id":9,
+        "name":"Web & Mobile Application Development",
+        "title":"Semester 2 - Learn front-end development, back-end development, databases, APIs, security, testing & deployment.",
+        "image":"https://tortalabz.com/wp-content/uploads/2022/10/Web-and-Mobile-App-Development.png",
+        "topics":["Coding Techniques","OOP Programming","Mobile App Development","Introduction to Android Platform","Graphical User Interface","Data Persistance","Application Security & Permissions","Network Communication & Internet Applications"]
+    },
+
+    {
+        "id":10,
+        "name":"Software Engineering",
+        "title":"Semester 3 - Learn requirements analysis, design, coding, testing, maintenance, documentation and project management.",
+        "image":"https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg",
+        "topics":["Evolving role of Software","The Capability Maturity Model Integration (CMMI)","Product & Process","Process Models","Prototyping","The Unified Process","Business Process Engineering","Requirements Engineering","System Modelling","Requirement Analysis Concepts & Prinicples","Software Requirement Specification","Data Modelling","Functional Modeling","Surveys of Software Design Methods","Software Design Quality","Software Architecture","Implementation & Testing","Project Organization & Phases","Version Control","Testing & Maintenance","Verification & Validation","Software Quality","Technical Metrics for Software","Business Process Reengineering","Reverse Engineering & Restructuring"]
+    },
+
+    {
+        "id":11,
+        "name":"Information System Design",
+        "title":"Semester 3 - Learn system analysis, architecture, user interfaces, security, project management.",
+        "image":"https://www.aliengen.com/uploads/Information-systems-people-data-processes-aliengen-2.jpg",
+        "topics":["Design Thinking","Prototyping and Parts of Things Design Pattern","Foundations of Systems Development","Systems Development Processes","Object-Oriented Analysis & Design","Design of user interfaces","Systems Analysis and Design Life Cycle","Role of Systems Analyst"]
+    },
+
+    {
+        "id":12,
+        "name":"IT Planning & Management",
+        "title":"Semester 3 - Covers strategy development, resource allocation, budgeting, performance evaluation, risk management, project management.",
+        "image":"https://img.freepik.com/free-vector/flat-design-business-planning-concept_23-2149151729.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1718236800&semt=ais_user",
+        "topics":["IS, IM, IT Strategy","IT and Software","IT characteristics and applications","IT Processes, Methods, and Tools","IT Manager role definition and KRAs","Software Management","Software Lifecycle","Software Process and Project Metrics","Software Quality Management & Assurance","Software Configuration Management","Software Sizing","Cost Estimation","Project Planning and Management Concepts","Project Scheduling and Tracking"]
+    },
+
+    {
+        "id":13,
         "name":"Cloud Computing",
-        "title":"Cloud Computing is a transformative field in computer science that revolutionizes how businesses and individuals access and manage computing resources over the internet. It encompasses a range of services, including infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). Students study the principles, architectures, and technologies behind cloud computing, enabling them to deploy scalable, flexible, and cost-effective solutions. This subject is crucial for modern IT professionals, facilitating innovation and efficiency in various industries.",
-        "image": "cloud.jpg"
+        "title":"Semester 3 - Learn cloud architecture, cloud service models, virtualization, security, scalability, cloud deployment models. Explore about delivering computing services over the Internet for innovation, flexible resources, anytime anywhere access and better cost management.",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNEPEPywa5BfdjlPVZCs81R9X6f-UvbJlOQ&s",
+        "topics":["Cloud Computing Architecture","Service Models","Deployment Models","Infrastructure as a Service","Virtualization","Platform as a Service","Software as a Service","Scaling"]
+    },
+
+    {
+        "id":14,
+        "name":"Research Methods in Informatics",
+        "title":"Semester 4 - Learn literature review, experimental design, result interpretation, qualitative and quantitative analysis.",
+        "image":"https://www.aib.world/wp-content/uploads/2020/11/research-methods-covid-webinar-header.jpg",
+        "topics":["Informatics in Research","Research Methods","Quantitative & Qualitative Research Design","Experimental Research Design","Data Analysis and Basic Statistics","Research as a Creative Process","Data Acquisition","Experimental Research Design"]
+    },
+
+    {
+        "id":15,
+        "name":"Internet of Things - Systems, Security & Cloud",
+        "title":"Semester 4 - Covers device integration, communication protocols, data analytics, cloud services, sensor networks. Learn about the integration of people, processes, data, things and other related phenomemon.",
+        "image":"https://clockwise.software/img/blog/consumer-iot-smart-devices-become-a-part-of-average-household/header-background.jpg",
+        "topics":["IoT Systems Architecture","Wireless Technologies & Networking Protocols","Security & Privacy Concepts","Cloud Integration","Defining IoT","Characteristics of IoT","Physical and Logical Design of IoT","Communication Models & APIs","Machine to Machine","Software Defined Network","Challenges in IoT","Developing IoTs","Applications of IoT","Cloud Computing"]
+    },
+
+    {
+        "id":16,
+        "name":"Data Analytics & Visualization",
+        "title":"Semester 4 - Learn data collection, cleaning, analysis, visualization techniques, tools and interpretation.",
+        "image":"https://cdn.sanity.io/images/tlr8oxjg/production/2d8450596e26adafc8e47e88a65bce42104b732a-1456x816.png?w=3840&q=80&fit=clip&auto=format",
+        "topics":["Introduction to Data Mining","Language processing","Information Visualization","Regression","Supervised Classification Methods","Data Visuakization","Exploratory Graphical Analysis","Clustering Techniques","Visualization Tools","Analytics Tools"]
     }
 
 ]

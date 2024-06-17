@@ -40,19 +40,6 @@ export default function Navbar() {
     navigate("/signin");
   }
 
-  // const Navitems = (
-  //   <>
-  //     <li>
-  //       <a href="/">Home</a>
-  //     </li>
-  //     <li>
-  //       <a href="/subject">Courses</a>
-  //     </li>
-  //     <li>
-  //       <a href="/about">About</a>
-  //     </li>
-  //   </>
-  // );
 
   return (
     <>
@@ -63,54 +50,27 @@ export default function Navbar() {
       >
         <div className="navbar max-w-screen-2xl container mx-auto md:px-20 px-4">
           <div className="navbar-start">
-            {/* <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost lg:hidden"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </div> */}
-            {/* <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-blue-500 rounded-box w-52"
-              >
-                {Navitems}
-              </ul> */}
-            {/* </div> */}
-            <a className="text-3xl font-bold cursor-pointer">Studious</a>
+
+            <a className="text-3xl font-bold cursor-pointer no-underline">Studious</a>
           </div>
 
-          <div className="navbar-end space-x-3 flex item-center">
-            {accountType && (
+          <div className="navbar-end space-x-2 flex item-center">
+            {/* {accountType && ( */}
               <div className="flex items-center space-x-2">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blck text-white" title={accountType}>
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-black text-white" title={accountType}>
                   {accountType === "teacher" ? "T" : "S"}
                 </div>
-                <div className="text-lg">{batch}</div>
+                {/* <div className="flex items-center justify-center w-20 h-10 text-lg rounded-md bg-black text-white" title={batch}>{batch}</div> */}
 
               </div>
-            )}
+            {/* )} */}
             <div className="navbar-center hidden lg:flex">
-              {/* <ul className="menu menu-horizontal px-1 text-lg">{Navitems}</ul> */}
+
             </div>
             <div>
               <a
                 onClick={handleLogout}
-                className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-900 cursor-pointer text-lg">
+                className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-900 cursor-pointer text-lg no-underline">
                 Logout
               </a>
             </div>

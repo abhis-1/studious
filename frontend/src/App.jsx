@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Semester1 from "./pages/Semester1";
 import OtpVerify from "./pages/OtpVerify";
+import SubjectPage from "./pages/SubjectPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/semester/semester1" element={<Semester1 />} />
         <Route path="/verify-otp" element={<OtpVerify />} />
+        <Route path="/dashboard/subject/:id" element={<SubjectPage/>}/>
 
       </Routes>
     </>

@@ -1,57 +1,70 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import list from '../../public/list.json'; // Adjust the import path according to your project structure
 
-export default function Cards2() {
 
-    const navigate = useNavigate();
+function Cards2({ }) {
 
-    const handleSemesterClick = (semester) => {
-        navigate(`/semester/${semester}`);
+    const navigate=useNavigate();
+
+    const handleCardClick=(id)=> {
+        navigate(`/dashboard/subject/${id}`);
     }
 
-
     return (
-        <>
 
-            <div className="mt-20 mb-10">
-                <div className="flex justify-evenly mx-auto border-2 rounded-full py-1 px-4 sm:w-2/3 md:w-1/2 border-slate-400 bg-white text-black">
-                    <button
-                        onClick={() => handleSemesterClick("semester1")}
-                        className="inline-flex items-center justify-center
-                    whitespace-nowrap text-lg font-medium transition-colors
-                    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-                    disabled:pointer-events-none disabled:opacity-50 hover:bg-slate-200
-                    h-9 px-4 py-2 rounded-full">Sem 1</button>
 
-                    <button
-                        onClick={() => handleSemesterClick("semester2")}
-                        className="inline-flex items-center justify-center
-                    whitespace-nowrap text-lg font-medium transition-colors
-                    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-                    disabled:pointer-events-none disabled:opacity-50 hover:bg-slate-200
-                    h-9 px-4 py-2 rounded-full">Sem 2
-                    </button>
+        <div style={{ paddingTop: '16px', paddingLeft: '20px', marginTop: '90px', paddingRight: '20px', marginBottom: '50px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px 32px', justifyContent: 'center' }}>
+                {list.map((item) => (
 
-                    <button
-                        onClick={() => handleSemesterClick("semester3")}
-                        className="inline-flex items-center justify-center
-                    whitespace-nowrap text-lg font-medium transition-colors
-                    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-                    disabled:pointer-events-none disabled:opacity-50 hover:bg-slate-200
-                    h-9 px-4 py-2 rounded-full">Sem 3
-                    </button>
+                    // <Link to={`/dashboard/subject/${index}`} key={index} style={{ textDecoration: 'none', flex: '1 1 22%', maxWidth: '22%' }}>
 
-                    <button
-                        onClick={() => handleSemesterClick("semester4")}
-                        className="inline-flex items-center justify-center
-                    whitespace-nowrap text-lg font-medium transition-colors
-                    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-                    disabled:pointer-events-none disabled:opacity-50 hover:bg-slate-200
-                    h-9 px-4 py-2 rounded-full">Sem 4
-                    </button>
+                        <Card key={item.id} sx={{
+                            width: '30%',
+                            maxWidth: 250,
+                            // margin:'16px',
+                            '&:hover': {
+                                transform: 'scale(1.05)',     
+                            },
 
-                </div></div>
-
-        </>
-    )
+                        }
+                        } 
+                        onClick={()=>handleCardClick(item.id)}
+                        >
+                            <CardActionArea>
+                                <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%' }}>
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={item.image}
+                                        alt={item.name}
+                                        style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                                    />
+                                </div>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="div" style={{ fontWeight: 'bold' }}>
+                                        {item.name}
+                                    </Typography>
+                                    {/* <Typography variant="body2" color="text.secondary"> */}
+                                        {/* { */}
+                                         {/* item.title */}
+                                        {/* } */}
+                                    {/* </Typography> */}
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    // </Link>
+                ))}
+            </div>
+        </div >
+    );
 }
+
+export default Cards2;
