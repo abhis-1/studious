@@ -18,7 +18,8 @@ export default function OtpVerify() {
         {
           email,
           otp,
-        }
+        },
+        {withCredentials: true}
       );
 
       if (response.status === 200) {

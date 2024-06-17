@@ -71,7 +71,9 @@ router.post("/signup", validate(userSchema), async (req, res) => {
       await sgMail.send(msg);
       const message = `OTP sent to ${email} successfully. Please check and verify your email.`;
       // Store user data and OTP in session
-      req.session.tempUser = { firstname, lastname, email, password, accountType, course, batch, otp };
+      let tempUser = { firstname, lastname, email, password, accountType, course, batch, otp };
+      console.log(tempUser)
+      req.session.tempUser = tempUser;
       res.status(200).send({ msg: message }); // Redirect to OTP verification page
     } catch (err) {
       console.error('Error sending OTP:', err);
@@ -88,41 +90,41 @@ router.post("/verify-otp", async (req, res) => {
   const { email, otp } = req.body;
   try {
     const tempUser = req.session.tempUser;
+    console.log(tempUser);
+    console.log(tempUser.email, tempUser.otp);
+    console.log(email, otp);
     if (!tempUser || tempUser.email !== email) {
       return res.status(400).json({msg: "Invalid session. Please sign up again."});
     }
-    if (tempUser.otp !== otp) {
+    if (tempUser.otp == otp) {
+      const newUser = new User({
+        firstname: tempUser.firstname,
+        lastname: tempUser.lastname,
+        email: tempUser.email,
+        password: tempUser.password,
+        accountType: tempUser.accountType,
+        course: tempUser.course,
+        batch: tempUser.batch
+      });
+  
+      //Hashing password using bcrypt library
+      const salt = await bcrypt.genSalt(10);
+      newUser.password = await bcrypt.hash(newUser.password, salt);
+  
+      await newUser.save();
+      res.clearCookie("tempUser");
+      console.log(newUser.id, newUser);
+  
+      const payload = { user: { id: newUser.id } };
+      jwt.sign(payload, JWT_SECRET, { expiresIn: parseInt(process.env.JWT_TOKEN_MAX_AGE) },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
+    }else {
       return res.status(400).json({msg: "Invalid OTP. Please try again."});
     }
-    console.log(tempUser.email, tempUser.otp);
-    console.log(email, otp);
-    //OTP is correct so creating new user
-    const newUser = new User({
-      firstname: tempUser.firstname,
-      lastname: tempUser.lastname,
-      email: tempUser.email,
-      password: tempUser.password,
-      accountType: tempUser.accountType,
-      course: tempUser.course,
-      batch: tempUser.batch
-    });
-
-    //Hashing password using bcrypt library
-    const salt = await bcrypt.genSalt(10);
-    newUser.password = await bcrypt.hash(newUser.password, salt);
-
-    console.log(newUser.id, newUser);
-    await newUser.save();
-    delete req.session.tempUser;
-
-    const payload = { user: { id: newUser.id } };
-    jwt.sign(payload, JWT_SECRET, { expiresIn: parseInt(process.env.JWT_TOKEN_MAX_AGE) },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
-    
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');

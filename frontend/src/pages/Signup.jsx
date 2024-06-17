@@ -48,7 +48,8 @@ export default function Signup() {
         accountType,
         course,
         batch,
-      });
+      },
+    { withCredentials: true });
 
       setSuccessMessage(response.data.msg);
       console.log(successMessage);
