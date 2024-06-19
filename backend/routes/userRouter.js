@@ -1,17 +1,16 @@
 require("dotenv").config();
 
 const express = require("express");
-const cors = require("cors");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
 
-const JWT_SECRET = require("../config/jwtSecret");
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const User = require("../models/user");
-const { userSchema, loginSchema, validate } = require('../middleware/zodValidators');
+const { userSchema, loginSchema, validate } = require('../middleware/authValidators');
 const isNotLoggedIn = require("../middleware/isNotLoggedIn");
 
 
@@ -111,7 +110,8 @@ router.post("/verify-otp", async (req, res) => {
       newUser.password = await bcrypt.hash(newUser.password, salt);
   
       await newUser.save();
-      res.clearCookie("tempUser");
+      // res.clearCookie("tempUser");
+      req.session.tempUser = null;
       console.log(newUser.id, newUser);
   
       const payload = { user: { id: newUser.id } };
@@ -161,7 +161,5 @@ router.post("/signin", validate(loginSchema), async (req, res) => {
     res.status(400).send("Something went wrong: Server error");
   }
 });
-
-// signout need to be implemented on frontend -> simply delete the token
 
 module.exports = router;

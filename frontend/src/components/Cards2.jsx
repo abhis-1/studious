@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -31,8 +30,10 @@ function Cards2({ }) {
                             maxWidth: 250,
                             // margin:'16px',
                             '&:hover': {
-                                transform: 'scale(1.05)',     
+                                transform: 'scale(1.05)',
+                                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
                             },
+                            transition: 'transform 0.2s, box-shadow 0.2s',
 
                         }
                         } 
@@ -52,11 +53,11 @@ function Cards2({ }) {
                                     <Typography gutterBottom variant="h5" component="div" style={{ fontWeight: 'bold' }}>
                                         {item.name}
                                     </Typography>
-                                    {/* <Typography variant="body2" color="text.secondary"> */}
-                                        {/* { */}
-                                         {/* item.title */}
-                                        {/* } */}
-                                    {/* </Typography> */}
+                                    {/* <Typography variant="body2" color="text.secondary" > 
+                                         { 
+                                          item.title
+                                         } 
+                                    </Typography> */}
                                 </CardContent>
                             </CardActionArea>
                         </Card>
