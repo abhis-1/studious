@@ -16,7 +16,6 @@ export default function OtpVerify() {
       const response = await axios.post(
         "http://localhost:3000/user/verify-otp",
         {
-          email,
           otp,
         },
         {withCredentials: true}
@@ -42,11 +41,6 @@ export default function OtpVerify() {
                 {successMessage}
               </div>
             )}
-            <InputBox
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              label="Email"
-            />
             <InputBox
               onChange={(e) => setOtp(e.target.value)}
               placeholder="Enter OTP"

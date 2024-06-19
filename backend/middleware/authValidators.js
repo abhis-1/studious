@@ -3,15 +3,12 @@ const { z } = require('zod');
 const userSchema = z.object({
   firstname: z.string().min(2, "First name must be at least 2 characters").max(50, "First name must be at most 50 characters"),
   lastname: z.string().min(2, "Last name must be at least 2 characters").max(50, "Last name must be at most 50 characters"),
-  email: z.string().email("Please include a valid email").regex(/^[a-zA-Z0-9._%+-]+@iic\.ac\.in$/, "Email must be a valid @iic.ac.in address"),
+  email: z.string().email("Please include a valid email").regex(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, "Email must be a valid @iic.ac.in address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  accountType: z.enum(["Student", "Teacher"], { errorMap: () => ({ message: "Account type can only be Student or Teacher" }) }),
-  course: z.literal("Informatics", { errorMap: () => ({ message: "Course must be Informatics" }) }),
-  batch: z.string().regex(/^(20\d{2})-(20\d{2})$/, "Batch must be in the format YYYY-YYYY")
 });
 
 const loginSchema = z.object({
-  email: z.string().email("Please include a valid email").regex(/^[a-zA-Z0-9._%+-]+@iic\.ac\.in$/, "Email must be a valid @iic.ac.in address"),
+  email: z.string().email("Please include a valid email").regex(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, "Email must be a valid @iic.ac.in address"),
   password: z.string().min(1, "Password is required")
 });
 

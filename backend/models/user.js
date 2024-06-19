@@ -33,27 +33,6 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters"],
     },
-    accountType: {
-      type: String,
-      required: [true, "Account type is required"],
-      enum: {
-        values: ["Student", "Teacher"],
-        message: "Account type can only be Student or Teacher",
-      },
-    },
-    course: {
-      type: String,
-      required: [true, "Course is required"],
-      enum: {
-        values: ["Informatics"],
-        message: "Course can only be Informatics",
-      },
-    },
-    batch: {
-      type: String,
-      required: [true, "Batch is required"],
-      match: [/^(20\d{2})-(20\d{2})$/, "Batch must be in the format YYYY-YYYY"],
-    },
   },
   { timestamps: true }
 );
