@@ -1,13 +1,14 @@
+import React, { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import list from '../../public/list.json'; // Adjust the import path according to your project structure
 
 
-function Cards2({ }) {
+function CourseCard({ searchQuery, onSearchResult}) {
 
     const navigate=useNavigate();
 
@@ -15,12 +16,25 @@ function Cards2({ }) {
         navigate(`/dashboard/subject/${id}`);
     }
 
+    const normalizedSearchQuery = searchQuery ? searchQuery.toLowerCase() : '';
+
+    const filteredCourses=list.filter(item=>
+        item.name.toLowerCase().includes(normalizedSearchQuery)
+    )
+
+    useEffect(()=> {
+        onSearchResult(filteredCourses);
+    }, [filteredCourses, onSearchResult]);
+
     return (
 
 
         <div style={{ paddingTop: '16px', paddingLeft: '20px', marginTop: '90px', paddingRight: '20px', marginBottom: '50px' }}>
+            {filteredCourses.length>0? (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px 32px', justifyContent: 'center' }}>
-                {list.map((item) => (
+                {/* {list.map((item) => ( */}
+
+                {filteredCourses.map((item) => (
 
                     // <Link to={`/dashboard/subject/${index}`} key={index} style={{ textDecoration: 'none', flex: '1 1 22%', maxWidth: '22%' }}>
 
@@ -63,8 +77,13 @@ function Cards2({ }) {
                     // </Link>
                 ))}
             </div>
+            ) : (
+                <Typography variant='h6' color='textSecondary' align="center">
+                    No such subject found
+                </Typography>
+            )}
         </div >
     );
 }
 
-export default Cards2;
+export default CourseCard;

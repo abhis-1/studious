@@ -1,3 +1,4 @@
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,11 +12,12 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
-function Navbar() {
+function Navbar({ setSearchQuery }) {
 
   const navigate = useNavigate();
 
   const [sticky, setSticky] = useState(false);
+  const [query, setQuery]=useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +46,13 @@ function Navbar() {
 
   };
 
+  const handleSearchChange=(event)=>{
+    const value=event.target.value;
+    setQuery(value);
+    setSearchQuery(value);
+  }
+
   return (
-    
     <AppBar position={sticky?"fixed":"static"} sx={{zIndex:1300}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -66,6 +73,8 @@ function Navbar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                value={query}
+                onChange={handleSearchChange}
               />
             </Search>
           </div>
