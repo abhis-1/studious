@@ -31,6 +31,9 @@ function Navbar({ setSearchQuery }) {
     };
   }, []);
 
+  const handleHome = () => {
+    navigate("/dashboard");
+  }
 
 
   const handleLogout = () => {
@@ -53,6 +56,7 @@ function Navbar({ setSearchQuery }) {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
+            onClick={handleHome}
             variant="h5"
             noWrap
             component="a"

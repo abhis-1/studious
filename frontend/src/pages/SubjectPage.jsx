@@ -22,7 +22,6 @@ function SubjectPage() {
             <div className='flex-grow'>
                 <SubjectContent />
             </div>
-            <Footer />
         </div >
     );
 }
