@@ -7,21 +7,21 @@ import CourseCard from "../components/CourseCard";
 
 function Dashboard() {
 
-    const [searchQuery, setSearchQuery]=useState('');
-    const [noCoursesFound, setNoCoursesFound]=useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [noCoursesFound, setNoCoursesFound] = useState(false);
 
     const handleSearchResult = (courses) => {
-        setNoCoursesFound(courses.length===0);
+        setNoCoursesFound(courses.length === 0);
     }
 
     return (
         <>
-            <Navbar setSearchQuery={setSearchQuery}/>
+            <Navbar setSearchQuery={setSearchQuery} />
             <div className="flex-grow">
-                <CourseCard searchQuery={searchQuery} onSearchResult = {handleSearchResult}></CourseCard>
+                <CourseCard searchQuery={searchQuery} onSearchResult={handleSearchResult}></CourseCard>
             </div>
-            
-           { !noCoursesFound && <Footer />}
+
+            {!noCoursesFound && <Footer />}
 
 
         </>

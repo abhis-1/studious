@@ -9,7 +9,7 @@ export default function OtpVerify() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const { successMessage} = location.state || {};
+  const { successMessage } = location.state || {};
 
   const handleVerify = async () => {
     try {
@@ -18,7 +18,7 @@ export default function OtpVerify() {
         {
           otp,
         },
-        {withCredentials: true}
+        { withCredentials: true }
       );
 
       if (response.status === 200) {

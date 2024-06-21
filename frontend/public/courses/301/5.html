@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Requirements Engineering</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="06ecdcec-6083-49e9-b845-6d39420dcdb0" class="page sans"><header><h1 class="page-title">Requirements Engineering</h1><p class="page-description"></p></header><div class="page-body"><p id="42d73bab-765e-48e4-a31f-3e5d414f3a88" class="">
+</p><ul id="0106a559-a5c9-447c-afd3-209dab5fbfd2" class="bulleted-list"><li style="list-style-type:disc">Understanding the requirements of customer and documenting them properly.</li></ul><ul id="22148b4b-c436-403a-9ee2-407cb084ff5f" class="bulleted-list"><li style="list-style-type:disc">A requirement is a feature of the system or a description of something the system is capable of doing in order to fulfill the system’s purpose.</li></ul><p id="7420a2a3-37e2-4cb6-85f4-86056153aebe" class="">Requirement engineering: a subset of s/w engineering that deals with the use of sound techniques for the development and management of s/w requirements.</p><ul id="78c42f35-bb0a-49eb-b04d-5a6f0cfeeb48" class="bulleted-list"><li style="list-style-type:disc">the disciplined application of proven principles, methods, tools and notations to describe a proposed system’s intended behavior and its associated constraints.</li></ul><ul id="9d316658-6822-4b18-83c8-f896030e12fa" class="bulleted-list"><li style="list-style-type:disc">It produces one large document written in a natural language containing a description of what the system will do.</li></ul><ul id="259690ed-073a-4ec9-be16-74d3a5f30531" class="bulleted-list"><li style="list-style-type:disc">Input to requirements engineering is the problem statement prepared by the customer that may give an overview of the existing system along with expectations from the new system.</li></ul><p id="4d0ca96f-226c-46cd-8c57-85680d6b0e8f" class="">
+</p><p id="041de4a1-2bb9-4b0a-a062-fdb991e1a5fc" class="">CRUCIAL PROCESS STEPS</p><p id="bbc89cf3-7c75-4e59-8df2-dc07d9c7df3b" class="">Requirements development has 4 main steps :</p><ol type="1" id="2d454ec1-43e5-4f99-b41e-115683a5a284" class="numbered-list" start="1"><li>Requirements Elicitation</li></ol><ul id="f2247610-033d-4b29-859c-fcc372d3e76d" class="bulleted-list"><li style="list-style-type:disc">&gt; Also called as gathering of requirements. Requirements are identified with the help of customer and existing systems processes if available.</li></ul><ol type="1" id="c38636e6-4292-4dcf-8e24-9f63db89c8be" class="numbered-list" start="2"><li>Requirements Analysis</li></ol><ul id="0027a616-b808-458e-b9b7-89fbc7851b43" class="bulleted-list"><li style="list-style-type:disc">&gt; Requirements are analyzed in order to identify the inconsistencies, defects, omissions etc. We describe requirements in terms of relationships and also resolve conflicts, if any.</li></ul><ol type="1" id="08c50cc4-6b12-4e47-8407-6abbeaa797a4" class="numbered-list" start="3"><li>Requirements Documentation</li></ol><ul id="c5a38001-068b-4ad7-990c-ead9b1153332" class="bulleted-list"><li style="list-style-type:disc">&gt; End product of steps (1) and (2). It will be the foundation for the design of the s/w. The document is called the SRS doc.</li></ul><ol type="1" id="11b5dfd5-6f1a-4d6d-8746-1313f86d57b2" class="numbered-list" start="4"><li>Requirements Review</li></ol><ul id="3667ad21-0f3f-4684-a8c9-8709db315787" class="bulleted-list"><li style="list-style-type:disc">&gt; deals with the project issues as part of the overall s/w project management. In addition, requirements management also deals with some issues such as requirements : prioritization, maintenance and change management, negotiation and QA.</li></ul><ul id="edd0afb5-018d-47e6-8397-9a4027a3193b" class="bulleted-list"><li style="list-style-type:disc">&gt; The review process is carried out to improve the quality of SRS. Also called requirements verification. Review and verification, for maximum benefits, should be treated as a continuous activity incorporated into all steps.</li></ul><p id="398cc179-35ee-47a2-aed0-ebab8e8c0add" class="">Primary output of requirements engineering is requirements specification. If it describes both h/w and s/w, it is a System Requirement Specification. If only s/w, it is a S/w Requirement Specification.</p><p id="691a9411-90cb-4ede-b4da-788e8ca8feb4" class="">
+</p><p id="c700fe72-6774-433b-9838-cb3b2b823cc5" class="">PRESENT STATE OF PRACTICE</p><ol type="1" id="bf82d446-4770-4a70-9338-0dd81fef8da5" class="numbered-list" start="1"><li>Requirements are difficult to uncover - Difficult to identify all requirements regardless of the techniques we use. No one can see a brand new system in its entirety.</li></ol><ol type="1" id="977081ef-4a1c-4bd9-b32a-c050db024e66" class="numbered-list" start="2"><li>Requirements change - As the user begins to understand the system, requirements get added and changed.</li></ol><ol type="1" id="fa4443f2-ee23-428c-ad86-12fc5d15c3a5" class="numbered-list" start="3"><li>Over-reliance on CASE tools</li></ol><ol type="1" id="79b9da03-5748-4075-be5b-99dfd9120037" class="numbered-list" start="4"><li>Tight project schedule</li></ol><ol type="1" id="abc2b21a-f66e-4ad3-b9fa-946ad81f4461" class="numbered-list" start="5"><li>Communication barriers - Users and developers have different vocabularies, professional background etc.</li></ol><ol type="1" id="8dd4d0c1-394a-400c-afd6-1d12fa3865f7" class="numbered-list" start="6"><li>Market-driven s/w development</li></ol><ol type="1" id="7e886f6a-32bb-4e82-8177-b4a79e4ec9be" class="numbered-list" start="7"><li>Lack of resources</li></ol><figure id="ca57618e-fb9b-4fbc-b59b-0f282bc5b164" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfQuicX3N6ihvmXY3CcxsyCB0XfPzvWNm4ebEnmpDA1OMHHU9BjognHCl9ahSwe3Sa7ueq4dh-ZEPwpwMlL9hfTLxisN5HBvlk81oz-BxQhtbiCqU4va-7vs7ZifvQzLzQPCOlibuXe-6mlg3zKt0H6yJbq?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:421px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfQuicX3N6ihvmXY3CcxsyCB0XfPzvWNm4ebEnmpDA1OMHHU9BjognHCl9ahSwe3Sa7ueq4dh-ZEPwpwMlL9hfTLxisN5HBvlk81oz-BxQhtbiCqU4va-7vs7ZifvQzLzQPCOlibuXe-6mlg3zKt0H6yJbq?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="ce21971b-29dc-44f2-b061-83faf38a7bb3" class="">Causes for project failures due to errors made during the development of s/w requirements :</p><ol type="1" id="6aa60d9d-d666-46d6-9915-6f756050eb7e" class="numbered-list" start="1"><li>Lack of a formal process by which requirements are collected/elicited.</li></ol><ol type="1" id="266e2d17-72f5-4fc2-9fc8-a6d406243c5f" class="numbered-list" start="2"><li>Breakdown in personal communications b/w stakeholders, client and user representatives and requirement analysts.</li></ol><ol type="1" id="370b4db5-17ad-44ca-b234-ea5e31144c1c" class="numbered-list" start="3"><li>Absence of a formal requirements validation process.</li></ol><p id="f595608a-5e11-469d-9e39-dda1056abeb3" class="">
+</p><p id="ea821484-8946-4ec6-b9d6-47726167dfa6" class="">List of requirements management activities include :</p><ol type="1" id="8cce9371-7eda-46a3-973a-f17f3d82c42e" class="numbered-list" start="1"><li>Defining the appropriate requirements development processes.</li></ol><ol type="1" id="b4669f3b-f8a3-4849-a068-fe03d6b35946" class="numbered-list" start="2"><li>Determining the outcomes and deadlines of the requirements engineering phase.</li></ol><ol type="1" id="b8caf7dc-6092-47b8-8a67-760062ee5779" class="numbered-list" start="3"><li>Negotiating and finalizing the s/w requirements.</li></ol><ol type="1" id="ce00a994-bf04-41d1-a73d-80d4fda8b034" class="numbered-list" start="4"><li>Prioritizing the requirements and evaluating the risks.</li></ol><ol type="1" id="d5e0a750-d22b-4492-b8ff-44c8a4952ffb" class="numbered-list" start="5"><li>Tracking and controlling the requirements development steps.</li></ol><ol type="1" id="629c8a17-5d09-4a3e-93fb-1c076d8a2cb1" class="numbered-list" start="6"><li>Acquiring and training on requirements management tools.</li></ol><ol type="1" id="214ffc7c-d509-4c5c-82ba-8cddd6468507" class="numbered-list" start="7"><li>Managing the requirements library.</li></ol><ol type="1" id="b7b2b927-29e6-4d6c-b34e-4bd02b48e50e" class="numbered-list" start="8"><li>Controlling its use and defining a change management mechanism.</li></ol><ol type="1" id="12926029-d172-41ad-8568-425d500e9ca9" class="numbered-list" start="9"><li>Determining and collecting key metric statistics.</li></ol><ol type="1" id="5f46c3aa-ac55-45a3-bd6f-a2f8d59c8e1d" class="numbered-list" start="10"><li>Ensuring the quality of s/w requirements.</li></ol><p id="92195aea-db55-4aed-bd16-582b17ae5108" class="">
+</p><p id="fe2bc114-8d49-4a14-883a-84a7a71cd77a" class="">3 TYPES OF REQUIREMENTS</p><ol type="1" id="03de6573-f11b-46f3-b61a-52cf2c5c141e" class="numbered-list" start="1"><li>Known - something a stakeholder believes is to be implemented</li></ol><ol type="1" id="3a53c92e-03e7-4553-956e-36dc99dc0838" class="numbered-list" start="2"><li>Unknown - forgotten by the stakeholder as they are not needed at the current stage or may be needed by another stakeholder.</li></ol><ol type="1" id="5c05308e-e176-458c-ae6e-976c0108f86f" class="numbered-list" start="3"><li>Undreamt - stakeholder may not be able to think of new requirements due to limited domain knowledge.</li></ol><p id="2f24e75d-bc21-4b4e-9232-3dfd933e2040" class="">These may be Functional Requirements or Non-Functional Requirements.</p><p id="6610720d-637c-43d3-9d7d-514886d1729d" class="">Stakeholder is any one who may have some direct or indirect influence on the system requirements. Includes end-users and everyone else affected by the system.</p><p id="889cda35-68c5-43d0-ab2a-e8cf5b7365aa" class="">Some requirements are architectural such as component-naming compatibility, interfaceability, upgradability etc. Others are constraints such as system design constraints, standards conformance, legal issues and organizational issues.</p><p id="420883df-c51a-4207-8420-2ce5caa04ace" class="">
+</p><p id="b2861664-5fd9-4aa9-bcac-4d69b0de2f7e" class="">FUNCTIONAL AND NON-FUNCTIONAL REQUIREMENTS</p><ol type="1" id="75d1aa6b-05e1-4a8f-85ed-91273fa0c38c" class="numbered-list" start="1"><li>Functional Requirements</li></ol><p id="1dfae386-ab54-4070-8ea6-7638dac67dc2" class="">Capture the functionalities required by the users from the system. Should clearly describe each functionality that the system would support along with the corresponding input and output data set. Are those that include functionalities and services that are needed by the users to meet their needs and to achieve their business objectives. All these functionalities need to be necessarily incorporated into the system.</p><ol type="1" id="10b6562e-17a0-4de4-9f20-cd397ca43a15" class="numbered-list" start="1"><li>Non-Functional Requirements</li></ol><p id="493d784f-a580-4bb0-8f4b-3282417d08ac" class="">The non-functional requirements are non-negotiable obligations that must be supported by the software. Non-functional requirements usually address aspects concerning external interfaces, user interfaces, maintainability, portability, usability, maximum number of concurrent users, timing, and throughput (transactions per second, etc.). The non functional requirements can be critical in the sense that any failure by the developed software to achieve some minimum defined	level in these requirements can be considered as a failure and make the software unacceptable by the customer. Are also called non-behavioral requirements or quality requirements. They are either system-wide or function-specific.</p><ul id="33ace8c4-ccad-400a-95f9-fba40b46f353" class="bulleted-list"><li style="list-style-type:disc">specifications important to users include performance, availability, reliability, usability and flexibility. For developers are maintainability, portability and testability.</li></ul><p id="0e915a1a-4c37-44bf-b5b0-ad68e9763a2b" class="">
+</p><p id="2e6de9c8-27ea-4f77-a1a8-1730d7b6a46d" class="">USER AND SYSTEM REQUIREMENTS</p><p id="7930c09d-f3f1-4d7b-8028-6c68a047523c" class="">User requirements are written for the users and include functional requirements and nonfunctional requirements. Simple language is used, software terminologies should be avoided and should specify the external behavior of the system with some constraints and quality parameters. Design issues should be avoided and should only highlight the overview of the system without design characteristics.</p><p id="eeb7c26b-09ac-402d-9a55-a148086bddd8" class="">System Requirements are derived from user requirements and are expanded form of them. They may be used as input to the designers for the preparation of software design document.</p><p id="778dc81a-e169-420c-be0f-2809759b2165" class="">
+</p><p id="0605038a-afae-4341-9296-97b7be84b7b2" class="">INTERFACE SPECIFICATION</p><ol type="1" id="df636555-8f27-4a71-b71d-a6710745d8c2" class="numbered-list" start="1"><li>Procedural Interfaces</li></ol><ul id="883dd622-8114-4ae0-b34d-d215bbb70fc5" class="bulleted-list"><li style="list-style-type:disc">&gt; Some services are offered by calling interface procedures called APIs.</li></ul><ol type="1" id="86315fe7-332b-469e-9d77-19c60deee86a" class="numbered-list" start="2"><li>Data Structures</li></ol><ul id="62e90128-88a0-4d6d-b168-59d7e6503c8f" class="bulleted-list"><li style="list-style-type:disc">&gt; Used to transfer information from one module to another. Can be represented using graphical data models.</li></ul><ol type="1" id="fcf2508e-253d-4532-8fa0-1fd75fadf0c7" class="numbered-list" start="3"><li>Representation of Data</li></ol><ul id="fa069118-908f-4b20-ab70-64db1d87bdfa" class="bulleted-list"><li style="list-style-type:disc">&gt; Issues related to ordering of bits are established here. Some are common in embedded systems and microprocessor applications. Use a diagram of the structure with annotations explaining the function of each group.</li></ul><p id="d8047a86-9401-42e0-ad29-ed6a52605717" class="">
+</p><p id="e16bc27e-8dd9-4d1e-91f7-49483b3fa955" class="">FEASIBILITY STUDIES</p><ul id="ec3846b0-a2a2-46bf-9fd7-d8e5134cf7a9" class="bulleted-list"><li style="list-style-type:disc">&gt; Conducted to assist decision makers in determining whether or not to implement a project/program.</li></ul><ul id="47782e12-66ba-4f48-866e-143557e08152" class="bulleted-list"><li style="list-style-type:disc">&gt; Based on extensive research on both the current practices and the proposed project or program and its impact on the system as a whole.</li></ul><ul id="ac234257-2757-47c0-9659-e03065a35f7c" class="bulleted-list"><li style="list-style-type:disc">&gt; Should contain extensive data analysis related to financial and operational impact and should include advantages and disadvantages of both the current situation and the proposed project.</li></ul><ul id="48d6fd9d-e066-4fa8-b98c-725600691254" class="bulleted-list"><li style="list-style-type:disc">&gt; Culminates in a feasibility report which enables the project team, customers or upper management to make a go/no-go decision.</li></ul><p id="28483fc1-70a4-41a0-815c-cca090f06ed7" class="">
+</p><p id="e8753256-3af8-417d-87ca-367f6dfce3e8" class="">REQUIREMENTS ELICITATION</p><ul id="d6a1a681-9b5f-4621-a69b-a275c3c0dd9a" class="bulleted-list"><li style="list-style-type:disc">&gt; Most difficult, most critical, most error-prone and most communication intensive aspect of s/w development.</li></ul><ul id="f895b5ba-66bc-48f5-bd10-7d54a87003c6" class="bulleted-list"><li style="list-style-type:disc">&gt; Can succeed only through an effective customer-developer partnership. Requires the collaboration of several groups of participants who have different backgrounds.</li></ul><ul id="dcc27f7c-ece3-47e9-8aca-892a92ec54c2" class="bulleted-list"><li style="list-style-type:disc">&gt; Helps to understand the problem to be solved by gathering requirements.</li></ul><ul id="9fa6e8e0-5045-46a4-8344-c1c7b0a8c846" class="bulleted-list"><li style="list-style-type:disc">&gt; Most communication intensive activity.</li></ul><p id="f4ada5e2-7f2c-43b3-8a10-c9b1f1c7ded8" class="">A particular requirement elicitation methodology is selected because :</p><ol type="1" id="af3dc849-2151-4e89-9c2a-eba929dc93c4" class="numbered-list" start="1"><li>It is the only method we know</li></ol><ol type="1" id="7cf1c664-b410-43f9-97a7-e6f10b0dc194" class="numbered-list" start="2"><li>It is our favorite method for all situations</li></ol><ol type="1" id="ed3a9aa5-a1ba-461a-8993-eb46fcbe3bac" class="numbered-list" start="3"><li>We understand intuitively that the method is effective in the present circumstances.</li></ol><figure id="c38a9573-6404-46c2-a0d4-043e9fe77c62" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdLSSwlpfEp8T4B0oX2mn_IxsuqvDRys7lN19rkUoEVC_ageRIAlIseTRQpf_q77kBhpimv7pWfFXXzjk99zO1fbQLd7KZGQCcz5y9anYD2nVo5CEMSt8HRXkQj8o1hqziGd_bVPGJjgmybUNFB5AbVyso?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:400px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdLSSwlpfEp8T4B0oX2mn_IxsuqvDRys7lN19rkUoEVC_ageRIAlIseTRQpf_q77kBhpimv7pWfFXXzjk99zO1fbQLd7KZGQCcz5y9anYD2nVo5CEMSt8HRXkQj8o1hqziGd_bVPGJjgmybUNFB5AbVyso?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="e7962b44-1b32-4d69-8891-df652b0c2ff1" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXedPuuLQvmkrE_hdyk9hNyPC_WU4tHokWgXyuljLPZbTDl5tqPrG0F9YE89otqd_GsgcsjF21zylpv9hGrrgNvUQajFzcTfzQBxbBucKQIzx2VovXUkW1oaNWd_YSNtP6K8ng2bwJeVVA3AEB0Y53hh3mE?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:383px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXedPuuLQvmkrE_hdyk9hNyPC_WU4tHokWgXyuljLPZbTDl5tqPrG0F9YE89otqd_GsgcsjF21zylpv9hGrrgNvUQajFzcTfzQBxbBucKQIzx2VovXUkW1oaNWd_YSNtP6K8ng2bwJeVVA3AEB0Y53hh3mE?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="74671c15-2ceb-48cb-8e91-ddb5a1345217" class="">
+</p><p id="36547290-76c1-493b-a307-70367f042a94" class="">INTERVIEWS</p><ul id="2a41221c-0bd7-4b7a-b97a-1403f33b28e4" class="bulleted-list"><li style="list-style-type:disc">&gt; After receiving the problem statement from the customer the first step is to arrange a meeting. During the meeting both the parties would like to understand each other. Requirement engineers interact with the customer.</li></ul><ul id="458689d7-8334-4d71-b48d-39b49fedc25f" class="bulleted-list"><li style="list-style-type:disc">&gt; The objective of conducting an interview is to understand the customers expectations from the software.</li></ul><ul id="f755c02b-76c2-47ba-bcae-b980652c21b5" class="bulleted-list"><li style="list-style-type:disc">&gt; It may be open-ended, that is with no pre-set agenda or structured. In a structured interview, an agenda of fairly open questions is prepared. Sometimes a proper questionnaire is designed for it.</li></ul><p id="bfdd7b4e-676d-4caf-8d86-5825df46519f" class="">Selection of Stakeholders</p><p id="1a122f96-71f0-42e1-9b8d-02e18fb83c9a" class="">Representatives from groups must be selected based on their technical expertise, domain knowledge, credibility and accessibility. There are several groups to be considered for conducting interviews :</p><ol type="1" id="f47d3071-179e-4d4b-a552-e6008d940d7d" class="numbered-list" start="1"><li>Entry level personnel - may not have sufficient domain knowledge and experience but may be very useful for fresh ideas and different views.</li></ol><ol type="1" id="dad21e98-87ad-40b3-89cd-1ff39ed34a52" class="numbered-list" start="2"><li>Mid-level Stakeholders - have better domain knowledge and experience of the project. They know the sensitive, complex and critical areas of the project.</li></ol><ol type="1" id="c06185ff-3905-4abb-9efd-f8bea2473259" class="numbered-list" start="3"><li>Managers or other stakeholders - VP, GM, MD’s expectations may provide rich information for the s/w development.</li></ol><ol type="1" id="62d66e7a-b458-4ada-a257-24d3343edc43" class="numbered-list" start="4"><li>Users - their information may be an eye opener and original at times, but they may be biased towards existing system.</li></ol><p id="7810522f-8c58-4325-97b3-ddf5139e0d4a" class="">Types of Questions</p><p id="8af7cc3e-579c-4154-b829-baa85c705677" class="">Should be simple and short.</p><p id="90ac75b8-694f-4510-bda2-6c1f97a5e352" class="">
+</p><p id="2ffd6562-fb28-4e8b-ad47-2f287703bb6f" class="">BRAINSTORMING SESSIONS</p><p id="64985d97-abca-4910-8b75-04c91d1a2e72" class="">Is a group technique that may lead to new ideas quickly and help promote creative thinking. It provides a platform to share views, apprehensions, expectations and difficulties of implementation.</p><p id="8ffe3042-1777-406c-b9af-ec1840683fea" class="">All participants are encouraged to say whatever comes to them.</p><p id="16234221-39d7-4aae-95fe-5a2477911122" class="">A highly trained facilitator may handle group bias and conflicts and should also be cautious about individual egos, dominance and will be responsible for smooth conduct of such sessions. He will follow a public agenda and restart the creative process if it falters.</p><p id="cc60fa00-beae-443b-97dd-b006203f8e65" class="">Every idea will be documented in a way that everyone can see it (White boards, overhead transparencies or a computer projection system).</p><p id="62df3dd1-c7b4-4b68-b35c-19c6f8b24654" class="">After the session, a detailed report will be prepared &amp; the facilitator will review it. Incomplete ideas may be listed separately and should be discussed later to make them complete.</p><p id="3f22bb0f-bc84-467e-b030-73682a605d70" class="">Finally, a document will be prepared which will have a list of requirements &amp; their priority, if possible.</p><p id="898a93c9-43f1-4aee-a04e-88ff15c48633" class="">
+</p><p id="f87107eb-aa9d-46e2-9016-7fc8a1fb425b" class="">FACILITATED APPLICATION SPECIFICATION TECHNIQUE (FAST)</p><p id="4bcbcaa9-823f-4052-a6a0-af2ed91789fe" class="">Objective is to bridge the expectation gap i.e the difference between what developers think they are supposed to build and what customers think they are going to get.</p><p id="c9ca8eff-1688-444b-8709-5b75af7bc016" class="">Encourages the creation of a joint team of customers and developers who work together to understand the expectations and propose a set of requirements.</p><p id="6d8032a4-0bf3-4727-832d-67ffc4dc9d09" class="">Basic Guidelines for FAST :</p><ol type="1" id="38dca4e1-0418-49aa-a136-fe1ed9347679" class="numbered-list" start="1"><li>Arrange a meeting at a neutral site for developers and customers.</li></ol><ol type="1" id="095647de-5cdb-4513-bb62-4484749e3a98" class="numbered-list" start="2"><li>Establishment of rules for preparation and participation.</li></ol><ol type="1" id="35af290e-2038-44a3-b36d-8ce94f2b5820" class="numbered-list" start="3"><li>Prepare an informal agenda that encourages free flow of ideas.</li></ol><ol type="1" id="0ca544e3-2e05-47ef-89f6-ce950ab529c1" class="numbered-list" start="4"><li>Appoint a facilitator (may be a developer/ customer / an outside expert) to control the meeting.</li></ol><ol type="1" id="e371783b-4e40-42e6-8113-5acd6f08c7f0" class="numbered-list" start="5"><li>Prepare a definition mechanism-board, flip charts, worksheets, wall stickies etc.</li></ol><ol type="1" id="9a331d3b-82dd-403a-be4d-7385aea35f00" class="numbered-list" start="6"><li>Participants should not criticize or debate.</li></ol><p id="b2dc0a14-4b8b-459c-a78a-7481d73707f4" class="">+</p><p id="6cf1d3e0-e230-4a66-afe6-a205ca88db83" class="">FAST Session Preparations</p><p id="f55b0458-2267-476e-90d5-bf5a8858da32" class="">Each FAST attendee is asked to make a list of objects that are :</p><ol type="1" id="c7ba51a7-a8da-469c-b86b-57814d54cc54" class="numbered-list" start="1"><li>Part of the environment that surround the system</li></ol><ol type="1" id="465535d3-e980-43f8-9e69-95c0c1136676" class="numbered-list" start="2"><li>Produced by the system</li></ol><ol type="1" id="6185539b-0e4d-4113-a5df-bd045820598e" class="numbered-list" start="3"><li>Used by the system</li></ol><ol type="1" id="002ef248-df9a-4349-af11-6892fcfa13a5" class="numbered-list" start="4"><li>List of services that manipulate or interact with them</li></ol><ol type="1" id="eedc5129-fdb8-41a3-8b6c-7fa24db225e2" class="numbered-list" start="5"><li>List of constraints and performance criteria</li></ol><p id="14d7761e-540a-49a5-a193-3143a22464a9" class="">These lists are expected to reflect each person’s perception of the system.</p><p id="24e9581a-30d3-4462-ba5c-902fb83b303e" class="">Activities of the FAST Session</p><ol type="1" id="2809cdcc-3f02-4b77-a4af-4732ff27bf7a" class="numbered-list" start="1"><li>Each participant presents their lists which are displayed on boards or large sheets so that they are visible to all.</li></ol><ol type="1" id="0bd4743d-66c6-49a6-870e-6dbedff95b9a" class="numbered-list" start="2"><li>Combined lists for each topic are prepared by eliminating redundant entries and adding new ideas. They are again discussed and consensus lists are finalized by the facilitator.</li></ol><ol type="1" id="6f5822e6-d961-44d9-afaa-f19a91c6ef8c" class="numbered-list" start="3"><li>Once completed, the team is divided into smaller subteams, each working to develop mini-specifications for one or more entries.</li></ol><ol type="1" id="df65aff5-0123-4038-9fc5-df6b13e054ce" class="numbered-list" start="4"><li>Each subteam then presents mini-specifications to all. After discussion, additions or deletions are made to the lists.</li></ol><ol type="1" id="81a2dbcf-8dab-4d50-9907-05e90fe42af1" class="numbered-list" start="5"><li>During all discussions, the team may raise an issue that cannot be resolved during the meeting. An issues list is prepared so that these ideas will be considered later.</li></ol><ol type="1" id="2cb63a47-9ca2-4e36-9dc8-cffd0cba90ac" class="numbered-list" start="6"><li>Each attendee prepares a list of validation criteria for the system and presents to the team. A consensus list of validation criteria is then created.</li></ol><ol type="1" id="f0dabe2b-711b-460b-97ff-d63fc4955a83" class="numbered-list" start="7"><li>A subteam may be asked to write the complete draft specifications using all inputs from the FAST meeting.</li></ol><p id="2a6cd09e-4902-4b36-9778-a0d3d084f6ae" class="">
+</p><p id="776d8c78-f461-45a8-a015-7403acd9f107" class="">QUALITY FUNCTION DEPLOYMENT is a quality management technique that helps to incorporate the voice of the customer which is then translated into technical requirements which are documented and results in the SRS document.</p><ul id="294c8741-6bba-461d-8104-785634150650" class="bulleted-list"><li style="list-style-type:disc">Prime concern is customer satisfaction so emphasis is on understanding what is valuable to customer.</li></ul><p id="5ade0eba-a742-45ff-8aac-87f0ffc4c34e" class="">Types of requirements are identified :</p><ol type="1" id="7f3e6b68-6912-49d6-9586-a19bf20398e9" class="numbered-list" start="1"><li>Normal Requirements</li></ol><p id="78ca6f99-0d71-4b05-8ef1-644741006eb7" class="">If this category is present, the customer is satisfied. Ex. entry of marks, calculation of results, merit list report etc.</p><ol type="1" id="2c291643-d254-46a7-8763-a4874b4a0e88" class="numbered-list" start="2"><li>Expected Requirements</li></ol><p id="f0fb73e2-5bee-4c6f-8c99-c6bba119c144" class="">Are implicit to the s/w product and may be so obvious that the customer does not explicitly state them. If such requirements are not present, customer will be dissatisfied with the s/w. Ex. protection from unauthorized access, some warning system for wrong data entry.</p><ol type="1" id="97223b65-e603-41a8-87f5-fb3706260d91" class="numbered-list" start="3"><li>Exciting Requirements</li></ol><p id="c11ec101-d6f4-4ac9-9234-cd9049909465" class="">Some features go beyond the customer’s expectations and prove to be very satisfying when present. Ex. sophisticated virus protection; if an unauthorized access is noticed by the s/w, it should immediately shutdown all processes and an e-mail is generated to the system admin.</p><p id="d5c6104d-b4ea-4f58-9388-2a4a52e28536" class="">QFD Method Steps :</p><ol type="1" id="a7a19535-9a09-4f20-ad5c-179a3abe543c" class="numbered-list" start="1"><li>Identify all stakeholders and any initial constraints identified by the customer that affect requirements development.</li></ol><ol type="1" id="d5eb44fd-3b52-4d00-b24d-9c715045745c" class="numbered-list" start="2"><li>List out requirements from customer inputs, considering different viewpoints.</li></ol><ol type="1" id="52e4c590-b7fa-4c0d-8f8e-555343edc276" class="numbered-list" start="3"><li>A value indicating a degree of importance is assigned to each requirement. Thus, customer determines the importance of each requirement on a scale of 1 to 5 as :</li></ol><p id="488793ec-142e-49f3-81b6-e7b13e080550" class="">5 - Very Important ; 4 - Important</p><p id="6da3ed20-0feb-4a14-8a65-2c4ee1f73856" class="">3 - Not Important, Nice to have</p><p id="7653070e-b3d5-4523-81c1-62fe71e78cc7" class="">2 - Not Important</p><p id="9c05b902-6c57-4393-9712-90010dd13b35" class="">1 - Unrealistic, requires further exploration</p><ol type="1" id="bff40812-6942-4aa1-bd46-44584afa1fac" class="numbered-list" start="1"><li>Stakeholders will have their own unique set of criteria for determining the importance.</li></ol><ol type="1" id="6d0e3856-8d92-48d3-a640-5b91d1021a8d" class="numbered-list" start="2"><li>Requirements Engineer reviews the final list of requirements and categorize as :</li></ol><ul id="7c146c98-1f89-4d06-b370-f06da91204ec" class="bulleted-list"><li style="list-style-type:disc">It is possible to achieve.</li></ul><ul id="cd046c12-6ae2-49f8-aad9-6ba2be03940c" class="bulleted-list"><li style="list-style-type:disc">It should be deferred and the reason thereof.</li></ul><ul id="95c6cfcc-907a-45da-b7c3-e01f6ff47ea8" class="bulleted-list"><li style="list-style-type:disc">It is impossible and should be dropped from consideration.</li></ul><p id="4b41b418-af14-4ae8-83db-30d0d68cb539" class="">
+</p><p id="0865a555-92e7-4c37-91cb-b9a8d266a22a" class="">USE CASE APPROACH: Uses a combination of text and pictures in order to improve the understanding of requirements and only gives a functional view of the system.</p><ul id="1307ad62-b791-48c1-be71-5036c63f8c51" class="bulleted-list"><li style="list-style-type:disc">Use Cases are structured outlines or templates for the description of user requirements, modeled in a structured language like English.</li></ul><ul id="f8e2bc89-b8df-4822-a432-d8f8848ec6e4" class="bulleted-list"><li style="list-style-type:disc">Use case scenarios are unstructured descriptions of user requirements.</li></ul><ul id="0c48117a-4673-4c4a-962b-27a463f1afa0" class="bulleted-list"><li style="list-style-type:disc">Use case diagrams are graphical representations that may be decomposed into further levels of abstraction.</li></ul><ul id="68c6e67e-8fc9-4be0-8d78-5641ee3426a9" class="bulleted-list"><li style="list-style-type:disc"></li></ul><p id="70959385-f17e-49e1-aa08-542781d8e410" class="">Components used for design of this approach :</p><p id="1e78bc00-ccc3-422f-b959-08419d0133ba" class="">Actor Or external agent, lies outside the system model but interacts with it in some way. It may be customers, users, external devices or any external entity. It is represented as a stick figure &amp; is not part of the system itself.</p><p id="2a19fe94-29f1-442c-8bd5-a2eb5cb7a888" class="">Devices are mechanisms that actors use to communicate with the system but they are not actors themselves. Purpose of them is to support some required behavior of the system but they do not define the requirements of the system.</p><p id="3005aa02-11af-4d37-bf27-0ff8a04fb0a7" class="">A primary actor is one having a goal requiring the assistance of the system. A secondary actor is one from which the system needs assistance.</p><p id="8cb68cd3-1edb-42f5-9389-779304280441" class="">Use Cases Is initiated by a user with a particular goal in mind &amp; completes successfully when that goal is satisfied. Describes the sequence of interactions b/w actors &amp; the system necessary to deliver the services that satisfies the goal. It also includes possible variants of this sequence, error handling etc.</p><p id="05e79b1e-2624-40dc-ab12-78706abada1f" class="">The system is treated as a black box &amp; the interactions with the system, including responses are as perceived from outside the system.</p><p id="4c827565-ad44-4326-98ae-cb6b0976e8a7" class="">They capture who (actor) does what (interaction) with the system, for what purpose (goal) without dealing with system internals.</p><p id="2104d27f-117f-489f-b76f-2a4032cd33e6" class="">A complete set of use cases specifies all the different ways to use the system and therefore defines all behavior required of the system, bounding the scope of the system.</p><p id="f9c8eab1-d199-42b9-aadb-80fb201e9d28" class="">No standard template for writing them.</p><p id="084bdd03-5b47-456d-a208-12caa813cda3" class="">Use Case Guidelines</p><ol type="1" id="396acbc3-a9d4-4fa0-938f-d4e36fcd7a94" class="numbered-list" start="1"><li>Identify all different users of the system.</li></ol><ol type="1" id="fd7dcbe4-6b6e-4176-b35d-d86744abb483" class="numbered-list" start="2"><li>Create a user profile for each category of users. For each role, identifies all the significant goals the users have that the system will support. A statement of the system’s value proposition is useful in identifying significant goals.</li></ol><ol type="1" id="978be605-b462-4812-bcb3-93b019c9d713" class="numbered-list" start="3"><li>Create a use case for each goal. Maintain the same level of abstraction throughout the use case. Steps in higher level use cases may be treated as goals for lower level sub-use cases.</li></ol><ol type="1" id="7f798c3b-98e4-48da-94fa-08a7461f3fe4" class="numbered-list" start="4"><li>Structure the use cases.</li></ol><ol type="1" id="61a6d282-ed8e-423a-8a64-58f3b88e75da" class="numbered-list" start="5"><li>Review and validate with users.</li></ol><p id="f9e037fe-3fdd-4857-b3aa-950c6efef9a6" class="">Use Case Template Ex.</p><p id="8cb38653-fa62-4219-ba14-d134c40b6f61" class="">Use Case Diagrams</p><figure id="18577400-a5eb-409d-8d6d-1aa6910dc0df" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcoPqffHSuot80gya3z5sIr-q6elyKdS2RdSYTwYu6pJy4WapSjlddQ_ckgOXlE92Iuifmn6VR-J2DjqTZ8lsdG4MsW4TMp3-bOSbEiM3RT30lWNhX9bBIrTrrZYHIm6-bcCzNZHHUD20LSKZ9mxvaTAM8?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:407px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcoPqffHSuot80gya3z5sIr-q6elyKdS2RdSYTwYu6pJy4WapSjlddQ_ckgOXlE92Iuifmn6VR-J2DjqTZ8lsdG4MsW4TMp3-bOSbEiM3RT30lWNhX9bBIrTrrZYHIm6-bcCzNZHHUD20LSKZ9mxvaTAM8?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="6565dfba-bbe4-45dd-b4c8-ea8bdbaab0aa" class="">REQUIREMENTS ANALYSIS</p><figure id="c793bed2-845c-4d4a-9a20-9017a66d6dd2" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeKeOTWK_FhiXt7dGNePD8PXZtgio20zZxTEKsavsc7i0HJzVhb406r1nK7Vh7201jLPaTxVVMy_609FJMnOTwVSUy2sgAHK327YMZO6s_mKZ1YYeXXwvpcNkCO48U58FJZ6tdjEpq4Wy1ZGVOCFFWKGCQG?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:467px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeKeOTWK_FhiXt7dGNePD8PXZtgio20zZxTEKsavsc7i0HJzVhb406r1nK7Vh7201jLPaTxVVMy_609FJMnOTwVSUy2sgAHK327YMZO6s_mKZ1YYeXXwvpcNkCO48U58FJZ6tdjEpq4Wy1ZGVOCFFWKGCQG?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="d46b5457-7709-482e-9637-a5b69c3ee126" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfHK4fbYZwRnI0c_X01wI4weA9eTeHQAymlF_uwKYDu4H9lPa9V6ziYHgBQyVZ2_okzw0hRFd1Jo0bcPIdsxBGrroIdtedC6x_hWeJpSyR9irn5jxp1jDpjoAcvHqNmi4FDTENdp5RUtOKrOIbfSYa2UUc?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:473px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfHK4fbYZwRnI0c_X01wI4weA9eTeHQAymlF_uwKYDu4H9lPa9V6ziYHgBQyVZ2_okzw0hRFd1Jo0bcPIdsxBGrroIdtedC6x_hWeJpSyR9irn5jxp1jDpjoAcvHqNmi4FDTENdp5RUtOKrOIbfSYa2UUc?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="e9f95b91-821b-4d05-a5a1-203ff240caa9" class="">
+</p><p id="18a64950-adba-4bcd-8824-132158392041" class="">SOFTWARE PROTOTYPING</p><p id="a34d7f81-dcc0-43de-a2bc-0bcbeba3271b" class="">Prototyping is the technique of constructing a partial implementation of a system so that customers, users or developers can learn more about a problem or a solution to that problem. It allows users to explore and criticize proposed systems before undergoing the cost of a full-scale development.</p><p id="b14e1c45-4642-4573-af65-c8859001a687" class="">Benefits of developing a prototype early in the s/w process are :</p><ol type="1" id="f66cb59a-a894-43d5-a776-399cb9bb0ca9" class="numbered-list" start="1"><li>Misunderstanding b/w s/w developers and customers may be identified as the system functions are demonstrated.</li></ol><ol type="1" id="a514232b-a7de-4dad-b7d5-b23d923fd2ac" class="numbered-list" start="2"><li>Missing user requirements may be detected.</li></ol><ol type="1" id="b85dd0de-10c0-44b1-87fa-9e8e0c7bf049" class="numbered-list" start="3"><li>Difficult-to-use or confusing user requirements may be identified and refined.</li></ol><ol type="1" id="cd9cee26-edd5-4327-bb80-418ad53561bb" class="numbered-list" start="4"><li>A working system is available quickly to demonstrate the feasibility &amp; usefulness of the application to management.</li></ol><ol type="1" id="b1ac0f91-0b19-4184-8bb5-b44001745b6d" class="numbered-list" start="5"><li>It serves as a basis for writing the system specification.</li></ol><p id="96074c5e-2fae-4fa7-ac92-61020e5d25e5" class="">The field of prototyping s/w systems has emerged around 2 approaches :</p><ol type="1" id="fa78bbcd-d935-4894-b59d-f01a6568059e" class="numbered-list" start="1"><li>Throw-away prototyping</li></ol><ul id="34d23e26-15b1-4e64-990a-4d99ea5ea69a" class="bulleted-list"><li style="list-style-type:disc">&gt; Constructed with the idea that it will be discarded after the analysis is complete and the final system is built from scratch.</li></ul><ul id="aa1ec5fd-2313-4a4b-bb8d-48483d29db16" class="bulleted-list"><li style="list-style-type:disc">&gt; Built quickly so that users can interact rapidly.</li></ul><ul id="c10c9643-77ce-475b-8ad0-70c54f214514" class="bulleted-list"><li style="list-style-type:disc">&gt; Need not be fast operating, maintainable and having extensive fault tolerant capabilities.</li></ul><ul id="babac9bc-c01c-400f-b528-392ecf246cc4" class="bulleted-list"><li style="list-style-type:disc">&gt; During the requirement phase, a quick and dirty one can be given to user in order to determine the feasibility of a requirement, validate that a particular function is really necessary, uncover missing requirements and determine the viability of a UI.</li></ul><ul id="15a58c1b-be14-4122-a4f5-c357becffcd2" class="bulleted-list"><li style="list-style-type:disc">&gt;During the preliminary phase and detailed design phase, a quick and dirty prototype can be built to give a feeling and overview of the final system.</li></ul><ul id="cbb5acd5-0531-4f24-9bb8-ef34830b79c7" class="bulleted-list"><li style="list-style-type:disc">&gt; It can be dirty because there is no justification for building quality into a product that will be discarded. Among the dirty characteristics to be considered are no design, no comments, no test plans, no idea about coupling and cohesion.</li></ul><ul id="e1900372-3d39-4d5c-88f9-c001a13be2fe" class="bulleted-list"><li style="list-style-type:disc">&gt; Steps for throw-away prototyping :</li></ul><ul id="6e26c948-e94b-4992-b4bc-d618e8a0849a" class="bulleted-list"><li style="list-style-type:disc">Write a preliminary SRS</li></ul><ul id="464220a4-b2f6-4962-aee3-8a044ea1601f" class="bulleted-list"><li style="list-style-type:disc">Implement the prototype based on these requirements</li></ul><ul id="ee6ee3a9-a59c-4a22-b661-ee0f2f34c8fa" class="bulleted-list"><li style="list-style-type:disc">Achieving user experience with the developed prototype</li></ul><ul id="598dd7df-e16d-4762-a04a-12180561f600" class="bulleted-list"><li style="list-style-type:disc">Writing the real SRS and developing the final product</li></ul><ol type="1" id="0ea2111b-4b13-46b4-bfce-92507f18871d" class="numbered-list" start="2"><li>Evolutionary Prototyping</li></ol><ul id="b8b3e656-0baf-425b-83e5-a007d155bde9" class="bulleted-list"><li style="list-style-type:disc">&gt; Built with the idea that it will eventually be converted into the final system.</li></ul><ul id="4f472b19-828c-495e-9b2d-f028acfaea31" class="bulleted-list"><li style="list-style-type:disc">&gt; Should not be dirty.</li></ul><ul id="2749557f-50bd-4de8-b198-6465d6b1d6f5" class="bulleted-list"><li style="list-style-type:disc">&gt; It is required to deploy the product, obtain experience using it, then based on that experience go back and redo the requirements, redesign, recode, retest, redeploy. After gaining more experience, the entire process is repeated again. This ensures the creation of all necessary documents and the presence of all necessary reviews.</li></ul><ul id="cdf4ade5-4895-4324-865a-28c89ac0bebf" class="bulleted-list"><li style="list-style-type:disc">&gt; Only shortcuts that could be taken :</li></ul><ul id="9c91fb10-341b-4fe0-8ef4-d9e985745cd1" class="bulleted-list"><li style="list-style-type:disc">Building only those parts that are well understood</li></ul><ul id="e158188e-93a7-49fd-92d7-75eb26f9a47c" class="bulleted-list"><li style="list-style-type:disc">Lowering the importance of performance</li></ul><figure id="c29ee1a1-2afb-4fa5-b195-1a4f662de280" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeqzjujLVLRaueHlNUIvXeJ77rvl_pCb75kHFmzzrhT_UPpvPr9KrXGaGS6Paxqmtp71pSoMO5AEUKDxaq9aJxm0zH6VPdIYyDGk_kbkAZDqJ1ixyMdMPYCVHawmcoL9hWqlrr1rXmBWfrW8YKdFxL_is1Y?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:460px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeqzjujLVLRaueHlNUIvXeJ77rvl_pCb75kHFmzzrhT_UPpvPr9KrXGaGS6Paxqmtp71pSoMO5AEUKDxaq9aJxm0zH6VPdIYyDGk_kbkAZDqJ1ixyMdMPYCVHawmcoL9hWqlrr1rXmBWfrW8YKdFxL_is1Y?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="d393301d-44a4-4de4-9038-da50531f330f" class="">
+</p><p id="1f7a7e84-47dc-40da-80d8-b47b9245ec6c" class="">REQUIREMENTS DOCUMENTATION</p><p id="729822d7-d1f0-45cc-b857-2e90b5b279e6" class="">Is the way to represent requirements in a consistent format. It is called Software Requirements Specification.</p><p id="df6118be-213b-4543-b68f-ec4a2f7b7005" class="">The SRS is a specification for a particular s/w product, programs or a set of programs that performs certain functions in a specific environment. It serves a number of purposes depending on who is writing it.</p><ol type="1" id="829bcbf7-19db-46ab-a7ea-1697cd39904e" class="numbered-list" start="1"><li>It could be written by a customer of the system. In this case, it is used to define the needs and expectations of the user.</li></ol><ol type="1" id="8c79b98d-4418-4123-a212-b1d6a138f081" class="numbered-list" start="2"><li>It could be written by a developer of the system. In this case, it is used to serve as a contract document b/w the customer and the developer.</li></ol><p id="ecb65352-99ea-4f8d-8fef-be429b878206" class="">The two scenarios create entirely different situations and establish entirely different purposes for the document. This reduces the probability of the customer being disappointed with the final product.</p><p id="cb8e7569-f470-4fd3-8267-ea388ba6471b" class="">Users of SRS document :</p><ol type="1" id="b814813f-6c05-4bb5-b883-e2cf48401ccb" class="numbered-list" start="1"><li>Users, customers, marketing personnel - to ensure that the system as described in the document will meet their needs. For generic products, the marketing personnel need to understand the requirements that they can explain to the customers.</li></ol><ol type="1" id="54e5956d-ef41-4c40-ab6a-5b0b941e4e85" class="numbered-list" start="2"><li>S/w developers - to make sure that they are developing exactly what is required by the customer.</li></ol><ol type="1" id="47025c95-7064-44e9-9a25-39adafba4f1f" class="numbered-list" start="3"><li>Test engineers - to understand the functionalities and based on it write the test cases to validate its working. They need that the required functionality should be clearly described and the i/p and o/p data should have been identified precisely.</li></ol><ol type="1" id="9d4e3c6b-5d1f-490c-a837-d9629934e5f3" class="numbered-list" start="4"><li>User documentation writers to ensure that they understand the features of the product well enough to be able to write the users’ manuals.</li></ol><ol type="1" id="91455eba-0d68-4ed7-9727-57499a167e49" class="numbered-list" start="5"><li>Project managers - to ensure that they can estimate the cost of the project easily by referring to the SRS document and that it contains all the information required to plan the project.</li></ol><ol type="1" id="048fc46b-b306-45b9-a6ff-66da97f8e455" class="numbered-list" start="6"><li>Maintenance engineers - to understand the functionalities supported by the system so that they can understand the design and code and determine the specific modifications to the system’s functionalities would be needed for a specific purpose.</li></ol><p id="7ab5578f-b8a9-43c6-845f-5ec23e4acde1" class="">NATURE OF THE SRS</p><figure id="90f33567-b218-44e4-97f4-c5d2023f16ed" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfH4H3zHc7gcBTbtOdD-eyabwILU1FFZq694ZfwnEf0TNUcJ9zVoYuYy6I70J9E22gtpXq2JxQwd_ROKBX-XVShnnT3BS72PHvs4sumhmeTlZWfBbsgOgqimL9eWPHeW2dBPEg9sGS8elAcsUQADJhh3UKE?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:409px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfH4H3zHc7gcBTbtOdD-eyabwILU1FFZq694ZfwnEf0TNUcJ9zVoYuYy6I70J9E22gtpXq2JxQwd_ROKBX-XVShnnT3BS72PHvs4sumhmeTlZWfBbsgOgqimL9eWPHeW2dBPEg9sGS8elAcsUQADJhh3UKE?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="af522427-78e7-48a4-911f-48d035566b06" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXewZkEjqtOXa0Gg3GJzK7lAUzNF5av-VBoc8B9XPrBIGH-797phoV1nvWhx6gBB0KoAqi--KuglhY6_TfhDm-aw2xD9ch8WaDGIMuyN6f8fBouxMefB2bPNRl9Qx-MgEwV27xe00ATyZ7qrJzwJ-4MPnUJp?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:476px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXewZkEjqtOXa0Gg3GJzK7lAUzNF5av-VBoc8B9XPrBIGH-797phoV1nvWhx6gBB0KoAqi--KuglhY6_TfhDm-aw2xD9ch8WaDGIMuyN6f8fBouxMefB2bPNRl9Qx-MgEwV27xe00ATyZ7qrJzwJ-4MPnUJp?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="a4740fc8-ca18-41cb-87c1-3824e353327d" class="">
+</p><p id="dc86d2ed-d97b-4112-a3e3-b83d70673611" class="">CHARACTERISTICS OF A GOOD SRS</p><ol type="1" id="9b141998-70b4-4b96-a999-0270daac4013" class="numbered-list" start="1"><li>Concise - The SRS document should be concise and at the same time unambiguous, consistent, and complete. Verbose and irrelevant descriptions reduce readability and also increase the possibilities of errors in the document.</li></ol><ol type="1" id="75c7977b-5572-4178-86cb-ca9e8b2b89eb" class="numbered-list" start="2"><li>Correct - The SRS is correct iff every requirement stated therein is one that the s/w shall meet.</li></ol><ol type="1" id="647fe341-790c-42a6-80f0-82d9a4e59c50" class="numbered-list" start="3"><li>Unambiguous - The SRS is unambiguous iff every requirement stated therein has only one interpretation. In cases where a term used in a particular context could have multiple meanings, the term should be included in a glossary where its meaning is made more specific. Requirements should be reviewed for ambiguity by an independent party.</li></ol><ol type="1" id="089908ec-7458-44bd-847e-562710b04f45" class="numbered-list" start="4"><li>Complete - Iff it includes the following elements :</li></ol><ul id="b9b469dc-953e-4c1f-905d-de055e3f66c1" class="bulleted-list"><li style="list-style-type:disc">All significant requirements whether relating to functionality, performance, design, constraints, attributes or external interfaces.</li></ul><ul id="87f775f0-d393-4393-a5cc-47bbab9a3f94" class="bulleted-list"><li style="list-style-type:disc">Definition of their responses of the s/w to all realizable classes of input data in all realizable classes of situations. It is important to specify the responses to both valid &amp; invalid values.</li></ul><ul id="46677b06-51e4-4ad0-a25a-a9db93ca6411" class="bulleted-list"><li style="list-style-type:disc">Full labels &amp; references to all figures, tables and diagrams in the SRS and definition of all terms and units of measure.</li></ul><ol type="1" id="7e09fc19-053b-4b3d-9464-2a6507fc9d1e" class="numbered-list" start="5"><li>Consistent - Iff no subset of individual requirements described in it conflict. There are 3 types of likely conflict in the SRS :</li></ol><ul id="cc15e13c-86a3-4720-8e41-15b93e4b9393" class="bulleted-list"><li style="list-style-type:disc">The specified characteristics of real-world objects may conflict. Ex. format of an o/p report may be described in one requirement as tabular but in another as textual ; One requirement may state that all lights shall be green while another states that all lights shall be blue.</li></ul><ul id="e4964a6d-50e2-41f7-8059-16e0a3efbe2c" class="bulleted-list"><li style="list-style-type:disc">There may be logical or temporal conflict b/w 2 specified actions. Ex. one requirement may specify that the program will add 2 inputs and another may specify that the program will multiply them; one requirement may state that “A” must always follow “B”, while another requires that “A &amp; B” occur simultaneously.</li></ul><ul id="6fe84708-e772-4ece-9ea8-13c900f5f183" class="bulleted-list"><li style="list-style-type:disc">2 or more requirements may describe the same real-world object but use different terms for that object.</li></ul><ol type="1" id="f44718fb-fe1e-45bb-ae22-7ae9c3ed2fb9" class="numbered-list" start="1"><li>Implementation-independent - The SRS should be free of design and implementation decisions unless those decisions reflect actual requirements. It should only specify what the system should do and refrain from stating how to do these. The SRS document should describe the system as a black box, and should specify only the externally visible behaviour of the system.</li></ol><ol type="1" id="78431bfd-c825-4eae-a36a-87e085d505f3" class="numbered-list" start="2"><li>Traceable - The SRS is traceable iff the origin of each of the requirements is clear with proper references. Traceability is also important to verify the results of a phase with respect to the previous phase and to analyse the impact of changing a requirement on the design elements and the code.</li></ol><p id="21a57f4b-c081-46fc-a60e-6deff88a0527" class="">2 types of traceability are recommended :</p><ul id="cb0812c0-233a-483d-b2b2-7889e5727c21" class="bulleted-list"><li style="list-style-type:disc">Backward (each requirement explicitly references its source in earlier documents),</li></ul><ul id="92b1b351-6b15-44d2-a75d-aa4dc74781e0" class="bulleted-list"><li style="list-style-type:disc">Forward (each requirement has a unique name or reference number).</li></ul><ol type="1" id="72748f1a-82b4-43f4-a17d-c5cb80e12ed8" class="numbered-list" start="1"><li>Ranked for importance / Stability - The SRS is ranked for importance &amp;/or stability if each requirement in it has an identifier to indicate either the importance or stability of that particular requirement. Can also distinguish classes of requirements as essential, conditional &amp; optional.</li></ol><ol type="1" id="fcc93f28-1de0-4dc5-9b05-c1c130e8a014" class="numbered-list" start="2"><li>Modifiable - The SRS is modifiable iff its structure and style are such that any changes to the requirements can be made easily, completely and consistently while retaining the structure and style. Requirements should avoid redundancy. Also, an SRS document is often modified after the project completes to accommodate future enhancements and evolution. A well-structured document is easy to understand and modify.</li></ol><ol type="1" id="2d322414-6e9f-4348-ab94-eef796748253" class="numbered-list" start="3"><li>Identification of response to undesired events - The SRS document should discuss the system responses to various undesired events and exceptional conditions that may arise.</li></ol><ol type="1" id="3a7773a2-97f9-4396-8208-e09c6000b2bc" class="numbered-list" start="4"><li>Verifiable - The SRS is verifiable iff every requirement stated within is verifiable which means that the requirement is verifiable i.e there exists some finite cost-effective process with which a person or machine can check that the s/w meets the requirements. All requirements of the system as documented in the SRS document should be verifiable. This means that it should be possible to design test cases based on the description of the functionality as to whether or not requirements have been met in an implementation. A requirement such as “the system should be user friendly” is not verifiable.</li></ol><p id="f6bd39b5-2b24-494d-b3a1-3f328362445b" class="">Why spend time and resources to develop an SRS document ?</p><ol type="1" id="73edc9de-0e93-4608-b01d-c65b21e564dd" class="numbered-list" start="1"><li>Forms an agreement b/w the customers and the developers</li></ol><ol type="1" id="d09049fb-ef58-4604-9032-6c7745c024e0" class="numbered-list" start="2"><li>Reduces future reworks - process of its preparation forces the stakeholders to rigorously think about all of the requirements before design and development get underway. This reduces later redesign, recoding and retesting.</li></ol><ol type="1" id="c2389169-1145-4dee-b072-1bbb47e8b52b" class="numbered-list" start="3"><li>Provides a basis for estimating costs and schedules - Project managers usually estimate the size of the software from an analysis of the SRS document. Based on this estimate they make other estimations such as the effort required to develop	the software and the total cost of development. The SRS document also serves as a basis for price negotiations with the customer. The project manager also uses the SRS document for work scheduling.</li></ol><ol type="1" id="50c9703a-ab7e-4c9c-8de2-2df2c6dc029e" class="numbered-list" start="4"><li>Provides a baseline for validation and verification - The SRS document provides a baseline against which compliance of the developed software can be checked. It is also used by the test engineers to create the test plan.</li></ol><ol type="1" id="69f8c791-dfbc-4eb8-aa59-3fee8506e158" class="numbered-list" start="5"><li>Facilitates future extensions - The SRS document usually serves as a basis for planning future enhancements.</li></ol><p id="043628d5-8468-4be9-a245-0a42700a06ca" class="">Attributes of Bad SRS Document :</p><ol type="1" id="c7a12fe8-be61-48ff-8cef-d75a0666edb3" class="numbered-list" start="1"><li>Over-specification - occurs when the analyst tries to address the “how to” aspects in the document. It restricts the freedom of the designers in arriving at a good design solution.</li></ol><ol type="1" id="f142cfaa-4c02-44fa-8347-c8efe25fc496" class="numbered-list" start="2"><li>Forward references - one should not refer to aspects that are discussed much later in the document. It seriously reduces readability of the specification.</li></ol><ol type="1" id="72792ff8-fdc1-4cf8-8024-2f6f50a5ef49" class="numbered-list" start="3"><li>Wishful thinking - concern description of aspects which would be difficult to implement.</li></ol><ol type="1" id="61951ae2-eb3f-476d-ac97-6e191f67908f" class="numbered-list" start="4"><li>Noise - refers to presence of material not directly relevant to the s/w development process. It unnecessarily clutters the SRS, diverting the attention from the crucial points.</li></ol><p id="adb47702-79a2-4f2e-ab26-287e25c40223" class="">
+</p><p id="49bfa7b4-a2a3-4410-8196-9491b2f4de19" class="">REQUIREMENTS VALIDATION</p><figure id="96cd3309-c032-4258-b69b-7cebf299d149" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdW5DitmhVegQUaqKVb4Pe8HwHsyC-Dkyr-iRZQODLj0-YKwEBw921HUZTzKdk0pyKvfrvMs-5B7lQOq2XL4EwWmaVCN_K560nkndegdoreTNWec8gdNVFr4ppytGGJ_DMP82ruU4bEq2VMe_J3_RX9kZ-0?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:428px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdW5DitmhVegQUaqKVb4Pe8HwHsyC-Dkyr-iRZQODLj0-YKwEBw921HUZTzKdk0pyKvfrvMs-5B7lQOq2XL4EwWmaVCN_K560nkndegdoreTNWec8gdNVFr4ppytGGJ_DMP82ruU4bEq2VMe_J3_RX9kZ-0?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="2ab20b15-5b6e-4964-90d0-0c4b5c1507e2" class="numbered-list" start="1"><li>SRS Document - should be a final draft not an unfinished draft and should be formatted/organized as per IEEE standards.</li></ol><ol type="1" id="09114b70-82dc-49d9-8a55-cc56b5f32e82" class="numbered-list" start="2"><li>Organizational Standards - every requirement should have some quality standards for SRS document and other activities. These standards will be used for reviewing during validation.</li></ol><ol type="1" id="00bced1c-e5c0-4e88-b2b7-6a78c5fdf928" class="numbered-list" start="3"><li>Organizational Knowledge - knowledge, often implicit, of the organization which may be used to judge the realism of the requirements.</li></ol><ol type="1" id="69a0b3be-1ec5-4b6a-9de5-bb72f66372ed" class="numbered-list" start="4"><li>Problem List - list of discovered problems in the requirement document.</li></ol><ol type="1" id="b648635f-fee4-4d4f-8d21-7e0a61dfd4d1" class="numbered-list" start="5"><li>Approved Actions - list of approved actions in response to the requirement problems.</li></ol><p id="0806befd-d0ce-4237-b01c-7c94e561bb83" class="">
+</p><p id="cb6be805-e358-42e0-b73f-81107d400dd8" class="">REQUIREMENTS REVIEW</p><figure id="22c8610d-4c67-40fb-b5c8-92f4f7383937" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeSl6QzqMdF5zOdy2VYD34jOEmdj4MakSy3dMYvcHimKRAaZdTYeU1H_IKWGOp4eHaVXN4frrwP11wPAt6qhYJ4tnflj5q3gbeFGvP0c4JJegEYHmzQyM3uE-6LJY1n_ldurEDmoRKrOISNzCeHQo25NfuZ?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:436px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeSl6QzqMdF5zOdy2VYD34jOEmdj4MakSy3dMYvcHimKRAaZdTYeU1H_IKWGOp4eHaVXN4frrwP11wPAt6qhYJ4tnflj5q3gbeFGvP0c4JJegEYHmzQyM3uE-6LJY1n_ldurEDmoRKrOISNzCeHQo25NfuZ?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="89db723e-cfdb-4d92-a702-9510d87397fa" class="">Problem Actions :</p><ol type="1" id="9f215082-0195-4c40-ac25-ee548c46e323" class="numbered-list" start="1"><li>Requirements Clarification - requirements may be badly expressed or may have accidentally omitted during the process of elicitation.</li></ol><ol type="1" id="0cf3985a-e707-402e-9db3-8cfca1f0623f" class="numbered-list" start="2"><li>Missing Information - it is the responsibility of the requirement engineers who are revising the document to find this information from system stakeholders.</li></ol><ol type="1" id="4d118c44-5c10-49f5-8786-fb431f1618e9" class="numbered-list" start="3"><li>Requirement Conflict - stakeholders involved must negotiate to resolve this conflict.</li></ol><ol type="1" id="ce2f9263-fa18-4ea1-b865-ee6504d18993" class="numbered-list" start="4"><li>Unrealistic Requirements</li></ol><ol type="1" id="b20f6279-6de2-4bf2-96c1-6d117c662d14" class="numbered-list" start="5"><li>Security Issues - reviewers may review the system in accordance with some security standards.</li></ol><p id="42a53818-e1a8-45df-8cd5-b2299ba5a112" class="">Membership of Review Team</p><p id="3da9016d-c16d-41e2-b940-b0d95aa17a40" class="">Team should involve a number of stakeholders drawn from different backgrounds. Should always involve at least one domain expert and an end user.</p><p id="43761ee3-6689-444e-bcc4-1dff9cdeecbb" class="">Review Checklists</p><figure id="4bb6a2c9-e27f-4919-abb2-5523dec7de8a" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdJroJypYLIRvWBBV6RrqanjEIJ9sFNXAAiZ_xh0r2-dYA4hvabHck_9i9qkTO37sK9wGWny1gB2PpspnPTFVuWVyoCUlUoA2HnvdzmazETDwk_2S6yniwGCXEHQI6S9h1PwvsQl_ez5WMFKq6dZfDKam99?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:396px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdJroJypYLIRvWBBV6RrqanjEIJ9sFNXAAiZ_xh0r2-dYA4hvabHck_9i9qkTO37sK9wGWny1gB2PpspnPTFVuWVyoCUlUoA2HnvdzmazETDwk_2S6yniwGCXEHQI6S9h1PwvsQl_ez5WMFKq6dZfDKam99?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="4e9f2b2e-27e7-4877-9da7-ef0b71ec66cd" class="">
+</p><p id="8547771d-5548-48e3-ae9b-7d1fdfd30362" class="">PROTOTYPING</p><p id="3f825ad9-98c8-4195-8259-070e9ecd93ce" class="">Executable model of the system is demonstrated to end users, customers and other review team members. Validation prototype should be reasonably complete and efficient &amp; should be used as the required system.</p><p id="e3a47432-b170-4e19-8619-175e8b4192b5" class="">
+</p><p id="6eca6519-a099-4ed7-a42c-7cdc9ba59ab2" class="">REQUIREMENTS MANAGEMENT</p><figure id="82a99550-f4dc-4137-bfb8-2b46f0570a74" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeU965Gn9I3MI1RqrnQf078fpY8LghTyRMhBYZZ0d301V-XgX2VuFXRxF7XKFbbo-pg-yYM8R3TR3U7uT4xIjLczq4hCfTIanQBn8uovaLVv498vdg_PmCxMmFtQF0cX_j1iZVV7ZKUQ-SB-eOzj-in8WcM?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:417px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeU965Gn9I3MI1RqrnQf078fpY8LghTyRMhBYZZ0d301V-XgX2VuFXRxF7XKFbbo-pg-yYM8R3TR3U7uT4xIjLczq4hCfTIanQBn8uovaLVv498vdg_PmCxMmFtQF0cX_j1iZVV7ZKUQ-SB-eOzj-in8WcM?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="b63d5495-bffe-4667-b8c9-7ea019f7856b" class="">REQUIREMENTS MANAGEMENT PLANNING</p><p id="e9ce2cc2-9c7a-441a-a3a4-b88d9870c2f2" class="">This process ends when the final product is released and the customer is fully satisfied.</p><p id="606fc7ea-0581-4b41-9599-8f4d69bb72b6" class="">We should be able to trace our requirements all the time. Tracing requirements also involves additional tests, performed from time to time to ensure that the process runs smoothly and errors are identified and corrected early on.</p><p id="d2786500-a00a-402b-a6ee-bf663ac95eec" class="">REQUIREMENTS CHANGE MANAGEMENT</p><figure id="eed6f843-1718-4c9f-ae43-483460e37214" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfTztO860gZu3DqdcGXlwf_OBUhfUfOTkCKsAB9TxUkpEJTGex6wrGIfZXWPPziSwHhT4VnH5ZSqHsdzVhCKHkH_g8XbGqhfCYIM4Yt8B5f4CIlA2-XWECpZFtHrWUjOeq_XWJCmiw2riSkC9aIQuDDHbkh?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:405px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfTztO860gZu3DqdcGXlwf_OBUhfUfOTkCKsAB9TxUkpEJTGex6wrGIfZXWPPziSwHhT4VnH5ZSqHsdzVhCKHkH_g8XbGqhfCYIM4Yt8B5f4CIlA2-XWECpZFtHrWUjOeq_XWJCmiw2riSkC9aIQuDDHbkh?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="33e3c980-0e9a-43b9-afae-f88610db85b1" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXd6OWNvl_U1Cyiq8nFvWlGGoHaEYluuQAkim8rRJcQcCl7nNAEwrSchy35lWSvH094rqcYHfXKcCwHvYdXlljEGM6HTdQTsFAC6Z4xrqN0yKM5gwlkll6wHbDaIFN3o0jdF-Lr-HLUCq4Umo9PAkMu2Kk_q?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:428px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXd6OWNvl_U1Cyiq8nFvWlGGoHaEYluuQAkim8rRJcQcCl7nNAEwrSchy35lWSvH094rqcYHfXKcCwHvYdXlljEGM6HTdQTsFAC6Z4xrqN0yKM5gwlkll6wHbDaIFN3o0jdF-Lr-HLUCq4Umo9PAkMu2Kk_q?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="e0499110-49f5-45d9-82f5-26e591c4f3bf" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXedEX_6Jbri5pOupKKE-W_FHpEbWuU8lB3A7CnOqGJU_WJW0yqRFvT9Dy-W0ZYV42Dp7tms3439kS_vED1dAGwCX5NdNAVUUCmKuRJ_4ORl0D32j28GwVdLcVRKakOxaeofrD77SNuO6zLbCHzCAHfWZYVZ?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:450px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXedEX_6Jbri5pOupKKE-W_FHpEbWuU8lB3A7CnOqGJU_WJW0yqRFvT9Dy-W0ZYV42Dp7tms3439kS_vED1dAGwCX5NdNAVUUCmKuRJ_4ORl0D32j28GwVdLcVRKakOxaeofrD77SNuO6zLbCHzCAHfWZYVZ?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="ddf09836-0135-4c78-98c2-4824d7bb9e2c" class="">Steps :</p><ol type="1" id="dfc54b0a-25cb-4e48-a5c3-36771da784b1" class="numbered-list" start="1"><li>Approval of changes from competent authority.</li></ol><ol type="1" id="b61a80f7-4a9d-46c8-b2dd-f98dd3c2289b" class="numbered-list" start="2"><li>Communicate the approval to all stakeholders.</li></ol><ol type="1" id="1406dedd-aea8-4612-be13-a5d1c564f7da" class="numbered-list" start="3"><li>History of changes is maintained.</li></ol><ol type="1" id="b278930e-c8f2-4293-b513-4e1110af47d1" class="numbered-list" start="4"><li>All documents are updated to reflect the changes.</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Life Cycle Models</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f6fea8e0-bcce-4f1a-b481-5f1a2b813729" class="page sans"><header><h1 class="page-title">Life Cycle Models</h1><p class="page-description"></p></header><div class="page-body"><p id="b829cdd1-ee6b-498e-b19e-b4a883841ef6" class="">
+</p><p id="f33903ad-06e9-4a72-865d-66915ea2154d" class="">SOFTWARE LIFE CYCLE MODELS</p><p id="f464490d-342b-434f-a006-d20f72c085fb" class="">The term s/w life cycle has been defined to imply the different stages or phases over which a s/w evolves from the initial customer request for it, to a fully developed s/w, and finally to a stage where it is no longer useful to any user and is discarded.</p><p id="9a7793c1-388e-4cf1-9526-6ec69a8b8883" class="">The life cycle of every s/w starts with a request expressing the need of the s/w. At this stage, the customers are usually not clear about all the features that would be needed, nor can they completely describe the identified features in concrete terms. This stage where the customer feels a need for the s/w and forms rough ideas about the required features is known as the inception stage. Starting with it, a s/w evolves through a series of identifiable stages on account of the development activities carried out by the developers until it is fully developed and is released to the customers.</p><p id="0c06ae10-dceb-4d75-b528-6449e8a2881c" class="">Once installed and made available for use, the users start to use the s/w. This signals the start of the operation also called the maintenance phase. As the users use the s/w, not only do they  request for fixing any failures that they might encounter, but they also continually suggest several improvements and modifications to the s/w. Thus the maintenance phase usually involves continually making changes to the s/w to accommodate the bug-fix and change requests from the user. The operation phase is usually the longest of all phases and constitutes the useful life of a s/w. Finally the s/w is retired, when the users do not find it any longer useful due to reasons such as changed business scenario, availability of some new s/w having improved features and more efficient working, changed computing platforms etc.</p><p id="f74af256-4d54-4ca1-b41d-38955e512f68" class="">An SDLC model describes the different activities that need to be carried out for the s/w to evolve in its life cycle. It graphically depicts the different phases through which a s/w evolves. It is usually accompanied by a textual description of the different activities that need to be carried out during each phase.</p><p id="88a45c70-cd27-4c35-97c2-f1173e2fa983" class="">Process</p><ul id="69dc3ba5-118c-41b3-9979-f9b9f5374664" class="bulleted-list"><li style="list-style-type:disc">has a broader scope and addresses either all the activities taking place during software development, or certain coarse grained activities such as design (e.g. design process), testing (test process), etc.</li></ul><ul id="ef756ed6-93bb-4d46-a549-2f6045476ebf" class="bulleted-list"><li style="list-style-type:disc">Software process not only identifies the specific activities that need to be carried out, but may also prescribe certain methodology for carrying out each activity.</li></ul><p id="7be38c79-605d-4f77-b515-ea94c3b48eaa" class="">Methodology</p><ul id="c4e2bbca-7e8d-4886-9772-e8ff8879feb7" class="bulleted-list"><li style="list-style-type:disc">has a narrower scope and focuses on finer-grained activities as compared to a process, prescribes a set of steps for carrying out a specific life cycle activity.</li></ul><p id="6735cc51-0813-422e-8517-9ca3f9f4ef24" class="">WHY USE A DEVELOPMENT PROCESS</p><ol type="1" id="c7308a3e-656a-4393-9033-9a8ed367745b" class="numbered-list" start="1"><li>Encourages development of s/w in a systematic and disciplined manner.</li></ol><ol type="1" id="3400d3c2-2e2a-4106-8bd8-e2585c10b7eb" class="numbered-list" start="2"><li>Use of a suitable life cycle model is crucial to the successful completion of a team based development project.</li></ol><p id="63e1f1b5-5827-4071-a40d-7e6cd7c4187a" class="">WHY DOCUMENT A DEVELOPMENT PROCESS</p><ol type="1" id="b3f74a1d-01a7-4ebc-a614-b28f354b3718" class="numbered-list" start="1"><li>A documented process model ensures that every activity in the life cycle is accurately defined.</li></ol><ol type="1" id="4a98ce14-731a-461e-a9dc-061271e058c5" class="numbered-list" start="2"><li>An undocumented process gives a clear indication to the members of the development teams about the lack of seriousness on the part of the management of the organization about following the process.</li></ol><ol type="1" id="b754ab9f-be62-4d72-9e3e-b413f5fb2b59" class="numbered-list" start="3"><li>A project team might often have to tailor a standard process model for use in a specific project.</li></ol><ol type="1" id="b707eb4c-173a-41af-b649-8cfdcab22155" class="numbered-list" start="4"><li>A documented process model is a mandatory requirement of the modern quality assurance standards.</li></ol><figure id="f0c875cd-7865-44ae-9c50-d4cf3ced9967" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIfoMBs97zW0qTZ7gMKJDM5OlxQm20P64MS-nYgL0bpEWI4fhZArAGgx8FVU2eMfZ_DJRjXhNw8e1LYrMTKOBcJnwlZD98rflaOPV4x1CMNTdQunRKlW7XQfwDEWuCtpnsUaWmGCyyBmpRZTQLuq1FZaL1?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:411px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIfoMBs97zW0qTZ7gMKJDM5OlxQm20P64MS-nYgL0bpEWI4fhZArAGgx8FVU2eMfZ_DJRjXhNw8e1LYrMTKOBcJnwlZD98rflaOPV4x1CMNTdQunRKlW7XQfwDEWuCtpnsUaWmGCyyBmpRZTQLuq1FZaL1?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="347a4200-5d80-421e-964d-dda1a40beeef" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdl4X-6cT6qX8VC7B6KeZs_sL4hf5CoKJtz1FJXYNCHNdOmW23U8C_skU7HxVTlzoGEhuKjExpfOFd1CUoGwKcA3OXLtFKvuP00Ih7jlgUoUFSMN-pSdyT3kiItyNXX-Bh1-wmHIpJpNfRvbB4LxdmkCe03?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:412px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdl4X-6cT6qX8VC7B6KeZs_sL4hf5CoKJtz1FJXYNCHNdOmW23U8C_skU7HxVTlzoGEhuKjExpfOFd1CUoGwKcA3OXLtFKvuP00Ih7jlgUoUFSMN-pSdyT3kiItyNXX-Bh1-wmHIpJpNfRvbB4LxdmkCe03?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ul id="bdc77b59-0330-4cec-829d-6d0ec2ef90eb" class="bulleted-list"><li style="list-style-type:disc">Unsatisfactory for s/w for any reasonable size.</li></ul><ul id="9592f532-c0a3-4628-9d46-0e276c2e3512" class="bulleted-list"><li style="list-style-type:disc">No room for structured design.</li></ul><p id="72d269d6-136b-40cb-9def-1049d5270774" class="">
+</p><p id="edec8e34-13e8-491e-9406-19f0f062cae0" class="">CLASSIC WATERFALL MODEL</p><ul id="93deb369-65cb-4ec3-8644-459f815423d7" class="bulleted-list"><li style="list-style-type:disc">The term “waterfall”, “conventional”, or “linear sequential” are used to describe a sequential model of nonoverlapping and distinctive activities related to s/w development.</li></ul><ul id="cd845855-601d-48fb-8c63-ad3bc9fcee15" class="bulleted-list"><li style="list-style-type:disc">The periods in which these activities occur are often referred to as phases or stages.</li></ul><ul id="98ceb964-fa07-4ac3-949c-a77cbcaaeb68" class="bulleted-list"><li style="list-style-type:disc">Has no provision to go back to modify the artifacts produced during an earlier phase.</li></ul><ul id="5a1252c8-4de8-421e-9fb5-53e7f203ae6c" class="bulleted-list"><li style="list-style-type:disc">All other models can be thought of as being extensions of it.</li></ul><ul id="b2152b7e-5874-4f01-bbd6-1efaa5eb0f7e" class="bulleted-list"><li style="list-style-type:disc">Divides the cycle into 6 phases.</li></ul><ul id="4a7d4168-b91b-4045-a373-19cdffc287ca" class="bulleted-list"><li style="list-style-type:disc">Phases are always in order and do not overlap.</li></ul><ul id="230403c3-dae9-4ee7-a693-7c0b369cba60" class="bulleted-list"><li style="list-style-type:disc">Developer must complete each phase before the next one begins.</li></ul><ul id="e7d8cd93-d42c-4c42-9f8d-a9ce1bc42dfb" class="bulleted-list"><li style="list-style-type:disc">The phases starting from the feasibility study to the integration and system testing are known as development phases. At the completion of the development phase, the s/w is delivered to the customer who then starts to use it signaling the commencement of the operation phase. As the customers start to use the s/w, changes to it become necessary on account of bug fixes and feature extensions, causing maintenance works to be undertaken. (maintenance phase).</li></ul><ul id="ff56f4b0-3150-4a45-8b1a-0f634c29cefa" class="bulleted-list"><li style="list-style-type:disc">Easy to understand</li></ul><ul id="efe8ea35-31f1-41a7-9762-19a8cf1c4aa2" class="bulleted-list"><li style="list-style-type:disc">Reinforces the notion of “define before design” and “design before code”</li></ul><ul id="d892f2ef-cdcf-4031-a7d4-b1f9355348fe" class="bulleted-list"><li style="list-style-type:disc">No risk assessment incorporated</li></ul><p id="bdaebb57-a70b-4221-8ffd-fe68ea97cc44" class="">FEASIBILITY STUDY</p><ul id="1cab4e72-b0a7-4a14-a6e6-50947572d5c7" class="bulleted-list"><li style="list-style-type:disc">Main focus is to determine whether it would be financially and technically feasible to develop the s/w.</li></ul><ul id="2149ad6e-5de4-401a-9de2-71e62990040b" class="bulleted-list"><li style="list-style-type:disc">Involves carrying out several activities such as collection of basic information relating to the s/w.</li></ul><ul id="66a00a56-f459-46ba-bde1-a4f887477eac" class="bulleted-list"><li style="list-style-type:disc">The collected data are analyzed to perform : development of an overall understanding of the problem ; formulation of various possible strategies for solving the problem ; evaluation of the different solution strategies.</li></ul><p id="b271026c-73ee-461d-b8ef-32f32bf97d07" class="">REQUIREMENT ANALYSIS AND SPECIFICATION</p><ul id="4f6f3aa2-c20a-4161-9b08-3828a63b95b0" class="bulleted-list"><li style="list-style-type:disc">Deliverables : vision and scope requirements, s/w requirement specifications, UI specifications, acceptance test plan</li></ul><ul id="4de40c70-9d9b-46c5-a7c1-04ebd1d08865" class="bulleted-list"><li style="list-style-type:disc">Main activities involved : definition of functional requirements and non-functional requirements, definition of various interfaces b/w the external entities and the s/w function to be developed, prioritization of the identified s/w requirements</li></ul><ul id="ae43cab9-6f9d-4db6-9c3a-80073df8930e" class="bulleted-list"><li style="list-style-type:disc">Understand requirements and document</li></ul><ul id="20a1b0b0-5757-46f9-a048-20cb4d5d8866" class="bulleted-list"><li style="list-style-type:disc">Executed together with customer</li></ul><ul id="0d3289ff-2498-4fba-83f9-526c04a77949" class="bulleted-list"><li style="list-style-type:disc">Requirements describe the “what” of a system</li></ul><ul id="bb6dfef0-3f4b-4fc7-93b6-8b4c95793299" class="bulleted-list"><li style="list-style-type:disc">Produces a large document describing what the system will do = SRS that may act as a contract b/w developer and customer</li></ul><ul id="94864da8-8cd6-493f-8ad6-80aa63ef6abd" class="bulleted-list"><li style="list-style-type:disc">Requirements gathering and analysis; specification</li></ul><p id="53002315-1116-4323-9313-6d33fb97e451" class="">DESIGN</p><ul id="db826ddc-94c8-4807-8d94-5452e9441778" class="bulleted-list"><li style="list-style-type:disc">Transform SRS to a structure that is implementable in some programming language</li></ul><ul id="6f83e86d-35f4-4463-888e-bab4453858da" class="bulleted-list"><li style="list-style-type:disc">Develop a coherent, well-organized representation of the s/w system suitable to guide s/w development</li></ul><ul id="cf4078c9-6890-4a09-8d71-0f17424bb3ac" class="bulleted-list"><li style="list-style-type:disc">Design maps the “what” from SRS to the “how” of the s/w design description</li></ul><ul id="b705a88e-9e77-424e-ac62-9c5ab280e4eb" class="bulleted-list"><li style="list-style-type:disc">High level and detailed design work performed = SDD (s/w design document)</li></ul><ul id="46a5ff56-bdde-42d4-a3e3-a9e200c086a6" class="bulleted-list"><li style="list-style-type:disc">Procedural design approach &amp; Object-oriented design approach</li></ul><ul id="4dcf0b81-9e1f-4a15-b507-7fa997a4c9a3" class="bulleted-list"><li style="list-style-type:disc">Deliverables : high level design - concentrates on the identification of s/w modules and their interfaces, detailed design - provides details on each of the modules identified in the HLD, DB design - presents a detailed description of the DB schema needed to support the high level and detailed design, UI design - consists of the GUI components and artifacts</li></ul><p id="4cdebf8f-563c-4cfc-8d87-7c8b4eb5ac39" class="">CODING AND UNIT TESTING</p><ul id="078a1156-b12b-4ba0-9fca-b93a2a5681b0" class="bulleted-list"><li style="list-style-type:disc">Design is implemented</li></ul><ul id="b8a89044-5984-4daf-ada8-8f2f485ccd63" class="bulleted-list"><li style="list-style-type:disc">Transformation of the high-level design into an executable code which is then developed according to the coding standards adopted by the development firm</li></ul><ul id="5e8b565f-08ce-4810-83e0-4d70ef1744f0" class="bulleted-list"><li style="list-style-type:disc">The test team can build the test cases specified in the design phase in some automated form.</li></ul><ul id="de739e24-6431-44bf-81d7-a37fc066a7de" class="bulleted-list"><li style="list-style-type:disc">If SDD is complete, the further phases proceed smoothly</li></ul><ul id="04d89c4c-f065-4bce-8c35-7d563f0a6993" class="bulleted-list"><li style="list-style-type:disc">Initially, small modules are tested in isolation from the rest of the s/w product.</li></ul><ul id="4ac4c99f-eca0-4be2-80d9-506bb78159f8" class="bulleted-list"><li style="list-style-type:disc">This phase ends when all the s/w units have been coded, unit tested, and integrated and have passed the integration testing specified by the s/w designers</li></ul><ul id="76c952e5-f4af-4034-9490-9404528bb8e6" class="bulleted-list"><li style="list-style-type:disc">Deliverables : documented code, unit test plans execution</li></ul><p id="4f343e38-db06-46cf-89cd-80b65fc8e955" class="">INTEGRATION AND SYSTEM TESTING</p><ul id="74979589-4aff-4a1f-bedd-c5b2df4e295e" class="bulleted-list"><li style="list-style-type:disc">Expensive, consumes ⅓ to ½ cost of a development project</li></ul><ul id="2625f1f3-68b3-478e-95c9-efd44413770f" class="bulleted-list"><li style="list-style-type:disc">Effective testing will contribute to the delivery of higher quality s/w products , more satisfied users, lower maintenance costs, more accurate and reliable results</li></ul><ul id="ee9afb90-8069-486b-832c-023cc7c05652" class="bulleted-list"><li style="list-style-type:disc">System testing involves testing of the entire system</li></ul><ul id="722515cb-188e-4ff5-9f20-60039b18387b" class="bulleted-list"><li style="list-style-type:disc">Purpose of unit testing is to determine that each independent module is correctly implemented. This gives little chance to determine that the interface b/w modules is also correct and for this reason integration testing is performed</li></ul><ul id="c664041b-4188-46ab-b40a-5cc3323c2790" class="bulleted-list"><li style="list-style-type:disc">Deliverables : execution and result analysis report, integration test</li></ul><ul id="88cf404d-8d5d-49d1-827a-f8cc9e0458be" class="bulleted-list"><li style="list-style-type:disc">System testing usually consists of 3 different kinds of testing activities -</li></ul><ol type="1" id="1774ff55-a40d-46c2-9b21-d117512992fd" class="numbered-list" start="1"><li>⍺ testing : performed by the development team.</li></ol><ol type="1" id="3f79dc39-8992-4e05-8d39-3413197d257c" class="numbered-list" start="2"><li>ꞵ testing : performed by a friendly set of customers.</li></ol><ol type="1" id="0446966d-53d4-4ad5-8814-c65514da68ec" class="numbered-list" start="3"><li>Acceptance testing : after the s/w has been delivered, the customer performs system testing to determine whether to accept or reject the delivered s/w.</li></ol><p id="38b3b7a2-c4f6-4c8a-b3a8-7c8fe52cfbd4" class="">OPERATION AND MAINTENANCE</p><ul id="10babf08-7340-4ef4-be1b-63e8bc17e246" class="bulleted-list"><li style="list-style-type:disc">Release of s/w inaugurates this phase</li></ul><ul id="81dc506b-38c6-4e70-9f9a-cb7ea709115e" class="bulleted-list"><li style="list-style-type:disc">S/w maintenance includes error correction, enhancement of capabilities, deletion of obsolete capabilities and optimization</li></ul><ul id="d3a344da-57ef-4927-8659-0980e86f2cc5" class="bulleted-list"><li style="list-style-type:disc">Purpose is to preserve the value of the s/w over time</li></ul><ul id="41a072f0-582c-4f31-9660-3c21d0848310" class="bulleted-list"><li style="list-style-type:disc">May span for 5-50 years</li></ul><ul id="9a09adbe-5567-4587-ba0e-8a81ae4ac1a4" class="bulleted-list"><li style="list-style-type:disc">Deliverables : installed s/w, official acceptance of the s/w</li></ul><ul id="07f79c7d-16f4-4a9e-8f8d-77988ad580af" class="bulleted-list"><li style="list-style-type:disc">Types of Maintenance activities :-</li></ul><ol type="1" id="f8932081-3f7d-48a3-bd9d-9cdfae42535a" class="numbered-list" start="1"><li>Corrective</li></ol><ul id="ceec9908-93e1-4536-ac16-0084746359d7" class="bulleted-list"><li style="list-style-type:disc">carried out to correct errors that were not discovered during the product development phase</li></ul><ul id="72c041bb-6a05-4eba-943d-a584696e2e63" class="bulleted-list"><li style="list-style-type:disc">Triggered by s/w faults encountered during s/w use</li></ul><ul id="66e5c764-1763-4f72-b5d7-89290d7cf337" class="bulleted-list"><li style="list-style-type:disc">Involve simple fixes that limited testing and only code needs to changed and; complex fixes that require application of all phases again</li></ul><ol type="1" id="22db803b-3dec-4765-904f-b8f9e2835feb" class="numbered-list" start="1"><li>Perfective</li></ol><ul id="9642501b-e8e6-4330-97a7-d9bb7daa402c" class="bulleted-list"><li style="list-style-type:disc">carried out to improve the performance of the system, or to enhance the functionalities of the system based on customer’s requests.</li></ul><ol type="1" id="8e0c86e9-ef53-4b7c-9cd8-81cd3fb9acf4" class="numbered-list" start="1"><li>Adaptive</li></ol><ul id="97d25716-e82a-492f-a216-267d72197cee" class="bulleted-list"><li style="list-style-type:disc">Involve requests from s/w stakeholders to adapt the s/w to different operating environments, UI styles or standards.</li></ul><ol type="1" id="d840b921-93d6-468a-bc8b-21b88ba7303f" class="numbered-list" start="1"><li>Preventive</li></ol><ul id="0528b3d7-edf5-4a5d-b49d-afa196bffdb6" class="bulleted-list"><li style="list-style-type:disc">Involve dealing with weaknesses and vulnerabilities identified by the development team during or after deploying the s/w and that were not dealt with in the installed s/w.</li></ul><p id="aad8e032-3b8c-4f14-acaa-02c2397910c8" class="">
+</p><p id="a954c087-e043-424b-a0b3-571c995a1974" class="">Shortcoming :</p><ul id="9a119349-b16d-406e-97ca-84d2a6edf85a" class="bulleted-list"><li style="list-style-type:disc">No feedback paths</li></ul><ul id="d99aaefd-066c-49e5-b4c6-65c358ccf983" class="bulleted-list"><li style="list-style-type:disc">Freezing the requirements usually requires choosing the hardware. If the hardware is selected early, then due to speed at which hardware technology is changing, it is likely that the final software will use a hardware technology on the verge of becoming obsolete.</li></ul><ul id="e46201c9-dba4-4b1f-9e3c-13efc9acc0dd" class="bulleted-list"><li style="list-style-type:disc">Difficult to define all requirements at the beginning</li></ul><ul id="88382694-61d9-45de-bc4d-6390f3173857" class="bulleted-list"><li style="list-style-type:disc">Doesn’t scale up well to large projects</li></ul><ul id="67d9ca96-6071-4d6b-98c8-b0b28699bc22" class="bulleted-list"><li style="list-style-type:disc">It follows the “big bang” approach - the entire s/w is delivered in one shot at the end. This entails heavy risks as the user does not know until the very end what they are getting. If the project runs out of money in the middle, then there will be no s/w i.e it has the “all or nothing” value proposition</li></ul><ul id="6495802b-e2f9-44d3-b15f-29eafce375cb" class="bulleted-list"><li style="list-style-type:disc">Difficult to accommodate change requests</li></ul><ul id="c41ca253-dec4-4658-9047-0c2e86dfaf42" class="bulleted-list"><li style="list-style-type:disc">Inefficient error corrections - defers integration of code and testing tasks until it is very late when the problems are harder to resolve.</li></ul><ul id="1f4e89a4-6213-43dd-a009-5bd80bef4c5f" class="bulleted-list"><li style="list-style-type:disc">It is a document-driven process that requires formal documents at the end of each phase</li></ul><ul id="c4fe05ee-0d8c-4c2e-a237-a0deacd77352" class="bulleted-list"><li style="list-style-type:disc">No overlapping of phases</li></ul><figure id="f3149883-4af9-439b-86c2-68a103cece40" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFbkp-AKfY633wvT-QDT1xRbhRxDQgyb2QGNyOMe5S9MNDBextpbE0K-XdOZ2VdaCIG2yUsIBxxWejFXuyGMpEkZRAhTYtXK06LZOzp4cQX1yA19OrF7wmgCeTPoxeV-5G_1p2SitmhZque2dFDJhfXmsN?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:280px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFbkp-AKfY633wvT-QDT1xRbhRxDQgyb2QGNyOMe5S9MNDBextpbE0K-XdOZ2VdaCIG2yUsIBxxWejFXuyGMpEkZRAhTYtXK06LZOzp4cQX1yA19OrF7wmgCeTPoxeV-5G_1p2SitmhZque2dFDJhfXmsN?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="a4ac3201-2058-44ce-83c2-6bd98643fb3a" class="">
+</p><p id="b4f5436b-7019-4bf2-a726-98c541aae896" class="">
+</p><p id="d74e4f11-a6b9-47e3-8c37-c6aab0966318" class="">Continuous life cycle activities and deliverables :</p><p id="fcabdb70-f9b1-4d1b-9cd3-dfe71a194932" class="">There are important and critical activities that must be performed during the execution of the s/w development phases. Each of these ongoing activities called umbrella activities are needed to support the proper execution of the development phases and to ensure the production of high-quality s/w. The ongoing lifecycle activities are :</p><ol type="1" id="6f943efd-4713-4914-9c57-7bac52769201" class="numbered-list" start="1"><li>Project Management</li></ol><ul id="10964b92-146f-483b-a674-1c43114edc50" class="bulleted-list"><li style="list-style-type:disc">Monitoring, planning (update), control</li></ul><ul id="b6cd32d8-073e-4359-aac9-11eac00d2ac7" class="bulleted-list"><li style="list-style-type:disc">Progress of the life cycle activities is closely and continuously monitored by the project manager using an appropriate reporting procedures</li></ul><ul id="e3a34fa5-f6e7-4fac-93e7-8ba165bbc65a" class="bulleted-list"><li style="list-style-type:disc">Risks are continuously monitored and corrective actions are taken wherever necessary.</li></ul><ul id="61bd5483-3d9d-4d97-9e84-66122e9f42ef" class="bulleted-list"><li style="list-style-type:disc">The project schedule is updated as necessary where project and process-related metrics are regularly collected and assessed</li></ul><ul id="b5f0e776-9cff-4e4c-99d7-7e801dce7b1e" class="bulleted-list"><li style="list-style-type:disc">Human Resource Management and Project Management activities are performed</li></ul><ul id="97c38d1a-bc81-4455-9ca1-63ea62df3b3a" class="bulleted-list"><li style="list-style-type:disc">Deliverables : updated project plan, metrics collection plan, metrics DB maintained, project log maintained</li></ul><ol type="1" id="83820a79-3d8d-438c-b672-5d67d3d6049e" class="numbered-list" start="2"><li>Quality Assurance</li></ol><ul id="6130686d-b840-4b35-91ad-72a237bcfbc6" class="bulleted-list"><li style="list-style-type:disc">During and at the end of each phase, the QA group performs the review of the deliverables of each phase and ensures the use of and conformance to internal and external standards</li></ul><ul id="bba88efa-fed0-44c5-9290-90bc88924587" class="bulleted-list"><li style="list-style-type:disc">The QA plan is executed and updated if needed and process improvement recommendations are provided by the group after project completion</li></ul><ul id="e98b2def-d49a-46b9-9acf-b5e6676ba436" class="bulleted-list"><li style="list-style-type:disc">Deliverables : QA plan, QA review reports</li></ul><ol type="1" id="5877878b-b03c-40a1-ba87-35113bb49569" class="numbered-list" start="3"><li>Evaluation and Testing</li></ol><ul id="28bdbfbc-5b38-4f7f-bfb6-c69e166b0e14" class="bulleted-list"><li style="list-style-type:disc">At the end of each phase, the deliverable is evaluated and tested. After approval of the deliverable, the next phase starts.</li></ul><ul id="6c004da6-9c20-4b46-9407-5ca5b95cdaf9" class="bulleted-list"><li style="list-style-type:disc">Informal evaluation processes include reviews, inspections and audits</li></ul><ul id="75a9fe7d-4033-47f3-8a26-04661961e95d" class="bulleted-list"><li style="list-style-type:disc">Formal evaluation processes include the use of formal techniques and automated tool for the verification of phase deliverables</li></ul><ul id="03de8c6a-cf53-4106-975b-bb073d3e965d" class="bulleted-list"><li style="list-style-type:disc">Deliverables : test data, test execution reports, test metrics and logs, test plans, fault reports, review plans and reports</li></ul><ol type="1" id="1d4e089a-3ebc-4a2d-86a7-42583b65c1df" class="numbered-list" start="4"><li>Configuration Management</li></ol><ul id="0b9c07a1-ea8a-4c8e-8d51-787f2d84ca99" class="bulleted-list"><li style="list-style-type:disc">Include the identification of all s/w documents, deliverables and artifacts that will be produced, manipulated and maintained during the development and maintenance of the s/w.</li></ul><ul id="81d56ca3-fe8e-4a9d-bc20-95fa030e7908" class="bulleted-list"><li style="list-style-type:disc">It deals mainly with the management of s/w resources and the overall support and control of the s/w development and maintenance processes</li></ul><ul id="705d41db-f4d4-4b55-98ea-2453879448c0" class="bulleted-list"><li style="list-style-type:disc">Configuration control activities are then performed continuously during the s/w development and post-development phases</li></ul><ul id="b5e0ca07-c223-4c50-ae4f-1536770b6319" class="bulleted-list"><li style="list-style-type:disc">The configuration management control activities include : revision and version control, process and workflow control, build control and change control</li></ul><ul id="5da9b138-33af-46ce-8cdf-1cca5c61b2a8" class="bulleted-list"><li style="list-style-type:disc">Deliverables : configuration identification, chance logs, updated configuration management plan</li></ul><ol type="1" id="80d02673-b8af-4734-88eb-16f00ce6bb74" class="numbered-list" start="5"><li>Documentation</li></ol><ul id="f2ae1b08-8475-4efb-a99c-634d41df95c1" class="bulleted-list"><li style="list-style-type:disc">Refers to the different types of documents that are produced for different target audiences during product development</li></ul><ul id="4b8bea9c-5d52-4574-bae7-3cbf3c609156" class="bulleted-list"><li style="list-style-type:disc">They can be internal technical documents for future s/w maintenance activities written by s/w developers or they can also be documents targeting external users and include user manuals etc. written by technical writers</li></ul><ul id="8687cd97-2750-4a62-b2df-3a5842c39084" class="bulleted-list"><li style="list-style-type:disc">Deliverables : user manual, various technical documentation, installation and operations manuals</li></ul><ol type="1" id="488c6f27-a0a2-4e4c-a852-357435381392" class="numbered-list" start="6"><li>User Training</li></ol><ul id="ab2d7e10-d698-41f4-b5e9-a8a1e8ea8f2b" class="bulleted-list"><li style="list-style-type:disc">After installing the s/w, its operations are supported by providing customer help desk support, technical assistance, training and consultation</li></ul><ol type="1" id="b9d9ceb9-a7e6-4745-b8b3-677824cec065" class="numbered-list" start="7"><li>Deliverables of technical support and internal training : training plan, tech support reports, training programs, training manuals</li></ol><ul id="f6c03e69-6cb8-4cf8-a295-6b4d37231c3a" class="bulleted-list"><li style="list-style-type:disc">Provided by support technicians to the developers to solve technical issues that might arise while developing the s/w</li></ul><ul id="0b191056-95ce-426c-9462-9f4d4ea1d9b6" class="bulleted-list"><li style="list-style-type:disc">Helps in improving the efficiency and productivity of the development team and maintenance teams</li></ul><p id="8d29496d-750d-49b4-ac42-446bd0ed0df4" class="">
+</p><p id="4d2a317f-b4ad-4070-a2dc-df34717de46d" class="">Post development phases include :</p><ol type="1" id="8f12c87b-9dd4-4fd3-b936-604273bef431" class="numbered-list" start="1"><li>S/w installation and maintenance</li></ol><ol type="1" id="4070f31c-0cf5-4673-b427-4ac8239108dd" class="numbered-list" start="2"><li>Operations, support, quality assurance and training activities during post-development maintenance phase</li></ol><ul id="a679134c-b95f-4895-a35d-fabf9003a223" class="bulleted-list"><li style="list-style-type:disc">Deliverables : help desk request logs, fault report logs, user training plan and training material</li></ul><p id="190a874b-8fe1-40ad-be8f-522505fbb913" class="">
+</p><p id="b1e58d99-d60a-41de-b599-2a19f517cab8" class="">
+</p><p id="f3152f6f-b991-44dc-bdf8-5615cf7555d9" class="">ITERATIVE WATERFALL MODEL</p><ul id="997f3fe2-c838-48fe-b562-46f85fd098b1" class="bulleted-list"><li style="list-style-type:disc">Feedback paths introduced which allow for correcting errors committed by a programmer during some phase, as and when these are detected in a later phase</li></ul><ul id="7b1d2c24-6c87-4f70-b9e2-3185b496bd7c" class="bulleted-list"><li style="list-style-type:disc">There is no feedback path to the feasibility stage because once a team accepts to take up a project, it does not give up the project easily due to legal and moral reasons.</li></ul><ul id="a1463a88-37f6-4d39-92f7-aae0c91798b7" class="bulleted-list"><li style="list-style-type:disc">The principle of detecting errors as close to their points of commitment as possible is called phase containment of errors.</li></ul><ul id="a2b2c8f7-bc42-4c0f-8604-ebd580a3f2ea" class="bulleted-list"><li style="list-style-type:disc">Some errors escape detection and are detected in a later phase. These cause the activities of some already completed phases to be reworked. Activities pertaining to a phase do not end at the completion of the phase, but overlap with other phases.</li></ul><ul id="034aebfe-542a-4301-9cc2-eaf6934b740f" class="bulleted-list"><li style="list-style-type:disc">The phases are allowed to overlap in real projects (not supported in this model) so that team members who complete their work early or resources are not in idle or blocking state.</li></ul><ul id="9069d5a8-ef6f-43f9-ab21-76391bf37d07" class="bulleted-list"><li style="list-style-type:disc">Suitable only for well understood problems.</li></ul><p id="ffd55b12-3573-437d-9b9a-ab1f485757db" class="">Shortcomings :</p><ul id="bd7627f8-5097-44bd-af1f-0dac7804f7b9" class="bulleted-list"><li style="list-style-type:disc">Difficult to accommodate change requests</li></ul><ul id="84dbea38-544c-4e09-a62a-14f52b7e83ea" class="bulleted-list"><li style="list-style-type:disc">Incremental delivery not supported</li></ul><ul id="e9802533-750a-4ee3-965e-e108feffc4a4" class="bulleted-list"><li style="list-style-type:disc">Phase overlap not supported - a phase can start only after the previous one is complete in all respects (rigid phase sequence).</li></ul><ul id="081492f6-e29f-4928-9c6b-2935f7b3bcff" class="bulleted-list"><li style="list-style-type:disc">Error correction is unduly expensive-Validation is delayed till complete development of the s/w.</li></ul><ul id="cdfd8c01-e299-48fa-a5ec-c9d472c83610" class="bulleted-list"><li style="list-style-type:disc">Limited customer interactions</li></ul><ul id="e85ef664-58f2-43c6-a9b6-6cd7057a4e8c" class="bulleted-list"><li style="list-style-type:disc">Heavyweight - overemphasized documentation which may be a source of team inefficiency.</li></ul><ul id="d15c6386-8a3f-4a01-a4a8-56f7fa92c29a" class="bulleted-list"><li style="list-style-type:disc">No support for risk handling and reuse</li></ul><figure id="99959416-e92d-43e6-88ad-67ad1ffb91bc" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUUKPqFqkrJNz9q3XO1maPWSaAum91JJ2p_1E6mnWWfacDZxMocqoDQOZ4vC6Qjo2HdYsZQwrdkOAGUaF96nrZbBe2FoxwHQfi1iWNerVfMyMP9gHcITuQP5r5rKfNbjkmvar3Z4TXlQebrI9pQVgB-O_t?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:277px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUUKPqFqkrJNz9q3XO1maPWSaAum91JJ2p_1E6mnWWfacDZxMocqoDQOZ4vC6Qjo2HdYsZQwrdkOAGUaF96nrZbBe2FoxwHQfi1iWNerVfMyMP9gHcITuQP5r5rKfNbjkmvar3Z4TXlQebrI9pQVgB-O_t?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="26154c75-f167-465b-8e75-a64f91e6f5ae" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdadvGwkb460xwq7ClfnfI1c8FwuEohQVUUHNCSbp-ZYulFd7s9DS18pD3hyGJeRqlAwQbbha2P51iYyUDThIDQtb05Ahuf3Spu9TnS-69vNCmitGdOhWuncYWvEwcPcZBP1fw4rc-0vkS1foAlti-gXasb?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:325px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdadvGwkb460xwq7ClfnfI1c8FwuEohQVUUHNCSbp-ZYulFd7s9DS18pD3hyGJeRqlAwQbbha2P51iYyUDThIDQtb05Ahuf3Spu9TnS-69vNCmitGdOhWuncYWvEwcPcZBP1fw4rc-0vkS1foAlti-gXasb?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="5365fbe9-35a1-4239-8103-450b8029f3ef" class="">
+</p><p id="9ff80cc1-0509-4831-a954-e0c4187c49e1" class="">
+</p><p id="21a3ea8a-2aec-4fbb-bf0e-29c59fcd1e9b" class="">V - MODEL</p><ul id="84e20b0f-9df7-400a-b20e-d974b3a98db8" class="bulleted-list"><li style="list-style-type:disc">variant of the waterfall model</li></ul><ul id="cd82dfd4-a272-4225-b2c0-5bb24235d92a" class="bulleted-list"><li style="list-style-type:disc">verification and validation activities are carried out throughout the development life cycle and therefore the chances of bugs in the work products considerably reduce.</li></ul><ul id="914bbf28-0264-4a20-b27c-1e413496840b" class="bulleted-list"><li style="list-style-type:disc">suitable for use in projects concerned with development of safety-critical s/w that are required to have reliability.</li></ul><ul id="523aa99a-da45-4e31-9f23-d72aabebbb40" class="bulleted-list"><li style="list-style-type:disc">2 main phases : development and validation phases. The left half of the model comprises the development phases and the right half comprises the validation phases.</li></ul><ul id="a823f47e-5029-42aa-8436-81139c535f50" class="bulleted-list"><li style="list-style-type:disc">In each development phase, along with the development of a work product, test case design and the plan for testing the work product are carried out, whereas the actual testing is carried out in the validation phase. This validation plan created during the development phases is carried out in the corresponding validation phase.</li></ul><ul id="d74b3a51-7f8a-461d-8a15-65c95b04467d" class="bulleted-list"><li style="list-style-type:disc">In the validation phase, testing is carried out in 3 steps - unit, integration and system. The purpose of it is to detect defects that arise in the corresponding phases of s/w development - requirements analysis and specification, design and coding respectively.</li></ul><ul id="ed419b4d-10e9-49be-ae8b-476d05363857" class="bulleted-list"><li style="list-style-type:disc">Testing activities are spread over the entire life cycle.</li></ul><p id="e662f4e6-a538-4386-806e-29ddd2d629a4" class="">Advantages :</p><ul id="29d178d4-ebb3-47e8-af15-e59262545484" class="bulleted-list"><li style="list-style-type:disc">Much of the testing activities are carried out in parallel with the development activities. Therefore, significant part of the testing activities is already complete leading to a shorter testing phase and an overall faster product development.</li></ul><ul id="38ed715d-39f1-4408-b66a-57749bc1851f" class="bulleted-list"><li style="list-style-type:disc">Since test cases are designed when the schedule pressure has not built up, the quality of the test cases are usually better.</li></ul><ul id="cabf373a-22f4-4fb7-a31d-dfc6335dbfab" class="bulleted-list"><li style="list-style-type:disc">The Test team is kept occupied throughout the development cycle leading to more efficient manpower utilization.</li></ul><p id="ad613998-3e39-4e85-b2bc-b903b8f603e0" class="">Disadvantages :</p><ul id="dfadd9ac-c0e2-44e5-b9cf-2062a3525cd0" class="bulleted-list"><li style="list-style-type:disc">Inherits most of the weaknesses of the waterfall model.</li></ul><figure id="6bcf9d87-2b55-4f4b-9559-9297adbc214d" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfvYYdqbuII-kYjHFX0wh5d-0SfffhfatKynC5InTVFuT0L3JJ7oHKD54PTZ0TvscTKy_FFY4aLw89ogWGZ_Wr1FKjRiac2s87VaBmIiSEWxhhgkPoSOwdzAIv6FwV34Gd0nGCbK0OjEzToObKm-r7JliPt?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:312px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfvYYdqbuII-kYjHFX0wh5d-0SfffhfatKynC5InTVFuT0L3JJ7oHKD54PTZ0TvscTKy_FFY4aLw89ogWGZ_Wr1FKjRiac2s87VaBmIiSEWxhhgkPoSOwdzAIv6FwV34Gd0nGCbK0OjEzToObKm-r7JliPt?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="c55c6e95-8c45-448b-b82f-02162b9e3bb0" class="">
+</p><p id="0f52ce8f-c51a-470f-b5b9-e69db5d241ef" class="">
+</p><p id="5e8f0c1b-adc1-46ed-87dc-4321e84f4d90" class="">PROTOTYPING MODEL</p><ul id="f8d556d8-6066-41f7-884c-5eed5d0c3330" class="bulleted-list"><li style="list-style-type:disc">Suggests building a <em>working prototype</em> of the system, before development of the actual s/w.</li></ul><ul id="fed2787f-e441-46b6-81c2-29b7a0a24ab5" class="bulleted-list"><li style="list-style-type:disc">A prototype is a toy and crude implementation of a system. It has limited functional capabilities, low reliability or inefficient performance as compared to the actual s/w. Can be built quickly using shortcuts.</li></ul><ul id="592176ff-99cc-4f32-9921-ddeb36cbf8e9" class="bulleted-list"><li style="list-style-type:disc">Rapid prototyping is when s/w tools are used for prototype construction.</li></ul><ul id="37ea34ee-450d-4855-b8ce-1a19af246d23" class="bulleted-list"><li style="list-style-type:disc">Developers use the prototype to refine the requirements and prepare the final specification document.</li></ul><ul id="882aa303-23d9-4ab9-9049-a97b8b3f95e8" class="bulleted-list"><li style="list-style-type:disc">When the prototype is created, it is reviewed by the customer. This review gives feedback to the developers that helps to remove uncertainties in the requirements of the s/w &amp; starts an iteration of refinement in order to further clarify requirements.</li></ul><ul id="d4bf959d-786d-4810-9a5b-31c2adcc0a59" class="bulleted-list"><li style="list-style-type:disc">Code for the prototype is thrown away but the experience gathered from developing it helps in developing the actual system.</li></ul><ul id="6c14c7ae-fe28-4539-bd86-411d1714debe" class="bulleted-list"><li style="list-style-type:disc">Suitable for projects for which either the user requirements or the underlying technical aspects are not well understood, however all the risks can be identified before the project starts.</li></ul><ul id="cee4f765-b976-47af-86f1-905ea8129818" class="bulleted-list"><li style="list-style-type:disc">After the finalization of the SRS document, it is discarded and the actual system is then developed using the waterfall approach.</li></ul><p id="e29f16d2-69ab-435b-bfff-75199f9f1665" class="">Necessity of the model :</p><ul id="d9569ec2-4cd0-4636-b474-92c9ac144256" class="bulleted-list"><li style="list-style-type:disc">Advantageous to use it for development of the GUI part of an application. Through the use of a prototype it becomes easier to illustrate the i/p data formats, messages, reports and the interactive dialogs to the customer.</li></ul><ul id="613a8be6-aecc-4176-b4e2-e35debf64def" class="bulleted-list"><li style="list-style-type:disc">Useful when the exact technical solution is unclear to the development team. A prototype can help them to critically examine the technical issues associated with product development.</li></ul><ul id="09231e56-58c1-484a-a28f-dbdc1d516eec" class="bulleted-list"><li style="list-style-type:disc">Can be deployed when development of highly optimized and efficient s/w is required.</li></ul><ul id="6333d8b2-dcf7-4add-8989-c4d5fbc0c736" class="bulleted-list"><li style="list-style-type:disc">Iterative development - once the customer approves the prototype, the actual s/w is developed using the iterative waterfall approach.</li></ul><p id="c4bc14fe-fc9b-4e7b-9ef6-bad49c5375aa" class="">Strengths :</p><ul id="88ea2d3c-98a7-45ea-9d89-82dba031e3a9" class="bulleted-list"><li style="list-style-type:disc">most appropriate for projects that suffer from risks arising from technical uncertainties and unclear requirements. A constructed prototype helps overcome these risks.</li></ul><p id="0e424f03-ade7-4660-b370-d8be4f98916a" class="">Weaknesses :</p><ul id="3f69fd09-cf9d-4fca-b745-83a3377436fd" class="bulleted-list"><li style="list-style-type:disc">Can increase the cost of development for projects that are routine development work and do not suffer from any significant risks.</li></ul><ul id="7e9d4bc5-18ee-4e24-8131-9ce2a617f284" class="bulleted-list"><li style="list-style-type:disc">Ineffective for risks identified later during the development cycle.</li></ul><figure id="d00f056e-be32-4e9c-b3b9-1d432bf69f4f" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXek7URVjAGakhQjapir2tlL9w3P6Z7nWVTavvtAsgJjI_vqxQX8oQqJiZGzrRlNO8wG1d7l34f-Qd-abHO7VH8zo1K79Vb34XkUoMilQZJ1jAnr0q5HVgolx7Y8n0gXkh2el5wwYMIpUb7l37xVGi_9sWdG?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:267px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXek7URVjAGakhQjapir2tlL9w3P6Z7nWVTavvtAsgJjI_vqxQX8oQqJiZGzrRlNO8wG1d7l34f-Qd-abHO7VH8zo1K79Vb34XkUoMilQZJ1jAnr0q5HVgolx7Y8n0gXkh2el5wwYMIpUb7l37xVGi_9sWdG?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="7eb55b52-7014-4b9a-b6d4-e3c0df744aa8" class="">
+</p><p id="31cd486c-2d3d-4487-8a98-77cd1e67265f" class="">
+</p><p id="b37509be-501a-4c7d-85e1-924fb46690b8" class="">INCREMENT PROCESS MODELS</p><ul id="3fad9f36-8b15-4b57-90df-60b9826f58d6" class="bulleted-list"><li style="list-style-type:disc">Effective in the situations where requirements are defined precisely and there is no confusion about the functionality of the final product.</li></ul><ul id="3f9a12be-e25d-4c0a-899e-f7b4d5e6ff8b" class="bulleted-list"><li style="list-style-type:disc">After every cycle a useable product is given to the customer with additional functionality.</li></ul><ul id="a88851ce-3c4b-43a9-8d90-6a5519d3f308" class="bulleted-list"><li style="list-style-type:disc">Useful in situations where the quick delivery of a limited functionality system is acceptable.</li></ul><ul id="7ac4925a-aabf-48a2-8f45-3cdd8b4d57fc" class="bulleted-list"><li style="list-style-type:disc">Includes 2 variants : Iterative enhancement model and Rapid application development model.</li></ul><ul id="9053bccb-0316-4448-a9d0-628b458961c9" class="bulleted-list"><li style="list-style-type:disc">Ex. in a university automation s/w, the library automation module may be delivered in the 1st phase and examination automation module may be delivered in the next phase.</li></ul><ul id="6299ca82-e081-4eb7-9e64-8490f5284581" class="bulleted-list"><li style="list-style-type:disc"><em>S/w is developed in increments</em>.</li></ul><ul id="7b92bfea-348f-4667-99c2-d58bc66e9b4b" class="bulleted-list"><li style="list-style-type:disc">First the requirements are split into a set of increments. The first increment is a simple working system implementing only a few basic features. Over successive iterations, successive increments are implemented and delivered to the customer until the desired system is realized.</li></ul><ul id="589875a2-4183-4579-9fa1-5f578568b000" class="bulleted-list"><li style="list-style-type:disc">Once the initial core features are developed, these are refined into increasing levels of capability by adding new functionalities in successive versions. Each incremental version is usually developed using an iterative waterfall model of development.</li></ul><p id="ed1a8006-6d40-4cf2-89e2-56dc68e16701" class="">Advantages :</p><ul id="84b8d374-f471-4244-b9f0-075ef7bc1ce0" class="bulleted-list"><li style="list-style-type:disc">Error reduction - core modules are used by the customers from the beginning and therefore these get tested thoroughly. This reduces chances of errors in the core modules of the final product, leading to greater reliability of the s/w.</li></ul><ul id="631370a1-3c78-4f62-865d-4934543099de" class="bulleted-list"><li style="list-style-type:disc">Incremental resource deployment - obviates the need for the customer to commit large resources at one go for development of the system. It also saves the developing organization from deploying large resources and manpower for a project.</li></ul><figure id="1317aea0-4cc5-4ebd-8b25-9141b9335e94" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfK19VpqS_iT8Fz6rMCCRe0Vyfm8FNTnxOpBeAZAkPC-NLO27IXWOShEt48GONBWakSMDhuRxhfLvPhfzGmxhHf35g3Oitac-LaeIL5B7dNI38J2eCVPA7koDqqmPDQgGRXAIkYMseqlE87JHseFgaLSP5Y?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:383px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfK19VpqS_iT8Fz6rMCCRe0Vyfm8FNTnxOpBeAZAkPC-NLO27IXWOShEt48GONBWakSMDhuRxhfLvPhfzGmxhHf35g3Oitac-LaeIL5B7dNI38J2eCVPA7koDqqmPDQgGRXAIkYMseqlE87JHseFgaLSP5Y?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="d0c12ad7-0da4-494b-adbb-79ba897a2d0e" class="">
+</p><p id="edd106de-1f7f-4d3f-9f42-65c12180d2a0" class="">
+</p><p id="cd4b672a-a24b-44c3-b69c-06be2beb030f" class="">ITERATIVE ENHANCEMENT MODEL</p><ul id="eae549e4-6613-48aa-b1a9-49d3463a9abf" class="bulleted-list"><li style="list-style-type:disc">Has the same phases as the waterfall model but with fewer restrictions.</li></ul><ul id="af364a1c-d7d9-48a8-a001-dde28d294269" class="bulleted-list"><li style="list-style-type:disc">Phases occur in the same order as the waterfall model, but these phases may be conducted in several cycles.</li></ul><ul id="47155189-5c3d-4a44-b4d8-1e7d079eeb3a" class="bulleted-list"><li style="list-style-type:disc">A usable product with additional functionality is released at the end of each cycle.</li></ul><ul id="dd7389cf-e660-4966-98da-b3349be83611" class="bulleted-list"><li style="list-style-type:disc">During the 1st requirements analysis phase, customers and developers specify as many requirements as possible and prepare an SRS document. Developers and customers prioritize their requirements. Developers implement the specified requirements in one or more cycles of design, implementation and test based on the defined priorities.</li></ul><ul id="aa3e3613-f6a7-48a2-a515-ef4b477112b3" class="bulleted-list"><li style="list-style-type:disc">Does deliver an operational quality product at each release, but one that satisfies only a subset of the customer’s representative.</li></ul><ul id="4e2d1d26-b696-4884-bb69-97470a3a368c" class="bulleted-list"><li style="list-style-type:disc">The complete product is divided into releases and the developer delivers the product release by release.</li></ul><ul id="efe4bad6-afcf-4749-b1a8-e30f7b80cdf9" class="bulleted-list"><li style="list-style-type:disc">At each release the customer has an operational quality product that does a portion of what is required i.e the customer is able to do some useful work after first release.</li></ul><ul id="3dea4743-277b-4ee9-8a75-c032c617ede1" class="bulleted-list"><li style="list-style-type:disc">The first release is delivered in the tune of a few weeks or months.</li></ul><figure id="aed6d3b4-d5ed-4890-b672-398a4e142306" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfcQJ11An3hH_yq6GBMr8ger0NjvQ3woAyslStTrY1Xw4J42PWrwkbq3Y1qWRzDaRYSZJvW2pEw8k-ocOdJXxAyUwSpalrdIFYoSSIwKa992Uo0aTCFtlQshIwY75g4i9nHJBx1vaIqAUMEn2GAUFseUlh?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:401px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfcQJ11An3hH_yq6GBMr8ger0NjvQ3woAyslStTrY1Xw4J42PWrwkbq3Y1qWRzDaRYSZJvW2pEw8k-ocOdJXxAyUwSpalrdIFYoSSIwKa992Uo0aTCFtlQshIwY75g4i9nHJBx1vaIqAUMEn2GAUFseUlh?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="4d2c59d1-8372-46f1-8c6a-d204609f7da5" class="">
+</p><p id="eee0147d-37ae-4289-b788-be4709c93f7d" class="">
+</p><p id="2897cc7f-1d63-4443-8196-55bfff155dfd" class="">EVOLUTIONARY MODEL</p><figure id="132e9694-d5d3-4597-b261-d5f53c1f7585" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXd772uZlf-qdiofXBDL_mtPenBLWQ_yGPZd3iiQIs8Mxl13uFlaHRdQX2p5Rl9zenFx0jC1wCcXKoh4iup4PCfwOZbmbahuipD-3ULwMok7vai0d4f2CSJr195wjYH4vFJqrFucesZHH8RfknFt6-UOsguF?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:281px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXd772uZlf-qdiofXBDL_mtPenBLWQ_yGPZd3iiQIs8Mxl13uFlaHRdQX2p5Rl9zenFx0jC1wCcXKoh4iup4PCfwOZbmbahuipD-3ULwMok7vai0d4f2CSJr195wjYH4vFJqrFucesZHH8RfknFt6-UOsguF?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ul id="be48f3be-f92c-424e-a910-83ea0ce90a90" class="bulleted-list"><li style="list-style-type:disc">The requirements, plans, estimates and solution evolve over the iterations rather than fully defined and frozen in a major up-front specification effort before the development iterations begin.</li></ul><ul id="dddf329a-399b-472c-b0c2-7bcec29258a2" class="bulleted-list"><li style="list-style-type:disc">Resembles iterative enhancement model. Same phases occur here in a cyclic fashion.</li></ul><ul id="2c736d40-5b70-493a-bbeb-e6d4ed8cc6dc" class="bulleted-list"><li style="list-style-type:disc">Does not require a useable product at the end of each cycle.</li></ul><ul id="17dcf350-83af-4267-bb47-4e58f968166a" class="bulleted-list"><li style="list-style-type:disc">Requirements are implemented by category rather than by priority.</li></ul><ul id="e493c666-b2ff-4931-af51-dbda955389c6" class="bulleted-list"><li style="list-style-type:disc">Should be used when it is not necessary to provide a minimal version of the system quickly.</li></ul><ul id="5921fb45-9ede-48a0-9900-77acf02354ac" class="bulleted-list"><li style="list-style-type:disc">Useful for projects using new technology that is not well understood, complex projects where all functionality must be delivered at one time but the requirements are unstable or not well understood at the beginning.</li></ul><ul id="6a0a3a96-4f0c-4834-8be6-cb73244ca812" class="bulleted-list"><li style="list-style-type:disc">Sometimes called as <em>design a little, build a little, test a little, deploy a little</em> model i.e after the requirements have been specified, the design, build, test and deployment activities are iterated.</li></ul><ul id="47dfbfa8-b59b-40d7-9f99-f7418d7a033f" class="bulleted-list"><li style="list-style-type:disc">Suitable for large problems which can be decomposed into a set of modules for incremental development and delivery. This model is also used widely for object-oriented development projects</li></ul><p id="26423821-7082-45a3-b5bf-7235fe6a1ca4" class="">Advantages :</p><ul id="19a8e313-d73e-49be-9711-1033f90ed75b" class="bulleted-list"><li style="list-style-type:disc">Effective elicitation of actual customer requirements - experiment with a partially developed s/w much before the complete requirements are developed. It helps to accurately elicit user requirements with the help of feedback obtained on the delivery of different versions of the s/w.</li></ul><ul id="65ee5adc-0b82-4c36-b53b-be2aa607cb90" class="bulleted-list"><li style="list-style-type:disc">Easy handling change requests - reworks required due to change requests are normally much smaller compared to the sequential models.</li></ul><p id="8fdeb711-1af0-44e2-a310-25506efdafe2" class="">Disadvantages :</p><ul id="87c9587c-2a7a-4b62-8d37-12dbe9be7417" class="bulleted-list"><li style="list-style-type:disc">Feature division into incremental parts can be non-trivial - difficult to divide the required features into several parts that can be incrementally implemented and delivered.</li></ul><ul id="43dc540b-4243-4f03-b7e6-589fe02a7c00" class="bulleted-list"><li style="list-style-type:disc">Ad hoc design - since at a time design for only the current increment is done, the design can become ad hoc without specific attention being paid to maintainability and optimality.</li></ul><ul id="507f47ae-a59c-4702-91d3-b613203c7289" class="bulleted-list"><li style="list-style-type:disc">In a purely incremental model, the requirement specification is completed before any development activities start. Once it is completed, the requirements are split into requirements.</li></ul><ul id="e23f8329-2ef0-4c10-b7bc-1abeb0a73618" class="bulleted-list"><li style="list-style-type:disc">In a purely evolutionary development, the development of the first version starts off after obtaining a rough understanding of what is required. As the development proceeds, more and more requirements emerge.</li></ul><figure id="e97db980-5583-4ed1-8d9e-9be542382658" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXd7m1FpKBiLVu3YmtlU3259eOTtCoqI2_GJr5m3qcVdC1ly_euVsZpusYIFpP9XFEuVTLuQOMLhedg78uyJAtOMdeDWA6tLfTEgDgvKawtTMF-3ZrNw7vxC3IgR_k10xUzjrVZyoKUAVGPKUs7-2HSwboty?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:312px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXd7m1FpKBiLVu3YmtlU3259eOTtCoqI2_GJr5m3qcVdC1ly_euVsZpusYIFpP9XFEuVTLuQOMLhedg78uyJAtOMdeDWA6tLfTEgDgvKawtTMF-3ZrNw7vxC3IgR_k10xUzjrVZyoKUAVGPKUs7-2HSwboty?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="8e87ff19-24db-46ea-ac43-8017fcba9055" class="">
+</p><p id="4af5eeba-07ca-4643-88c3-a8df753c274a" class="">
+</p><p id="2fee35d8-8d7a-4d94-b140-a703a01df1cd" class="">RAPID APPLICATION DEVELOPMENT</p><figure id="caff7532-db71-4ee4-ba27-14402c170797" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfET5rggvZ5K_nWUpBFbMrc5Pn1NEkDcfYpV0sDPoiETbkcW2J08yWAtSC--66ZZXY2pZnK5BgzTIzx-vRV4RjJiAy6DtUyFj7H_8dAOZ3aufA6QaSnI12BMAXSy74MNqmCyZ08soyyu6R4V_EEhpdgJNM?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:414px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfET5rggvZ5K_nWUpBFbMrc5Pn1NEkDcfYpV0sDPoiETbkcW2J08yWAtSC--66ZZXY2pZnK5BgzTIzx-vRV4RjJiAy6DtUyFj7H_8dAOZ3aufA6QaSnI12BMAXSy74MNqmCyZ08soyyu6R4V_EEhpdgJNM?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ul id="72aeef7d-6d78-4a4b-a7e2-9d75d792a71c" class="bulleted-list"><li style="list-style-type:disc">Incremental process model</li></ul><ul id="9f5fdb9a-8eff-4c87-9c36-a3b0eee51cd2" class="bulleted-list"><li style="list-style-type:disc">User involvement is essential from requirement phase to the delivery of the product</li></ul><ul id="63745832-dfbd-411c-b718-1787e6a47de8" class="bulleted-list"><li style="list-style-type:disc">Process starts with building a rapid prototype and is given to the user for evaluation. The user feedback is obtained &amp; the prototype is refined. The process continues, till the requirements are finalized.</li></ul><ul id="cd9201ca-da6a-4f3c-b206-a686171b312a" class="bulleted-list"><li style="list-style-type:disc">SRS and design documents are prepared with the association of users.</li></ul><ul id="3d58fc30-d64b-4c67-baf8-bd4c18dc7add" class="bulleted-list"><li style="list-style-type:disc">Prototypes are constructed, and incrementally the features are developed and delivered to the customer. The prototypes are not thrown away but enhanced and used in the s/w construction.</li></ul><ul id="b03cbcdc-1251-4281-863c-02b4ef713ed4" class="bulleted-list"><li style="list-style-type:disc">Major goal : to decrease the time taken and the cost incurred to develop s/w systems ; to limit the costs accommodating change requests ; to reduce the communication gap between the customer and the developers.</li></ul><ul id="bc251ac9-b0d4-486c-b184-d1cd78092e90" class="bulleted-list"><li style="list-style-type:disc">Development takes place in a series of short cycles or iterations.</li></ul><ul id="a164af41-2e4a-496d-8ffe-84e9e9292f50" class="bulleted-list"><li style="list-style-type:disc">The time planned for each iteration is called a time box.</li></ul><ul id="f2d5b348-9076-4a2c-9adc-a97e58703ded" class="bulleted-list"><li style="list-style-type:disc">Each iteration is planned to enhance the implemented functionality of the application by only a small amount. During each time box, a quick-and-dirty prototype-style s/w for some functionality is developed. The customer evaluates the prototype and gives feedback on the specific improvements that may be necessary.</li></ul><ul id="e05d30b1-61dd-4797-9884-2f73c1726496" class="bulleted-list"><li style="list-style-type:disc">The prototype is refined based on the customer feedback.</li></ul><ul id="a44f13df-8b95-48f4-a84e-53d6791fae42" class="bulleted-list"><li style="list-style-type:disc">The development team almost always includes a customer representative.</li></ul><ul id="46fd3f6d-49cb-4090-8e84-9bda4ac9091e" class="bulleted-list"><li style="list-style-type:disc">Since the features are delivered in small increments, the customers are able to give their change requests pertaining to a feature already delivered.</li></ul><ul id="9001f18e-2f3f-4b97-b83f-960c8f607f49" class="bulleted-list"><li style="list-style-type:disc">The decrease in development time and cost, and at the same time an increased flexibility to incorporate changes are achieved in the RAD model in 2 main ways - minimal use of planning and heavy reuse of any existing code through rapid prototyping.</li></ul><ul id="d8904d0e-2c52-4cba-af1e-1f087a4c1493" class="bulleted-list"><li style="list-style-type:disc">Some of the characteristics of an application that indicate its suitability to RAD style of development : customized s/w ; non-critical s/w ; highly constrained project schedule ; large s/w.</li></ul><ul id="db2bb03d-d626-4a3c-abbc-472f5ac66cd6" class="bulleted-list"><li style="list-style-type:disc">RAD style of development is not advisable if a development project has one or more of the following characteristics : generic products (wide distribution) ; requirement of optimal performance and/or reliability ; lack of similar products ; monolithic entity.</li></ul><ul id="5d97646a-28c6-4ebc-8218-cc1695e40f7c" class="bulleted-list"><li style="list-style-type:disc">Requirements Planning Phase</li></ul><ol type="1" id="a1d795d1-6740-4c91-b3ed-929fed49928c" class="numbered-list" start="1"><li>requirements are captured using any group elicitation technique. Only issue is the active involvement of users for understanding the project.</li></ol><ul id="9db39d47-51a7-4fa5-9cf7-ca52b33e0262" class="bulleted-list"><li style="list-style-type:disc">User Description</li></ul><ol type="1" id="453a4d3b-06ac-40fe-b23e-c676385acebf" class="numbered-list" start="1"><li>Joint teams of developers and users are constituted to prepare, understand and review the requirements. The team may use automated tools to capture information from other users.</li></ol><ul id="563dbe00-37a0-4073-92fa-b43c95f0f2e2" class="bulleted-list"><li style="list-style-type:disc">Construction Phase</li></ul><ol type="1" id="de55a6f7-1501-4930-98f8-7ce2c128c1d6" class="numbered-list" start="1"><li>combines the detailed design, coding &amp; testing phase of the waterfall model. Here, we release the product to customers. It is expected to use code generators, screen generators and other types of productivity tools.</li></ol><ul id="9005d906-5dc4-4add-8aa4-90b6e8b2c942" class="bulleted-list"><li style="list-style-type:disc">Cut over phase</li></ul><ol type="1" id="7805e5f6-ab6f-4890-86b0-5490d22f5a58" class="numbered-list" start="1"><li>incorporates acceptance testing by the users, installation of the system and user training.</li></ol><ul id="3bb98767-2ec2-4238-ba13-f73b3a230336" class="bulleted-list"><li style="list-style-type:disc">May not be effective if the system can not be properly modularised.</li></ul><ul id="71cdf860-5863-4403-9195-cb485d09438d" class="bulleted-list"><li style="list-style-type:disc">Development time may not be reduced very significantly, if reusable components are not available.</li></ul><ul id="73cb99f1-b581-49f0-a460-cd6e5fb60546" class="bulleted-list"><li style="list-style-type:disc">User involvement may increase the acceptability of the product.</li></ul><ul id="041d5e90-bdae-4c49-b8fb-79916beab21b" class="bulleted-list"><li style="list-style-type:disc">Development time may be reduced due to use of powerful development tools.</li></ul><p id="868340b5-8ed0-434e-872d-e26f2d4263c0" class="">
+</p><p id="699230b5-48be-4c49-b6b8-01ae2499808d" class="">
+</p><p id="20e2e84c-5bd2-4e49-b613-d0fab652d05c" class="">
+</p><p id="12defc14-78b5-409f-9fbe-cfcca654d959" class="">RAD VS PROTOTYPING - In PM, the developed prototype is primarily used by the development team to gain insights into the problem, choose b/w alternatives and elicit customer feedback. The code developed during prototype construction is usually thrown away. In RAD, it is the developed prototype that evolves into the deliverable s/w.</p><p id="3e360ab8-da9c-4b10-bb36-dcce2a0abfa8" class="">
+</p><p id="fe283566-0438-432f-aa8a-4b298997893b" class="">RAD VS ITERATIVE WATERFALL MODEL - In the IWM, all the functionalities of a s/w are developed together. In the RAD model, the product functionalities are developed incrementally through heavy code and design reuse. Customer feedback is obtained on the developed prototype after each iteration and based on this the prototype is refined and thus it becomes easy to accommodate any request for requirements changes. But the IWM does not support any mechanism to accommodate any requirement change requests. The developed s/w though usually has better quality and reliability than that developed using RAD.</p><p id="170a37eb-f21b-4cf8-8b52-60017a973c76" class="">
+</p><p id="a062ce91-8147-4fa0-b4d1-9975de0d2dd0" class="">RAD VS EVOLUTIONARY MODEL - Incremental development is the hallmark of both. In RAD each increment results in essentially a quick and dirty prototype, whereas in the EM, each increment is systematically developed using the iterative waterfall model. Also in the RAD model, s/w is developed in much shorter increments compared to the EM.</p><p id="b20fb616-c9b7-497c-b3f6-cb984c431227" class="">
+</p><p id="5ea3e8a8-12e1-4392-91c7-75ebcd6fc39b" class="">
+</p><p id="0298e67d-9f8c-4b05-9763-b6ba1b515b62" class="">SPIRAL MODEL</p><figure id="ddff4175-d31b-4ea4-9367-8e31e0c616f7" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdYOuoO57Xv_DeqDoUo2VTxmWJOgMZcGL88kmNMy8iHb2JqMMgTrjTxLnQivy_Sikv1y5XHbtKn-YU1T8XsT5KFfRuewUpOmSwDGRMNEmgj_SQhKZlw7jOEJvbHYuTWoTa01BXHnbOncYDvd254htZlnXY?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:367px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdYOuoO57Xv_DeqDoUo2VTxmWJOgMZcGL88kmNMy8iHb2JqMMgTrjTxLnQivy_Sikv1y5XHbtKn-YU1T8XsT5KFfRuewUpOmSwDGRMNEmgj_SQhKZlw7jOEJvbHYuTWoTa01BXHnbOncYDvd254htZlnXY?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ul id="ceed811a-f0fa-4956-a158-1bf4701c980d" class="bulleted-list"><li style="list-style-type:disc">Exact number of loops of the spiral is not fixed and can vary from project to project</li></ul><ul id="d7aa272b-9338-43de-a6c3-8a6d97b75ca3" class="bulleted-list"><li style="list-style-type:disc">Addresses the weakness of the waterfall model w.r.t the treatment of s/w risks</li></ul><ul id="ab7a227f-6b57-4497-811d-e2ac7548565b" class="bulleted-list"><li style="list-style-type:disc">Risk management is considered an ongoing activity that is part of the project management activities</li></ul><ul id="36eaaabe-b98c-432a-a48e-73b174999563" class="bulleted-list"><li style="list-style-type:disc">Each loop of the spiral is called a phase of the s/w processes</li></ul><ul id="ee0013ab-ff84-4e6b-b4e5-d1765fbf0a6e" class="bulleted-list"><li style="list-style-type:disc">A risk is essentially any adverse circumstance that might hamper the successful completion of a software project</li></ul><ul id="7c0d221a-455a-453c-9e1a-47b0b3773e05" class="bulleted-list"><li style="list-style-type:disc">The spiral model supports coping up with risks by providing the scope to build a prototype at every phase of software development</li></ul><ul id="c2d5f2af-aa6b-4e3c-9c92-8c0089b28542" class="bulleted-list"><li style="list-style-type:disc">Radial dimension represents the cumulative costs. Each path around the spiral is indicative of increasing costs.</li></ul><ul id="b7505c89-cd84-4c6e-b50e-f83476418170" class="bulleted-list"><li style="list-style-type:disc">Angular dimension represents the progress made in completing each cycle.</li></ul><ul id="06282dbc-12f7-4d72-a6eb-e5dff5062943" class="bulleted-list"><li style="list-style-type:disc">Each loop of the spiral from X-axis clockwise through 360 degree represents one phase.</li></ul><ul id="5c49275d-fc3b-48e9-9c2a-14bcf7ef2fcd" class="bulleted-list"><li style="list-style-type:disc">Each phase is split into 4 sectors</li></ul><ol type="1" id="3226cbf1-fb8a-411d-98af-a34cc902fe7b" class="numbered-list" start="1"><li>Quadrant 1/Planning : Determination of objectives, alternatives and constraints. The objectives are investigated, elaborated, and analyzed. Based on this, the risks involved in meeting the phase objectives are identified. In this quadrant, alternative solutions possible for the phase under consideration are proposed.</li></ol><ol type="1" id="a555d279-57ec-4a74-ba78-e5598f7b24a6" class="numbered-list" start="2"><li>Quadrant 2/Risk Analysis : Analyze alternatives and attempts to identify &amp; resolve the risks involved. To be able to do this, the solutions are evaluated by developing an appropriate prototype.</li></ol><ol type="1" id="462eb99f-1061-440e-b94d-d12381d00728" class="numbered-list" start="3"><li>Quadrant 3/Development : Product development and testing. At the end of the third quadrant, the identified features have been implemented and the next version of the software is available.</li></ol><ol type="1" id="94d2946b-3325-422b-a393-c87eafe7cf49" class="numbered-list" start="4"><li>Quadrant 4/Assessment : Customer evaluation. Activities during the fourth quadrant concern reviewing the results of the stages traversed so far (i.e. the developed version of the software) with the customer and planning the next iteration of the spiral.</li></ol><ul id="83377bc1-c6e0-4204-9043-9a3f0e0d610e" class="bulleted-list"><li style="list-style-type:disc">Considered a meta model and encompasses all other life cycle models.</li></ul><ul id="eba0ce2f-fa93-4eca-8c35-6f5bce189987" class="bulleted-list"><li style="list-style-type:disc">The spiral model is suitable for development of	technically challenging and large software that are prone to several kinds of risks that are difficult to anticipate at the start of the project.</li></ul><ul id="096605f6-587c-4c4d-b2c2-04f6a4840cb8" class="bulleted-list"><li style="list-style-type:disc">During the 1st phase, planning is performed, risks are analyzed, prototypes are built and customers evaluate the prototype. During the 2nd phase, a more refined prototype is developed, requirements are documented and validated &amp; customers are involved in assessing the new prototype. Risks are known by 3rd phase.</li></ul><ul id="08b5f1ba-5cff-4982-8ca6-100bd4e77e32" class="bulleted-list"><li style="list-style-type:disc">Each phase is completed with a review by the people concerned with the project which consists of a review of all the products developed up to that point and includes the plans for the next cycle. These plans may include a partition of the product in smaller portions for development or components that are implemented by individual groups or persons.</li></ul><ul id="6d163297-9807-42f3-932f-b331909e5455" class="bulleted-list"><li style="list-style-type:disc">If the plan for the development fails, then the spiral is terminated; otherwise, it terminates with the initiation of new or modified s/w.</li></ul><p id="dadc4196-090a-4612-a0a2-ea0ae6be0993" class="">Disadvantages :</p><ul id="bab7407f-e698-4698-a8a5-63e1aa8d59c5" class="bulleted-list"><li style="list-style-type:disc">To the <em>developers</em> of a project, the spiral model usually appears as a <em>complex model</em> to follow, since it is risk-driven and has a more complicated phase structure than the other models.</li></ul><ul id="903913a4-1f15-4ad7-bdd2-6a2252a8264e" class="bulleted-list"><li style="list-style-type:disc">It is <em>not very suitable for use in the development of outsourced projects</em>, since the software risks need to be continually assessed as it is developed.</li></ul><ul id="253424f1-d7c5-4750-988e-44bddd40a789" class="bulleted-list"><li style="list-style-type:disc">Lack of explicit process guidance in determining the objectives, constraints and alternatives.</li></ul><ul id="b639e39f-aa59-4861-95de-7db980112767" class="bulleted-list"><li style="list-style-type:disc">Providing more flexibility than needed for many applications.</li></ul><p id="ffaa73b7-a1c8-469f-a819-cb5ff16e8d48" class="">Advantages :</p><ul id="6d8cd686-80d4-42a4-b7b7-d43506a2902a" class="bulleted-list"><li style="list-style-type:disc">It is much more powerful than the prototyping model.</li></ul><ul id="066e9602-521c-4175-aa61-5effc2da5c00" class="bulleted-list"><li style="list-style-type:disc">Wide range of options to accommodate the good features of other models.</li></ul><ul id="77087c4d-954a-45f3-a247-a7ede58722bf" class="bulleted-list"><li style="list-style-type:disc">Risk analysis and validation steps eliminate errors in the early stages of development.</li></ul><p id="2098ad40-0657-4710-8a8b-3714739ade88" class="">
+</p><p id="8675c999-081b-491d-a6b4-0ea00fe26636" class="">
+</p><p id="cbf6349b-902c-4983-a5dc-ec1a329b511d" class="">RATIONAL UNIFIED PROCESS (RUP)</p><figure id="d46cf68f-949f-47ba-8b48-53f06dc8b3d6" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcovr8BTeixjW_UkHkQw6G7_wl8XhQyXRXMp0mn6xQ_FrxJyz5j4myGQjuQhr9MZ2v1_yviueAQXsz_r2bNthogfTYLBOjAx2c26-181DfUcnrWnmrEVcM91cEXJ4bhiIevVo543M6n6M-GSnLAit2EypgE?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:327px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcovr8BTeixjW_UkHkQw6G7_wl8XhQyXRXMp0mn6xQ_FrxJyz5j4myGQjuQhr9MZ2v1_yviueAQXsz_r2bNthogfTYLBOjAx2c26-181DfUcnrWnmrEVcM91cEXJ4bhiIevVo543M6n6M-GSnLAit2EypgE?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="c41d2562-8393-4d76-bfe4-05cc33347ca5" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeOz7uYCd8jCb7H2sEUZ7408IJ5a5XzqFk2xlaGIwKyPu2F8Qxpmywc0HT5xTKs8DEbhMSx18wbElTmjSGjepkVSfAOPXbXwK2RKDbuWM974hHTbGAeXDn5SAgdlZRjESU_rMjc_zOcQUvvW_BeuCgUI4GS?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:315px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeOz7uYCd8jCb7H2sEUZ7408IJ5a5XzqFk2xlaGIwKyPu2F8Qxpmywc0HT5xTKs8DEbhMSx18wbElTmjSGjepkVSfAOPXbXwK2RKDbuWM974hHTbGAeXDn5SAgdlZRjESU_rMjc_zOcQUvvW_BeuCgUI4GS?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><figure id="15d16f0f-18f8-4bf7-8e7e-078bb16d1649" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcrNXrM3fj-qmu2I6GhjKDFEGjzTSnOtu9q-6I-yyRkyL6NssZsYO0Jkq4nCyL5FEZmStDKGZiprbg4raVhYhCCb4o25kzhEITjg6iQTtFkVelNskgfG4aArIlaVlRL6hcIMZrWUW67qWRKpzfAyHlYpV6B?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:322px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcrNXrM3fj-qmu2I6GhjKDFEGjzTSnOtu9q-6I-yyRkyL6NssZsYO0Jkq4nCyL5FEZmStDKGZiprbg4raVhYhCCb4o25kzhEITjg6iQTtFkVelNskgfG4aArIlaVlRL6hcIMZrWUW67qWRKpzfAyHlYpV6B?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ul id="26a15ad6-e46e-47c4-894e-c205b8bc3501" class="bulleted-list"><li style="list-style-type:disc">Is a s/w engineering process management tool encapsulating best practices in s/w development and maintenance</li></ul><ul id="654ebd06-a6f4-4aa7-8058-34ed04bb34e6" class="bulleted-list"><li style="list-style-type:disc">Software engineering process with the goal of producing good quality maintainable software within specified time and budget</li></ul><ul id="9029c303-5e40-4e4c-8e88-283c6edcc21e" class="bulleted-list"><li style="list-style-type:disc">Supports Iterative development where project is developed through a series of short, fixed length Mini projects called iterations</li></ul><ul id="ac4c961e-fd39-493b-8e3f-1b1a55163447" class="bulleted-list"><li style="list-style-type:disc">Outcome of each iteration is a tested, integrated and executable system. Each iteration has its own requirements analysis, design, implementation and testing activities</li></ul><ul id="c4d10be7-da85-42e0-8576-b357207922a3" class="bulleted-list"><li style="list-style-type:disc">The system continues to enlarge and refine with every iteration and thus grows incrementally over time. Also called iterative and incremental development.</li></ul><ul id="291ea320-d0aa-424e-9155-a8772b0fec38" class="bulleted-list"><li style="list-style-type:disc">Best practices that are implemented and supported in RUP include :</li></ul><ol type="1" id="6232d790-c646-43a1-adc2-dea05c0dc1a5" class="numbered-list" start="1"><li>Iterative and incremental development of s/w</li></ol><ol type="1" id="6ff3b842-b579-46aa-abe9-3edde8087059" class="numbered-list" start="2"><li>Requirements management</li></ol><ol type="1" id="9bc0b25a-f717-477e-8307-811a59fa595d" class="numbered-list" start="3"><li>S/w component reuse</li></ol><ol type="1" id="69deb037-b270-4526-976a-a0278d98d152" class="numbered-list" start="4"><li>Visual modeling</li></ol><ol type="1" id="c4e33ba0-b14e-484e-b978-dff2178e2548" class="numbered-list" start="5"><li>S/w quality verification</li></ol><ol type="1" id="00f8531f-ffae-483a-99c9-0bce4085baea" class="numbered-list" start="6"><li>Configuration and change management</li></ol><ul id="4a0f0ed1-67be-4926-aef2-4b052b14112c" class="bulleted-list"><li style="list-style-type:disc">The RUP is a configurable product that can be adapted to s/w products of different types and complexities.</li></ul><ul id="96274fbe-006a-4a39-872b-95e3eb4f7c9a" class="bulleted-list"><li style="list-style-type:disc">Is a s/w development process for object oriented models. Reduces the unexpected development cost &amp; prevents wastage of resources.</li></ul><ul id="26527109-c933-4d21-b52f-803f5758f149" class="bulleted-list"><li style="list-style-type:disc">RUP consists of well-defined 4 sequential phases for the iterative development of s/w.</li></ul><ol type="1" id="675a65fd-c818-435f-9a80-09429209608a" class="numbered-list" start="1"><li>Inception</li></ol><ul id="1be29225-7ea3-4b12-9bca-d637f3e14230" class="bulleted-list"><li style="list-style-type:disc">The development team develops the business context and scope of the project.</li></ul><ul id="720c9915-d5eb-4f8d-a9bf-de60bc89649c" class="bulleted-list"><li style="list-style-type:disc">Similar to requirements analysis and specification phase of waterfall model</li></ul><ul id="e9ad4a04-455a-4cdf-9fdb-776ebcc92fb6" class="bulleted-list"><li style="list-style-type:disc">Requirements are defined using requirements elicitation techniques</li></ul><ul id="895c4969-8921-482d-8dff-492cee4b7839" class="bulleted-list"><li style="list-style-type:disc">Change can be accomodated due to the iterative nature of the process.</li></ul><ul id="096e8211-d81a-4723-b753-7cba414a62ba" class="bulleted-list"><li style="list-style-type:disc">Stakeholders of the product are identified and their interfaces to the s/w to be developed are determined. All use cases are also identified and partly developed and prototyped</li></ul><ul id="a04ea4ed-a4cf-4cce-9bc6-0803c4ec2156" class="bulleted-list"><li style="list-style-type:disc">A risk management plan and cost as well as schedule estimates are developed.</li></ul><ul id="e7a9bfdd-ae02-42ae-bbf3-dbec0e91d68b" class="bulleted-list"><li style="list-style-type:disc">Deliverables : vision and scope doc, initial use case model, initial project plan including a risk management plan, an initial prototype.</li></ul><ul id="be790360-8424-4d85-b0c5-e132cdf039d9" class="bulleted-list"><li style="list-style-type:disc">Financial and technical feasibility of the project is carefully assessed at this point and a go/no-go decision is made</li></ul><ol type="1" id="bd7aa308-4328-46ba-a082-a38f87ee6e0b" class="numbered-list" start="2"><li>Elaboration</li></ol><ul id="18334812-779e-44c6-944a-f5e530386707" class="bulleted-list"><li style="list-style-type:disc">Use case model is formalized and an executable prototype of the most complex and critical use cases is implemented</li></ul><ul id="4509c1b3-f555-4d17-a96a-9b886e993073" class="bulleted-list"><li style="list-style-type:disc">Questions answered : How do we plan and design the project? What resources are required? What type of architecture may be suitable?</li></ul><ul id="f184d767-24a9-421d-9ea9-14e9a642ca86" class="bulleted-list"><li style="list-style-type:disc">Specify the features and prepare the baseline of the architecture</li></ul><ul id="97c7c11c-c33d-4977-b962-02d7e0a4f491" class="bulleted-list"><li style="list-style-type:disc">Similar to design phase of waterfall model</li></ul><ul id="35254c4d-34ab-44ad-8061-8909c4cc0d4a" class="bulleted-list"><li style="list-style-type:disc">Deliverables : use case model, NFR specification, revised and complete project plan including a revised risk management plan, more accurate estimates of the cost and time needed to complete the project, an executable prototype</li></ul><p id="1a724ece-3a9e-41b0-84f6-d9463fc585d2" class="">These 2 phases correspond to the SRS or analysis phase of the prototyped waterfall mode.</p><ol type="1" id="1913d6c8-2c98-4612-98e4-7d41460b91c8" class="numbered-list" start="3"><li>Construction</li></ol><ul id="dc7bb9a8-423e-4daa-ab09-403286446093" class="bulleted-list"><li style="list-style-type:disc">S/w is designed, implemented and integrated</li></ul><ul id="c49aa976-820d-4034-b7f7-701597c105c9" class="bulleted-list"><li style="list-style-type:disc">Objectives are translated in design and architecture documents which are the inputs here.</li></ul><ul id="de34365c-5f94-4c19-8ea7-1c6ba13039eb" class="bulleted-list"><li style="list-style-type:disc">Build and test the product.</li></ul><ul id="35162108-d8c4-4405-94eb-3d9392a415bf" class="bulleted-list"><li style="list-style-type:disc">Various s/w releases might be constructed concurrently to accelerate the deployment of high priority features of the s/w product</li></ul><ul id="fa94ea63-e193-44b9-b53e-49fe0b2c4baa" class="bulleted-list"><li style="list-style-type:disc">Deliverables : s/w design document, s/w product, all related documentation including installation and user manuals</li></ul><ol type="1" id="72902ee1-5a12-4115-817a-0088d6d9b838" class="numbered-list" start="4"><li>Transition</li></ol><ul id="66c08a05-0d33-4092-ae6c-ae42b68d4c34" class="bulleted-list"><li style="list-style-type:disc">S/w product is deployed and made available to its intended users</li></ul><ul id="a1ea414f-9a9f-4e75-be44-06680eceae98" class="bulleted-list"><li style="list-style-type:disc">Product is validated against its requirements.</li></ul><ul id="47751a8a-31ed-49d4-9abb-bf5b027fb277" class="bulleted-list"><li style="list-style-type:disc">Necessary DB conversions are performed and training of s/w users and operators is provided.</li></ul><ul id="679b7148-89b2-4c4f-b011-218bbf1ab5eb" class="bulleted-list"><li style="list-style-type:disc">Ultimate objective is customer satisfaction. Phase activities may continue till the customers are satisfied.</li></ul><ul id="44c0050a-bc65-4af9-bc47-222dffa988d4" class="bulleted-list"><li style="list-style-type:disc">Finally, the product is distributed to its intended users using the appropriate distribution channels</li></ul><p id="db957742-2ace-4407-9774-16fc36ff490a" class="">RUP can also be described by activities that are clustered into different workflows. Each <em>workflow</em> culminates in one or more deliverable. The 9 workflows that are clearly identified in RUP are :</p><ol type="1" id="7646ad31-2802-42e4-be3c-b0120a23621a" class="numbered-list" start="1"><li>Business Modeling</li></ol><ol type="1" id="0a31d2f6-0874-4887-adaa-d9c10d6d4f19" class="numbered-list" start="2"><li>Requirements</li></ol><ol type="1" id="0e67139c-0dc2-44fc-b2bd-3da660f39c78" class="numbered-list" start="3"><li>Analysis and Design</li></ol><ol type="1" id="2fcf9de3-8d87-4e59-8681-406146d889df" class="numbered-list" start="4"><li>Implementation</li></ol><ol type="1" id="a34b65d7-89e6-4eec-b2e0-e2c0fba2a75a" class="numbered-list" start="5"><li>Test</li></ol><ol type="1" id="946314ae-4994-45b3-8a8e-199fe2ef712d" class="numbered-list" start="6"><li>Deployment</li></ol><ol type="1" id="ce8da6b0-47e7-41bd-ae7c-ffd3a4f9964c" class="numbered-list" start="7"><li>Project Management</li></ol><ol type="1" id="214aacc4-12f2-415c-a30f-a075ddfbaa9b" class="numbered-list" start="8"><li>Configuration and change management</li></ol><ol type="1" id="9e2101a7-5ce7-4bcb-83ab-f7b3ad44067b" class="numbered-list" start="9"><li>Environment</li></ol><p id="d79f4010-a266-49ec-a6c6-0b30070f79d9" class="">The activities of one workflow can span more than one phase of the RUP. For example, project management, configuration and change management and environment activities are spread  over all 4 phases of the RUP. These 3 workflows are called core supporting workflows, the other 6 workflows are called <em>core process workflows.</em></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

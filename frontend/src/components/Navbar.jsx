@@ -17,16 +17,12 @@ function Navbar({ setSearchQuery }) {
   const navigate = useNavigate();
 
   const [sticky, setSticky] = useState(false);
-  const [query, setQuery]=useState('');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      // if (window.scrollY > 0) {
-      //   setSticky(true);
-      // } else {
-      //   setSticky(false);
-      // }
-      setSticky(window.scrollY>0);
+
+      setSticky(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -46,14 +42,14 @@ function Navbar({ setSearchQuery }) {
 
   };
 
-  const handleSearchChange=(event)=>{
-    const value=event.target.value;
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
     setQuery(value);
     setSearchQuery(value);
   }
 
   return (
-    <AppBar position={sticky?"fixed":"static"} sx={{zIndex:1300}}>
+    <AppBar position={sticky ? "fixed" : "static"} sx={{ zIndex: 1300 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -123,7 +119,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     [theme.breakpoints.up('sm')]: {

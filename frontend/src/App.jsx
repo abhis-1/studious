@@ -14,13 +14,13 @@ function App() {
       <Routes>
 
         <Route path="/signin" element={<Signin />} />
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Navigate to="/home" />} />
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/verify-otp" element={<OtpVerify />} />
-        <Route path="/dashboard/subject/:id" element={<SubjectPage/>}/>
+        <Route path="/dashboard/subject/:id" element={<SubjectPage />} />
 
       </Routes>
     </>

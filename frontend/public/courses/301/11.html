@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>UNIFIED MODELLING LANGUAGE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="61061253-9e9a-4329-86ec-adf7deeb3a2c" class="page sans"><header><h1 class="page-title">UNIFIED MODELLING LANGUAGE</h1><p class="page-description"></p></header><div class="page-body"><p id="c62823a0-0810-444c-8aab-d3f07afae594" class="">
+</p><p id="e0a44b05-8d6f-4c81-bcb3-b9e8010c10fa" class="">It is a de-facto s/w industry standard modeling language for visualizing, specifying, constructing and documenting system elements in general and s/w systems in particular.</p><p id="24b5349f-d4d0-417d-afa4-3a8e94ab441d" class="">UML is a language for documenting models. It has its syntax and semantics. It provides a set of basic graphical notations that can be combined in certain ways to document the design and analysis results.</p><p id="8855f802-b960-4b25-bd11-972e09efb8ec" class="">A model is an abstraction of a real problem or situation and is constructed by leaving out unnecessary details. This reduces the problem complexity and makes it easy to understand the problem.</p><p id="02311da8-681a-4269-b9b8-d257ec33b509" class="">It has a well defined syntax and semantics, provides a rich set of graphical artifacts which help in the top-down refinement of object-oriented systems from the phases of requirements capture to the deployment of s/w components. Typically used in an Object-Oriented SDLC model including object-oriented analysis and design phases.</p><p id="44a4fce2-a328-4734-882a-2df80991ca84" class="">In UML, systems can be modeled by considering 2 aspects :</p><ol type="1" id="ca8fce5d-d1fa-4353-b02a-c70f7e44ec55" class="numbered-list" start="1"><li>Behavioral</li></ol><ol type="1" id="09e27f98-1c20-49e2-891c-816ef44b6b38" class="numbered-list" start="2"><li>Structural</li></ol><ol type="1" id="9d3592ce-cb77-4a6b-9bc9-7d0e7f2c1dc4" class="numbered-list" start="3"><li>Architectural</li></ol><p id="3c993c73-7d1d-4c01-9751-1a2062439a63" class="">Each aspect is concerned with both static and dynamic views of the system. The static view represents a projection on the static structures of the complete system description. The dynamic view represents a projection on the dynamic behavior of the system. Views are communicated using a number of diagrams that contain information which emphasize a particular aspect of the system. The RUP model for s/w development uses UML as a tool for the visual modeling of s/w artifacts.</p><p id="251e1786-c9c9-45e5-b60c-b0aa12335800" class="">Aspects</p><p id="ab9e8eda-dcca-463d-83ab-0ca143b3e7fd" class="">While modeling s/w systems, 3 aspects of such systems are considered :</p><ol type="1" id="b7b84b71-3b06-481e-b7c0-e8a7580dd8e8" class="numbered-list" start="1"><li>Behavioral Aspects : involve the functionalities provided by the system (static behavioral aspects) and their associated interactions, timings and orderings (dynamic behavioral aspects).</li></ol><ol type="1" id="b1a117f9-8d4c-4166-9968-dc05a88b254f" class="numbered-list" start="2"><li>Structural Aspects : involve the class structures of the Object-oriented s/w and the inter-relationships among the classes ( static structural aspects ) and the algorithmic details of the object life cycles and their interactions (dynamic structural aspects).</li></ol><ol type="1" id="5671bfe6-72f9-4aad-95ed-236170daa4ae" class="numbered-list" start="3"><li>Architectural Aspects : related to the deployment and distribution of s/w and h/w across the various distributed system components.</li></ol><p id="758a8b27-aac0-4655-bfa4-8fffaa3a66d9" class="">
+</p><p id="c131f8d3-7d34-471d-9013-c93426ea4090" class="">Views</p><p id="799020ac-c6c2-49af-bb84-e202ce2af8be" class="">Aspects of the system are covered by various static and dynamic views :</p><ol type="1" id="9840d706-b5ca-4049-9435-799a35b5a194" class="numbered-list" start="1"><li>Use Case View : focuses on the behavioral aspects of the system and reflects the user’s concerns and requirements. Considers the system as a black box (where the internal working of the system is not known/visible to the user). Users, testers and requirement analysts are interested in this view.</li></ol><ol type="1" id="7e1ed4ef-1c82-455f-83e3-1e9a5b6d5ec9" class="numbered-list" start="2"><li>Design and Process View : are the concern of the development team including the analysts, designers and implementers. Design view is concerned with objects, classes and collaborations. The process view is concerned with s/w architecture issues such as concurrency, multithreading, synchronization, performance and scalability issues.</li></ol><ol type="1" id="a97f3efe-24ad-4992-a85e-b0d4f9f5e3b3" class="numbered-list" start="3"><li>Implementation View : describes the files and components needed to assemble and release the system.</li></ol><ol type="1" id="b83300e1-6eb9-44c5-b81c-c1429cee1452" class="numbered-list" start="4"><li>Deployment View : describes the ways to distribute, deliver and install system files and components across the distributed nodes of the system.</li></ol><p id="15884696-10bd-4a98-8088-621d95d0b222" class="">
+</p><p id="76ed546d-6742-49f1-8640-ceb06468fcd5" class="">Diagrams</p><p id="69fb5f2b-da0c-4734-ac83-b218c42475d9" class="">Contain model elements such as classes, objects, nodes, components and various types of relationships among them described by generally standardized graphical symbols. A diagram can be used to describe certain system aspects at the different levels of abstraction. Ex. state diagrams can describe system level i/o interactions and can also be used to describe/show state changes of a particular system object across multiple use cases.</p><p id="6f9cc64a-bb54-4d2c-b1c6-aa50aa2ae22f" class="">UML diagrams are clustered under</p><ol type="1" id="205e8314-fb05-4fb7-aa19-e3d363b87106" class="numbered-list" start="1"><li>Behavioral modeling diagrams</li></ol><ul id="07602c85-6f88-48ea-aa55-d981b365ed22" class="bulleted-list"><li style="list-style-type:disc">Use Case Diagram</li></ul><ul id="93c3f76f-84b1-4a3c-9d63-d1dda7e95215" class="bulleted-list"><li style="list-style-type:disc">&gt; Describes the functions of the system and its external users and defines their interfaces.</li></ul><ul id="30f38055-2563-4e8f-9794-091db5c33bbd" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows a number of actors, external to the system and their connection to the use cases representing the services provided by the system.</li></ul><ul id="e1f44e3b-112a-4f5b-b7b2-c5905cacfd84" class="bulleted-list"><li style="list-style-type:disc">&gt; Use cases can be inherited by other use cases allowing for the reusability of use cases. Can also be associated using the include relationship. This allows for the modularization of use cases. They can similarly be associated with the extend relationship to deal with certain exceptions or abnormal conditions that disrupt the normal execution of the use case.</li></ul><ul id="9e9c0d88-d028-4843-b7a8-32ecf6a101b9" class="bulleted-list"><li style="list-style-type:disc">&gt; Is used to model the static behavioral aspects of the use case view of the system to model.</li></ul><ul id="aa56f519-de93-41aa-ad93-132f7a39f269" class="bulleted-list"><li style="list-style-type:disc">&gt; Mainly used to capture and document functional s/w requirements.</li></ul><ul id="a493b369-13d9-4bf7-9985-92b053b84734" class="bulleted-list"><li style="list-style-type:disc">Statechart Diagram</li></ul><ul id="091fb9a6-4e48-4592-851a-4cfa39a3d31f" class="bulleted-list"><li style="list-style-type:disc">&gt; Represents the possible behavior of an object using state changes.</li></ul><ul id="37278409-692a-4654-ba6a-96913a283aa5" class="bulleted-list"><li style="list-style-type:disc">&gt; Can also be used as a system level diagram which shows the system state changes during the operation of the system.</li></ul><ul id="de08541f-4ab4-41bd-a43c-382e82173736" class="bulleted-list"><li style="list-style-type:disc">&gt; Can be used to model both the dynamic behavioral aspects of the use case view and the dynamic structural aspects of the design and process view of the system to model.</li></ul><ul id="3afcd0a8-aaef-4947-abc1-1a1e25a0f4d6" class="bulleted-list"><li style="list-style-type:disc">Sequence Diagram</li></ul><ul id="dfd458e5-00ae-48f1-a643-82ddcb6be190" class="bulleted-list"><li style="list-style-type:disc">&gt; Show the interaction between a number of objects and their time ordering.</li></ul><ul id="96b42df1-1b14-4a35-ba2b-2bec3db8280e" class="bulleted-list"><li style="list-style-type:disc">&gt; Can be used to model the dynamic behavioral aspects of the use case view if the interacting objects are interface objects or actors.</li></ul><ul id="a07b3410-2261-40b5-835e-0eaf145c5343" class="bulleted-list"><li style="list-style-type:disc">&gt; In case the interacting objects are internal ones, it can be used to model the dynamic structural aspects of the design and process views of the system to model.</li></ul><ul id="287d890d-12f8-4aae-8e93-efaae7aa9c6e" class="bulleted-list"><li style="list-style-type:disc">Activity Diagram</li></ul><ul id="b6e8d2c4-37e2-41aa-803a-e4b0d8ae4a25" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows a sequential or concurrent flow from one activity to another.</li></ul><ul id="844eafe7-aa87-4543-ae42-6a121706821d" class="bulleted-list"><li style="list-style-type:disc">&gt; Consists of action states, activity states and transitions b/w them.</li></ul><ul id="18b8c0e9-0d1a-4ea1-b668-6a67b40704bc" class="bulleted-list"><li style="list-style-type:disc">&gt; Usually spans more than one use case or functionality.</li></ul><ul id="e7fd794a-f2b4-4f1a-9962-a0f22115777c" class="bulleted-list"><li style="list-style-type:disc">&gt; Can be used to model both the dynamic behavioral aspect of the use case view and the dynamic structural aspect of the design view of the process to model.</li></ul><ul id="75afc8fa-9f9a-4c6f-b7e8-4b33553fb41e" class="bulleted-list"><li style="list-style-type:disc">Communication Diagram</li></ul><ul id="5ad7f408-33ab-4fef-9e22-f2c19618f734" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows the objects and the numbered messages they exchange. These messages are numbered to provide a time ordering of the messages.</li></ul><ul id="119aa3e0-416e-4ce5-bcf7-69e7978011b5" class="bulleted-list"><li style="list-style-type:disc">&gt; Can be used to model the dynamic behavioral aspects of the use case view in addition to the dynamic structural aspect of the process view of the system to model.</li></ul><ul id="e7340cc2-c396-434e-b28f-1325caf782b0" class="bulleted-list"><li style="list-style-type:disc">&gt; Communication + Sequence Diagrams = Interaction Diagram, can be easily produced from each other.</li></ul><ul id="55ae6d63-afae-44f8-977b-ffab78e204f2" class="bulleted-list"><li style="list-style-type:disc">Timing Diagram</li></ul><ul id="b99ead00-6e62-4d2f-8480-a153860fd865" class="bulleted-list"><li style="list-style-type:disc">&gt; Merges a sequence and state diagram to provide a timeline showing the changes of state of an object over time.</li></ul><ul id="eb2582b3-5be3-407e-91e5-52b5dc35d938" class="bulleted-list"><li style="list-style-type:disc">&gt; Also shows the messages or interactions exchanged as well as the time and duration constraints attached to the interactions.</li></ul><ul id="120d2d59-7211-4d44-9bbe-5b9316352c85" class="bulleted-list"><li style="list-style-type:disc">Interaction Overview Diagram</li></ul><ul id="47e0ca85-879b-44e1-995d-c07ff8daa125" class="bulleted-list"><li style="list-style-type:disc">&gt; Is a variation of activity diagram in which the activities represent an activity diagram.</li></ul><p id="801d0553-2c86-41db-a5c4-6b65c8afb76d" class="">
+</p><ol type="1" id="71b54bb9-4b1a-46ec-9aa5-be9262cf9e88" class="numbered-list" start="2"><li>Structural modeling diagrams</li></ol><ul id="6b73b049-9695-421d-a5b5-3eca5d3fe549" class="bulleted-list"><li style="list-style-type:disc">Class Diagrams</li></ul><ul id="09766c99-b650-4892-9155-2c96f5a78091" class="bulleted-list"><li style="list-style-type:disc">&gt; Used to model the static structural aspects of the design and process views of the system to model.</li></ul><ul id="44ebfaed-b41e-4a7b-b083-8253fd561eb4" class="bulleted-list"><li style="list-style-type:disc">&gt; Show the static structure of classes and their possible relationships in the system.</li></ul><ul id="cf46ebcc-458d-465e-80eb-e852f0060229" class="bulleted-list"><li style="list-style-type:disc">Object Diagram</li></ul><ul id="6c97b0af-ce6f-4e60-9b57-fa03d78f62e9" class="bulleted-list"><li style="list-style-type:disc">&gt; Variant of class diagrams, they use an almost identical notation.</li></ul><ul id="81054e43-5c8d-4367-9d87-f19b5cc84105" class="bulleted-list"><li style="list-style-type:disc">&gt; Can be an example of a class diagram that shows possible instantiations of classes during system execution.</li></ul><ul id="3c047394-8bf3-4a90-880c-8936f1f449f2" class="bulleted-list"><li style="list-style-type:disc">&gt; Used to model the static structural aspects of the design and process views of the system to model.</li></ul><ul id="4d5a9742-b1a6-4622-a538-e1c624fb14aa" class="bulleted-list"><li style="list-style-type:disc">Composite Diagrams</li></ul><ul id="9215f0bb-503a-4e2f-aea1-771a83e45e3e" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows the internal composition of a class.</li></ul><ul id="6031dfbb-bc71-4398-9563-b5e3554f7223" class="bulleted-list"><li style="list-style-type:disc">&gt; Also includes the interaction points (also called ports) through which a component of a class interacts with the other parts of the system.</li></ul><ul id="4e931b4e-a414-48ca-9780-6b5acd2a527a" class="bulleted-list"><li style="list-style-type:disc">Component Diagram</li></ul><ul id="2088cca6-5000-40f0-ad48-3f578fcce6ce" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows the physical structure of the code in terms of code components. Components can be composed of source code, a binary or an executable component.</li></ul><ul id="e837f8a0-389b-4e87-8368-6a376de9f547" class="bulleted-list"><li style="list-style-type:disc">&gt; A component contains information about the logical class or the class it implements. This creates a mapping from the design view to the component view.</li></ul><ul id="0197f06c-7a7f-4b96-8d25-23a4740632ee" class="bulleted-list"><li style="list-style-type:disc">&gt; It is used to model the static architectural aspects of the implementation view of the system to model.</li></ul><p id="cee8ceda-ce16-451b-b62d-af79ba2d205c" class="">
+</p><ol type="1" id="0a981b33-1e57-425e-958f-3dbfc53da78c" class="numbered-list" start="3"><li>Architectural modeling diagrams</li></ol><ul id="3e6aca9f-6903-4202-9e0e-a1643919e7e8" class="bulleted-list"><li style="list-style-type:disc">Package Diagrams</li></ul><ul id="eaa160d9-d9ac-4b25-a26b-f20d4d31ae64" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows the existing packages in s/w and the relationship b/w them.</li></ul><ul id="45121df1-6344-428f-8e89-5140edec341d" class="bulleted-list"><li style="list-style-type:disc">&gt; A package can contain components, class diagrams and use case diagrams among other UML diagrams.</li></ul><ul id="4c1d4856-eae6-4413-9cdf-ee562b5f2038" class="bulleted-list"><li style="list-style-type:disc">&gt; Packages can be composed of other packages and 2 packages can be merged.</li></ul><ul id="fc15280f-ab9c-4ee5-a77b-2105149abefd" class="bulleted-list"><li style="list-style-type:disc">Deployment Diagram</li></ul><ul id="ea355dd3-50f9-48ae-a207-9937958530e8" class="bulleted-list"><li style="list-style-type:disc">&gt; Shows the physical architecture and distribution of the s/w and h/w components in the system.</li></ul><ul id="016b8c81-8fed-4908-82d8-172cf2ad605d" class="bulleted-list"><li style="list-style-type:disc">&gt; Used to model the static architectural aspects of the deployment view of the system.</li></ul><p id="6e31dcfc-5a50-4691-ad75-c356e77429e4" class="">In almost every design methodology, the models of the problem are first constructed. These are called the analysis models. Once the required models of a system have been constructed, these can be used for a variety of purposes during s/w development, including :</p><ol type="1" id="c494308c-2854-40c1-bdbc-d3954a77c737" class="numbered-list" start="1"><li>Analysis</li></ol><ol type="1" id="1c3d1689-ea0b-4046-947a-4c28be1e0e90" class="numbered-list" start="2"><li>Specification</li></ol><ol type="1" id="21d87c62-8334-4b48-a9fe-1dcdbb6e863a" class="numbered-list" start="3"><li>Design</li></ol><ol type="1" id="ab5dc9be-167a-4da7-8ac7-4a9f94f872fe" class="numbered-list" start="4"><li>Coding</li></ol><ol type="1" id="19e2a7db-58e4-48cd-aa8b-30ad195a6604" class="numbered-list" start="5"><li>Visualization and understanding of the implementation</li></ol><ol type="1" id="cd73183e-912a-4edf-a140-e3b4d3d5cb01" class="numbered-list" start="6"><li>Testing</li></ol><p id="cf9e9940-160b-45aa-b666-f3dfccb73d60" class="">The different UML diagrams provide different perspectives of a s/w system to be developed which facilitates a comprehensive understanding of the system. UML diagrams help to capture the 5 views/models of a system :</p><figure id="9e7b2d0d-8a41-4059-b452-9a39f2090da7" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdNyvizKXptyIBxnF8DiAgZGpys1dh2pV8lIwSg0u_fN_FgnUeCggLrauABNkIs26VggvQlGBE-SdhsOWUBiCXVYF-AsRhnxHto6mwP6WTsSuSQfijKQPqUKgwdI2Cm6wEJ0W3trvXNnfr14bdCcYoJdXI?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:440px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdNyvizKXptyIBxnF8DiAgZGpys1dh2pV8lIwSg0u_fN_FgnUeCggLrauABNkIs26VggvQlGBE-SdhsOWUBiCXVYF-AsRhnxHto6mwP6WTsSuSQfijKQPqUKgwdI2Cm6wEJ0W3trvXNnfr14bdCcYoJdXI?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="b7821a10-d31f-473c-8232-d0d94a416ada" class="numbered-list" start="1"><li>User’s view</li></ol><p id="ad9518c9-5c8d-4d9a-841e-40685a958b96" class="">Captures the functionalities offered by the system to its users. It is a black-box view of the system where the internal structure, the dynamic behaviour of different system components, the implementation etc. are ignored. It is a functional model. Is considered as the central view.</p><ol type="1" id="656eba45-7c0e-4cc0-b778-185ac456a2e7" class="numbered-list" start="2"><li>Structural view</li></ol><p id="1143e81e-06fb-4dc4-b7f1-f46921c1564a" class="">Defines the structure of the problem in terms of the kinds of objects important to the understanding of the working of a system and to its implementation. Also captures the relationships among the classes.</p><ol type="1" id="5d54fdfb-bb85-4f25-8cb6-a8f382da094d" class="numbered-list" start="3"><li>Behavioural view</li></ol><p id="1cbf4f33-344c-4075-931f-82768921824b" class="">Captures how objects interact with each other in time to realise the system behaviour. The system behavior captures the time-dependent behaviour of the system.</p><ol type="1" id="d1814c82-af93-4ea3-a6c2-a28cef993a53" class="numbered-list" start="4"><li>Implementation view</li></ol><p id="d57e4ea4-5c8e-4ba8-9efd-a5cc68ead03f" class="">Captures the important components of the system and their interdependencies.</p><ol type="1" id="5c4ac0b3-71af-4019-9e28-8a39d8fa7e0b" class="numbered-list" start="5"><li>Environmental view</li></ol><p id="e81a34ec-c322-41a3-853c-8a156f4ae770" class="">Models how the different components are implemented on different pieces of h/w.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

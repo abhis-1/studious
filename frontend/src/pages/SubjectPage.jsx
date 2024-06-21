@@ -20,9 +20,9 @@ function SubjectPage() {
         <div className='flex flex-col min-h-screen'>
             <Navbar />
             <div className='flex-grow'>
-                <SubjectContent  />
+                <SubjectContent />
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div >
     );
 }

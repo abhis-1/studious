@@ -36,7 +36,7 @@ export default function Signup() {
         email,
         password,
       },
-    { withCredentials: true });
+        { withCredentials: true });
 
       setSuccessMessage(response.data.msg);
       console.log(successMessage);
