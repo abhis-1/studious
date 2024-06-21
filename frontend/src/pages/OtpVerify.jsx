@@ -4,7 +4,11 @@ import { InputBox } from "../components/InputBox";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 
+
 export default function OtpVerify() {
+
+ 
+
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();

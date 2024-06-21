@@ -3,9 +3,12 @@ import Navbar from "../components/Navbar"
 import Footer from '../components/Footer';
 import SubjectContent from '../components/SubjectContent';
 import { useParams } from 'react-router-dom';
-import list from "../../public/list.json"
+import list from "../../public/list.json";
+import useRequireAuth from '../hooks/useAuth';
 
 function SubjectPage() {
+
+    useRequireAuth();
 
     const { id } = useParams();
     const subject = list.find(item => item.id === parseInt(id));
