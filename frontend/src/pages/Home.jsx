@@ -23,11 +23,6 @@ function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // if (window.scrollY > 0) {
-      //   setSticky(true);
-      // } else {
-      //   setSticky(false);
-      // }
       setSticky(window.scrollY>0);
     };
 
@@ -62,7 +57,6 @@ function Home() {
           >
             Studious
           </Typography>
-          {/* <Link to="/signin" className='flex ml-90 bg-black text-white rounded-md p-3 font-semibold hover:bg-white hover:text-black'>SIGN IN</Link> */}
           <Box sx={{ flexGrow: 1 }} />
           <Link to="/signin"
             
@@ -95,8 +89,7 @@ function Home() {
         </div>
 
     </div>
-    <Footer/>
-    
+      <Footer/>
     </>
     
   );

@@ -13,7 +13,8 @@
         "name":"Software Design & Programming",
         "title":"Semester 1 - Create efficient, maintainable solutions to problems. Explore C, C++, concepts of OOPS.",
         "image": "https://cdn.sanity.io/images/tlr8oxjg/production/f2fb25c9cafe100e220f0caf70f92cf19a6ec3dc-1456x816.png?w=3840&q=80&fit=clip&auto=format",
-        "topics":["Introduction to Programming Methodlogy","Variables & Expresssions","Types","Operators & Expressions","Control Flow","Functions & Program Structure","Pointers & Arrays","Pointer Conversion","Structures","Structure & Union Declarations","File Descriptors","UNIX System Interface","Enumerators","Declarators","Typedef","Identifiers","Preprocessing","Object Model","Inheritance","Polymorphism","Abstraction","Language Features","Abstract Data Type","Modularity","Using UML","Class Diagram","Design Patterns"]
+        "topics":["Introduction to Programming Methodlogy","Variables & Expresssions","Types","Operators & Expressions","Control Flow","Functions & Program Structure","Pointers & Arrays","Pointer Conversion","Structures","Structure & Union Declarations","File Descriptors","UNIX System Interface","Enumerators","Declarators","Typedef","Identifiers","Preprocessing","Object Model","Inheritance","Polymorphism","Abstraction","Language Features","Abstract Data Type","Modularity","Using UML","Class Diagram","Design Patterns"],
+        "filepath": "../../public/notion-content-main/subject-"
     },
 
     {
@@ -71,13 +72,39 @@
         "image":"https://tortalabz.com/wp-content/uploads/2022/10/Web-and-Mobile-App-Development.png",
         "topics":["Coding Techniques","OOP Programming","Mobile App Development","Introduction to Android Platform","Graphical User Interface","Data Persistance","Application Security & Permissions","Network Communication & Internet Applications"]
     },
-
+    
     {
-        "id":10,
+        "id":301,
         "name":"Software Engineering",
         "title":"Semester 3 - Learn requirements analysis, design, coding, testing, maintenance, documentation and project management.",
         "image":"https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg",
-        "topics":["Evolving role of Software","The Capability Maturity Model Integration (CMMI)","Product & Process","Process Models","Prototyping","The Unified Process","Business Process Engineering","Requirements Engineering","System Modelling","Requirement Analysis Concepts & Prinicples","Software Requirement Specification","Data Modelling","Functional Modeling","Surveys of Software Design Methods","Software Design Quality","Software Architecture","Implementation & Testing","Project Organization & Phases","Version Control","Testing & Maintenance","Verification & Validation","Software Quality","Technical Metrics for Software","Business Process Reengineering","Reverse Engineering & Restructuring"]
+        "topics":{
+            "Evolving role of Software": "../../public/courses/301/1",
+            "The Capability Maturity Model Integration (CMMI)": "../../public/courses/301/2",
+            "Product & Process":"../../public/courses/301/3",
+            "Process Models": "../../public/courses/301/4",
+            "Prototyping": "../../public/courses/301/5",
+            "The Unified Process":"../../public/courses/301/6",
+            "Business Process Engineering":"../../public/courses/301/7",
+            "Requirements Engineering":"../../public/courses/301/8",
+            "System Modelling":"../../public/courses/301/9",
+            "Requirement Analysis Concepts & Prinicples":"../../public/courses/301/10",
+            "Software Requirement Specification":"../../public/courses/301/11",
+            "Data Modelling":"../../public/courses/301/12",
+            "Functional Modeling":"../../public/courses/301/13",
+            "Surveys of Software Design Methods":"../../public/courses/301/14",
+            "Software Design Quality":"../../public/courses/301/15" ,
+            "Software Architecture":"../../public/courses/301/16",
+            "Implementation & Testing":"../../public/courses/301/17",
+            "Project Organization & Phases":"../../public/courses/301/18",
+            "Version Control":"../../public/courses/301/19",
+            "Testing & Maintenance":"../../public/courses/301/20",
+            "Verification & Validation":"../../public/courses/301/21",
+            "Software Quality":"../../public/courses/301/22",
+            "Technical Metrics for Software":"../../public/courses/301/23",
+            "Business Process Reengineering":"../../public/courses/301/24",
+            "Reverse Engineering & Restructuring":"../../public/courses/301/25"
+        }
     },
 
     {

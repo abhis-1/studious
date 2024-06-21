@@ -32,16 +32,10 @@ function CourseCard({ searchQuery, onSearchResult}) {
         <div style={{ paddingTop: '16px', paddingLeft: '20px', marginTop: '90px', paddingRight: '20px', marginBottom: '50px' }}>
             {filteredCourses.length>0? (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px 32px', justifyContent: 'center' }}>
-                {/* {list.map((item) => ( */}
-
                 {filteredCourses.map((item) => (
-
-                    // <Link to={`/dashboard/subject/${index}`} key={index} style={{ textDecoration: 'none', flex: '1 1 22%', maxWidth: '22%' }}>
-
                         <Card key={item.id} sx={{
                             width: '30%',
                             maxWidth: 250,
-                            // margin:'16px',
                             '&:hover': {
                                 transform: 'scale(1.05)',
                                 boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
@@ -66,11 +60,6 @@ function CourseCard({ searchQuery, onSearchResult}) {
                                     <Typography gutterBottom variant="h5" component="div" style={{ fontWeight: 'bold' }}>
                                         {item.name}
                                     </Typography>
-                                    {/* <Typography variant="body2" color="text.secondary" > 
-                                         { 
-                                          item.title
-                                         } 
-                                    </Typography> */}
                                 </CardContent>
                             </CardActionArea>
                         </Card>

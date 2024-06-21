@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Capability Maturity Model (CMM)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e0d96410-6fe8-4363-a20c-cdf1e003f261" class="page sans"><header><h1 class="page-title">Capability Maturity Model (CMM)</h1><p class="page-description"></p></header><div class="page-body"><p id="91f020b5-04ac-4ad9-90ff-beef88a446dd" class="">
+</p><p id="125ddd7f-63da-45c9-932c-f7185d95079f" class="">Was developed by W. Humphrey for the assessment of the development processes at s/w development institutes. It was succeeded by the CMMI as a generalized model to assist in the assessment of the process maturity of different types of organizations and in various areas such as systems engineering, project management and supply-chain management.</p><p id="188538fd-1755-496a-9f20-58cb3da9ae1a" class="">It does not recommend any particular set of mature processes to be followed by an organization, rather it can be used to assess the maturity of existing processes. The basis for the placement at a particular level is based on the availability of specific process areas defined for that level.</p><p id="48bfcd27-25ba-4b5d-84ee-5d3c1fd89752" class="">An organization placed at a particular level is an indication that it meets all the requirements for that level and is ready for progressing towards the next higher level.</p><figure id="8b7776f3-2805-4221-8d1d-b226acb23a93" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfTEz-LqNyseDYJKlmSyCJ3F6gm-1lcOgtTDje6zznjZkoeboDOc_6g0ncrN_utJ6HF0_n_mYysJE_cv2y5ZVInCOGsuXei0jmvkaTbHyqD_LGjyyIo9m8iAzGdDCktyXodNGPUP1H9myi5uWwBSImjP_Oa?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:430px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfTEz-LqNyseDYJKlmSyCJ3F6gm-1lcOgtTDje6zznjZkoeboDOc_6g0ncrN_utJ6HF0_n_mYysJE_cv2y5ZVInCOGsuXei0jmvkaTbHyqD_LGjyyIo9m8iAzGdDCktyXodNGPUP1H9myi5uWwBSImjP_Oa?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="811376cc-411a-45e7-b189-4e8c168f8e2f" class="">It is not a lifecycle model but a strategy for improving the s/w process irrespective of the life cycle model used.</p><p id="e6e7640b-7d18-46be-a553-5c9ec37dbc0c" class="">It is used to judge the maturity of the s/w processes of an organization and to identify the key practices that are required to increase the maturity of them.</p><p id="d920e1ac-0406-4be9-990a-6c0a988bf746" class="">Is a strategy for improving the s/w process to generate quality s/w.</p><p id="6389e822-24bc-47b9-aae3-090bf095ac50" class="">The term “maturity” relates to the degree of formality and optimization of processes from ad hoc practices, to formally defined steps, to managed result metrics, to active optimization of the processes. It refers to how well-defined, controlled, and effective a process is. It&#x27;s essentially a measure of the process&#x27;s development and sophistication.</p><p id="d144cfbc-080d-4ef1-aaa3-651f15e9fc25" class="">It is organized into 5 maturity levels  which have been designed so that it is easy for an organization to slowly build its quality system starting from scratch.</p><p id="11b100e6-7326-4ea3-877b-f831cf2825d8" class="">CMM is a reference model for apprising the s/w process maturity into different levels. This can be used to predict the most likely outcome to be expected from the next project that the organization undertakes. It must be remembered that SEI CMM can be used in 2 ways - capability evaluation and s/w process assessment; they differ in motivation, objective and the final use of the result. Capability evaluation provides a way to assess the s/w process capability of an organization. It is administered by the contract awarding authority, and therefore the results would indicate the likely contractor performance if the contractor is awarded a work. S/w process assessment is used by an organization with the objective  to improve its own process capability. Thus, the latter type of assessment is for purely internal use by a company.</p><figure id="d0bf50ef-7688-49ef-8b31-fbc50a051c0f" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeem2Sn1_bLRBfkP9QnqAJj8S8IhKki9E_IgwanBU-vQ8xjxeHiWR04urqUYxYJrmwuwr33sOjRYC6aIMxPv6I4H2YbmcG37ilLpW5hRmcWpvCkVCVYcVBZCjo8wcHTOldieoH0bbN8Dew2L8Xz_fjM-WE?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:451px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeem2Sn1_bLRBfkP9QnqAJj8S8IhKki9E_IgwanBU-vQ8xjxeHiWR04urqUYxYJrmwuwr33sOjRYC6aIMxPv6I4H2YbmcG37ilLpW5hRmcWpvCkVCVYcVBZCjo8wcHTOldieoH0bbN8Dew2L8Xz_fjM-WE?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="821b9c72-2a84-4149-be63-de0a76f8f110" class="numbered-list" start="1"><li>Initial (Maturity Level 1)</li></ol><ul id="7d91c45e-e73a-487e-9b5d-ef757092cd2d" class="bulleted-list"><li style="list-style-type:disc">&gt; Also called chaotic level</li></ul><ul id="0b9966f4-09dc-4d98-add4-c005aa8f4690" class="bulleted-list"><li style="list-style-type:disc">&gt; Lowest level</li></ul><ul id="2b1f1a25-4036-4360-9165-919db6fc330e" class="bulleted-list"><li style="list-style-type:disc">&gt; Process unpredictable and poorly controlled</li></ul><ul id="e625ae4c-30ac-4c6c-ba81-928e6556da74" class="bulleted-list"><li style="list-style-type:disc">&gt; No sound s/w eng. management practices in place in the organization</li></ul><ul id="1e40a8f6-6f81-49a5-9ce6-0ca308fa2506" class="bulleted-list"><li style="list-style-type:disc">&gt; Everything is done on adhoc basis</li></ul><ul id="0cb1ed7e-f17b-4cb3-9952-e6a207b6fb83" class="bulleted-list"><li style="list-style-type:disc">&gt; Very few or no processes are defined and followed</li></ul><ul id="8ce60865-93db-48d9-929e-79da327d88b2" class="bulleted-list"><li style="list-style-type:disc">&gt; If one specific project happens to be staffed by a competent manager and a good s/w development team, then that may be successful.</li></ul><ul id="a3f6af2d-6ebf-452c-b81c-b56848205434" class="bulleted-list"><li style="list-style-type:disc">&gt; Usual pattern is time and cost overruns caused by a lack of sound management in general and planning in particular.</li></ul><ul id="68e9da5c-2975-4803-8ed7-5550bcbb3082" class="bulleted-list"><li style="list-style-type:disc">&gt; Most activities are responses to crises, rather than pre planned tasks.</li></ul><ul id="53a5f186-9ba4-478c-a2a6-2f53fda67b2d" class="bulleted-list"><li style="list-style-type:disc">&gt; In maturity level 1 organizations, the s/w process is unpredictable because it totally depends on the current staff; as the staff changes, so does the process</li></ul><ul id="55348296-5e28-4359-9037-fac589969438" class="bulleted-list"><li style="list-style-type:disc">&gt; As a consequence, it is impossible to predict, with any accuracy, the important items such as the time it will take to develop a product or the cost of it</li></ul><ul id="4f0c613f-7d74-48f3-9e83-bba30c87b768" class="bulleted-list"><li style="list-style-type:disc">&gt; The vast majority of s/w organizations all over the world are level 1 organizations.</li></ul><figure id="acb34653-6b0f-4b61-aff9-7c31145f953a" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXczzm3IBfwpOJ0k62utLyrQw0hBCw2UVtByGWKMfGJf90fVVMp0L_gZzmqflphR521oq_zLrN0ur16WZfefdV5j46Tf95JZ8PcYAlbmTCmGDI532oP_w52P57144kVt0almI0eH-CKIHhyp_cNKHvs9Ros?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:376px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXczzm3IBfwpOJ0k62utLyrQw0hBCw2UVtByGWKMfGJf90fVVMp0L_gZzmqflphR521oq_zLrN0ur16WZfefdV5j46Tf95JZ8PcYAlbmTCmGDI532oP_w52P57144kVt0almI0eH-CKIHhyp_cNKHvs9Ros?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="d0568aea-e099-4ef7-8af5-0488aeced768" class="numbered-list" start="1"><li>Repeatable (Maturity Level 2)</li></ol><ul id="dbc2f84b-1e59-4691-9678-2e80bb8a442f" class="bulleted-list"><li style="list-style-type:disc">&gt; Basic project management</li></ul><ul id="2c7f990c-8d6d-451d-851a-c02f03e84b3e" class="bulleted-list"><li style="list-style-type:disc">&gt; Policies for managing a s/w project and procedures to implement those are established</li></ul><ul id="f82fc2ee-8ce4-4489-9112-5a1e1a0caf6d" class="bulleted-list"><li style="list-style-type:disc">&gt; Development methodology and all its phases are partially documented. S/w QA is considered for the documented processes.</li></ul><ul id="ca0cbd97-c77b-426f-b99f-274b67903b57" class="bulleted-list"><li style="list-style-type:disc">&gt; Size and cost estimation techniques are used</li></ul><ul id="597e558d-b20e-4e46-b973-83957bcda68e" class="bulleted-list"><li style="list-style-type:disc">&gt; Planning and managing new projects is based on experience with similar projects</li></ul><ul id="c9451e59-1442-4ae8-aafb-4ce5332df769" class="bulleted-list"><li style="list-style-type:disc">&gt; An objective in achieving level is to institutionalize effective management processes for s/w projects which allow organizations to repeat successful practices developed on earlier projects although the specific processes implemented by the projects may differ</li></ul><ul id="780a4aab-0b28-45fe-bfac-0e5562c0f646" class="bulleted-list"><li style="list-style-type:disc">&gt; An effective process can be characterized as practiced, documented, enforced, trained, measured and amenable to be proved.</li></ul><ul id="5d2566e2-606c-411c-af73-dea42da5035e" class="bulleted-list"><li style="list-style-type:disc">&gt; Managers identify problems as they arise and take immediate corrective action to prevent them from becoming a crisis.</li></ul><ul id="3e03b1c1-62f8-4183-adbc-066fa841e3fa" class="bulleted-list"><li style="list-style-type:disc">&gt; Without measurement, it is impossible to detect problems before they get out of hand. Measurements may include the careful tracking of costs, schedules and functionality.</li></ul><ul id="6691ef30-643f-4fbc-b9cd-c59bac1c3265" class="bulleted-list"><li style="list-style-type:disc">&gt; Measurements taken during one project can be used to draw up realistic duration and cost schedules for future projects.</li></ul><ul id="a3d9ffc4-4d3c-4574-a3b5-bc05c5d3cafd" class="bulleted-list"><li style="list-style-type:disc">&gt; Projects have installed basic s/w management controls. S/w project standards are defined, and the organization ensures they are faithfully followed.</li></ul><ul id="d16dfe64-3220-40f8-9924-e37fe81d9275" class="bulleted-list"><li style="list-style-type:disc">&gt; Realistic project commitments are based on the results observed on previous projects and on the requirements of the current projects.</li></ul><ul id="94570f5e-cf20-4c03-b563-c9e3a916ce4b" class="bulleted-list"><li style="list-style-type:disc">&gt; S/w project team works with its subcontractors, if any, to establish a strong customer-supplier relationship.</li></ul><ul id="0a8b4abf-bd2c-40c5-a092-bf575fcc25ac" class="bulleted-list"><li style="list-style-type:disc">&gt; The s/w process capability in this level is disciplined because planning and tracking of the s/w project is stable and earlier successes can be repeated. The project’s process is under the effective control of a project management system, following realistic plans based on the performance of previous projects.</li></ul><figure id="af224216-8f63-4761-877d-96eb204ef098" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXe85xQ0xhSLbzOn_twLwx076JYG-P1fe1L1i_aF7apxa-ZLuptiBZZ-ni1JORWwEyKAgs0VFJhcg77CdXIfq9v00kxPdkqnD7q2MtNZMnts7Yr85zFJESa9a8iATIxz4pD6J3E6akZp8HeP5UHV3n5dV2w?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:425px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXe85xQ0xhSLbzOn_twLwx076JYG-P1fe1L1i_aF7apxa-ZLuptiBZZ-ni1JORWwEyKAgs0VFJhcg77CdXIfq9v00kxPdkqnD7q2MtNZMnts7Yr85zFJESa9a8iATIxz4pD6J3E6akZp8HeP5UHV3n5dV2w?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="eeb13855-ec67-4e76-be4b-72244bcaa98a" class="numbered-list" start="1"><li>Defined(Maturity Level 3)</li></ol><ul id="bfc2afed-de6c-4083-a12a-efd7dc1c35d1" class="bulleted-list"><li style="list-style-type:disc">&gt; Process standardization</li></ul><ul id="9fac7f7e-d2ec-4d6c-8acd-71d800a880bb" class="bulleted-list"><li style="list-style-type:disc">&gt; The standard process for developing and maintaining s/w across the organization is documented, including both s/w engineering and management processes. It is referred throughout the CMM as the organization’s standard s/w process.</li></ul><ul id="3e0470f4-e0ab-44d9-b12d-a880ebbc6e02" class="bulleted-list"><li style="list-style-type:disc">&gt; Internal standards and documented methodology are used uniformly across all development projects undertaken by the organization.</li></ul><ul id="fa7a5e06-8434-40e5-8491-26ac11d5216b" class="bulleted-list"><li style="list-style-type:disc">&gt; Processes established at this level are used and changed as appropriate to help the s/w managers and technical staff to perform more effectively.</li></ul><ul id="bd81a40b-add3-47b7-89a3-3680226ac8dc" class="bulleted-list"><li style="list-style-type:disc">&gt; The organization exploits effective s/w engineering practices while standardizing its processes.</li></ul><ul id="6b2a97e1-451a-4cef-9ca5-41f6150ee6f3" class="bulleted-list"><li style="list-style-type:disc">&gt; An organization-wide training program is implemented to ensure that the staff and managers have the knowledge and skills required to fulfill their assigned roles.</li></ul><ul id="858726a6-8f73-4521-8f34-6898d3d02e79" class="bulleted-list"><li style="list-style-type:disc">&gt; Projects tailor the organization’s standard s/w process to develop their own defined s/w process which accounts for the unique characteristics of the project. It is referred to as the project’s defined s/w process.</li></ul><ul id="15cc07bc-8e86-4b00-8261-f28536e4439c" class="bulleted-list"><li style="list-style-type:disc">&gt; Defined s/w contains a coherent, integrated set of well-defined s/w engineering and management processes.</li></ul><ul id="0b6e4516-65cc-4772-9c83-ed9cf3250458" class="bulleted-list"><li style="list-style-type:disc">&gt; Because the s/w process is well defined, management has good control over technical progress of all projects.</li></ul><ul id="f7853ce5-1a5c-44a5-9df3-a9f33afbf019" class="bulleted-list"><li style="list-style-type:disc">&gt; The s/w process capability of this level can be summarized as “standard” and “constituent” because both s/w engineering and management activities are stable and repeatable.</li></ul><ul id="af521d29-0493-4fa6-9daa-b1e8d888775e" class="bulleted-list"><li style="list-style-type:disc">&gt; Within established product lines, cost, schedule, and functionality are under control and s/w quality is tracked.</li></ul><ul id="929ac621-a52e-4f17-899a-c90eac905164" class="bulleted-list"><li style="list-style-type:disc">&gt; This process capability is based on a common, organization-wide understanding of the activities, roles and responsibilities in a defined s/w process.</li></ul><figure id="9d678638-3c67-44e1-9896-51bfce0ef1ad" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeYhqbt3p_a7l8yPmvV7ExKFubdBv-mxHQT5AVkRlS5PX1HqcieFRWeO26HyzdIdLPvH-REHO0lmjHn4a8JbknbfCNBNXh6iGMc26OK1wykMsgyNpdTynMftJ5z7MM7JliDHopnL4idskR3VObrameCliCO?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:448px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeYhqbt3p_a7l8yPmvV7ExKFubdBv-mxHQT5AVkRlS5PX1HqcieFRWeO26HyzdIdLPvH-REHO0lmjHn4a8JbknbfCNBNXh6iGMc26OK1wykMsgyNpdTynMftJ5z7MM7JliDHopnL4idskR3VObrameCliCO?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="9f1e0918-4d7c-4eed-a83e-b18eefc2dbb3" class="numbered-list" start="1"><li>Managed(Maturity Level 4)</li></ol><ul id="da1f323f-df12-4683-8954-b7258e5b5f24" class="bulleted-list"><li style="list-style-type:disc">&gt; Quantitative management</li></ul><ul id="073a3351-3f00-4f16-bdf8-c16aec606e01" class="bulleted-list"><li style="list-style-type:disc">&gt; The organization sets quantitative quality goals for both s/w products and processes.</li></ul><ul id="be40d7e9-f665-4e12-8110-7733d726f8d0" class="bulleted-list"><li style="list-style-type:disc">&gt; An organization-wide s/w process database is used to collect and analyze the data available from the project’s defined s/w processes.</li></ul><ul id="f2f1daf1-f21d-4ab2-a605-4f705e5efe2e" class="bulleted-list"><li style="list-style-type:disc">&gt; S/w processes are instrumented with well-defined and consistent measurements at this level. These measurements establish the quantitative foundation for evaluating the project’s s/w processes and products.</li></ul><ul id="137e6afa-d0a0-4774-ad17-abf04536d8ce" class="bulleted-list"><li style="list-style-type:disc">&gt; Projects achieve control over their products and processes by narrowing the variation in their process performance to fall within acceptable quantitative boundaries.</li></ul><ul id="33cfa1f0-648b-43f1-b596-60e1787aecfc" class="bulleted-list"><li style="list-style-type:disc">&gt; Meaningful variations in process performance can be distinguished from random variation (noise) particularly within established product lines.</li></ul><ul id="0d8b31bc-b47b-4a0e-88ba-e3b226fbfcdc" class="bulleted-list"><li style="list-style-type:disc">&gt; The risks involved in moving up the learning curve of a new application domain are known and carefully managed. One measure could be the number of faults detected per 1000 lines of code.</li></ul><ul id="287e5a64-7b6a-42f5-a77b-4eda206a8856" class="bulleted-list"><li style="list-style-type:disc">&gt; A corresponding objective is to reduce this quantity (no. of faults) over time.</li></ul><ul id="ba3ddc56-2c94-4d19-8b00-6e9246fb5ab3" class="bulleted-list"><li style="list-style-type:disc">&gt; The s/w process capability at this level can be summarized as “predictable” because the process is measured and operates within measurable limits. This level of process capability allows an organization to predict trends of process and product quality within quantitative bounds of these limits. When these limits are exceeded, action is taken to correct the situation. S/w products are of predictable high quality.</li></ul><figure id="c88d1d2b-06c5-4379-81b9-04fd6cb2e1be" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcGYwS-DbC33o_Uw3HvgRaU51BwGJpCB26Ex5hMXPSYJ2GKxOvo_btGsx3a1ZbVd4dSbcuqS11Oro4iqnN1KtGZu-xsqA_GkNBHM0LD_LQlRaejszfM_tUBBKFpScT84zNK5c9Q5rLD1gid2i5OxBZcGEhI?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:423px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcGYwS-DbC33o_Uw3HvgRaU51BwGJpCB26Ex5hMXPSYJ2GKxOvo_btGsx3a1ZbVd4dSbcuqS11Oro4iqnN1KtGZu-xsqA_GkNBHM0LD_LQlRaejszfM_tUBBKFpScT84zNK5c9Q5rLD1gid2i5OxBZcGEhI?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><ol type="1" id="96a6f3dd-5732-4e7f-9b01-0a8d19eb77d1" class="numbered-list" start="1"><li>Optimizing(Maturity Level 5)</li></ol><ul id="8a25eedb-7691-4cdf-ba6f-3ad5c73ddaf5" class="bulleted-list"><li style="list-style-type:disc">&gt; Continuous process improvement</li></ul><ul id="d12b5db5-464f-417c-baf9-d55405f9ed3b" class="bulleted-list"><li style="list-style-type:disc">&gt; Continuous modifications to both - the documented standards and documented processes are implemented using metrics collected during the execution of the project phases.</li></ul><ul id="b3fb3b2f-996e-48e3-89d0-5ccf6bc557b6" class="bulleted-list"><li style="list-style-type:disc">&gt; Entire organization is focused on continuous process improvement</li></ul><ul id="174f1f6c-77d4-443a-880f-d1c9d8d2c805" class="bulleted-list"><li style="list-style-type:disc">&gt; The organizations have the means to identify weaknesses and strengthen the process proactively, with the goal of preventing the occurrence of defects.</li></ul><ul id="11a15fbe-d62a-40f3-ba13-99476548a5e8" class="bulleted-list"><li style="list-style-type:disc">&gt; Data of the effectiveness of the s/w process is used to perform cost benefit analysis of new technologies and proposes changes to the organization’s s/w process.</li></ul><ul id="085be938-160d-45d5-9e36-706ee0d3651b" class="bulleted-list"><li style="list-style-type:disc">&gt; Innovations that exploit the best s/w engineering practices are identified and transferred throughout the organization.</li></ul><ul id="2e8ade43-ff82-48c4-a41b-146d7853dfbd" class="bulleted-list"><li style="list-style-type:disc">&gt; S/w project teams in level 5 organizations analyze defects to determine their causes.</li></ul><ul id="c2b34d41-065d-4f23-acb8-ee3c47731270" class="bulleted-list"><li style="list-style-type:disc">&gt; S/w processes are evaluated to prevent known types of defects from recurring and lessons learned are disseminated to other projects.</li></ul><ul id="bc78bc99-05b8-4a26-a0ad-15f23631df82" class="bulleted-list"><li style="list-style-type:disc">&gt; The s/w process capability of level 5 organizations can be characterized as “continuously improving” because level 5 organizations are continuously striving to improve the range of their process capability, thereby improving the process performance of their projects.</li></ul><ul id="834a91a4-1209-4820-b914-dc5e2d3d59d5" class="bulleted-list"><li style="list-style-type:disc">&gt; Improvement occurs both by incremental advancements in the existing process and by innovations using new technologies and methods.</li></ul><figure id="806f31d6-745d-4a55-8226-d4348a3c5baa" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfuU_6HA7SAhNV32iqTGES7JPhS9AZzM7Jqt34UhrCfXzQTXfwanMrryAXbNv703jPy_bib95Er13vd3laQZTpll9gOPhKkfdwC3ITE7a2MD7BR4LPL4PgBb-fdhFN2g6R-qiRrsRyO7sHdS4nMjzzKKn2z?key=3E8o4tyMXSLpJzqM7HpvMQ"><img style="width:482px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfuU_6HA7SAhNV32iqTGES7JPhS9AZzM7Jqt34UhrCfXzQTXfwanMrryAXbNv703jPy_bib95Er13vd3laQZTpll9gOPhKkfdwC3ITE7a2MD7BR4LPL4PgBb-fdhFN2g6R-qiRrsRyO7sHdS4nMjzzKKn2z?key=3E8o4tyMXSLpJzqM7HpvMQ"/></a></figure><p id="73d5a002-9a82-459c-92b8-681ba271cde8" class="">Advancing a complete maturity level usually takes from 18 months to 3 years, but moving from level 1 to level 2 sometimes takes 3 or even 5 years.</p><p id="4738db7f-4678-4791-bced-3bc5056a4a81" class="">CMM LEVEL : INITIAL</p><p id="b0707073-228d-4c1a-af48-70136b3736e2" class="">Focus : Competent People</p><p id="c8053b53-3e4f-4a8a-a8a2-612bd55afc45" class="">Key Process Areas :</p><p id="954f8be0-6519-47e3-8a22-4992fea3f959" class="">CMM LEVEL : REPEATABLE</p><p id="f6f4ffa2-6923-4d14-8736-b9680124f68c" class="">Focus : Project Management</p><p id="b242b765-5521-482f-9ba5-a35250a5f81e" class="">Key Process Areas : S/w project planning, S/w configuration management</p><p id="60a62863-62e9-4d60-a61a-fbf70c3bc9c5" class="">CMM LEVEL : DEFINED</p><p id="58c612a3-e4ec-4559-afc3-5a112a5aca8e" class="">Focus : Definition of Processes</p><p id="0efd8a7f-58e2-4963-987e-40e3d7d66d2c" class="">Key Process Areas : Process Definition, Training Program, Peer Reviews</p><p id="1fd8a046-4a8a-4982-8c87-ccd48f0eb7ab" class="">CMM LEVEL : MANAGED</p><p id="c617f012-5de4-4b3f-ae47-693fdb98640f" class="">Focus : Product &amp; Process Quality</p><p id="4652694a-b8bf-4e0f-b9d1-b2c031472def" class="">Key Process Areas : Quantitative Process Metrics, S/w quality management</p><p id="de79b01b-2478-4031-b5af-1cf839eda546" class="">CMM LEVEL : OPTIMIZING</p><p id="f306fae0-c7fe-4652-b4ca-877ebfbed951" class="">Focus : Continuous Process Improvement</p><p id="3aa3c224-62b7-41e1-98b9-d8fe942debb4" class="">Key Process Areas : Defect prevention, Process Change Management, Technology Change Management</p><p id="555e5a6a-1fb7-49f0-99a4-9539b456a8b5" class="">CMM Shortcomings :</p><ol type="1" id="5116e97c-03a5-4970-8d55-cb2ef8a278c8" class="numbered-list" start="1"><li>The most frequent complaint by organizations while trying it out is that they understand what needs to be improved, but they need more guidance about how to improve it.</li></ol><ol type="1" id="7d1e4e7e-4658-4a34-94f1-91b0774ea022" class="numbered-list" start="2"><li>Thicker documents, more detailed information, and longer meetings are considered better. This is in contrast to the accepted agile practices - reducing complexity and keeping the documentation to the minimum without sacrificing the relevant details.</li></ol><ol type="1" id="1aebc734-1e5d-41ca-851c-844b93ac6232" class="numbered-list" start="3"><li>Getting an accurate measure of an organization’s current maturity level is also an issue.</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

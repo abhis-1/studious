@@ -1,14 +1,14 @@
-import React from "react";
-
 export default function Footer() {
   return (
     <>
-      <div>
-        <footer className="w-full footer footer-center p-2 bg-base-200 text-base-content rounded  bottom-0 ">
-          <aside>
-            <p>Copyright © 2024 - Studious - All Rights Reserved</p>
-          </aside>
-        </footer>
+      <div className="w-full bg-gray-100 text-center p-4 fixed bottom-0">
+        <div className="container mx-auto">
+          <footer>
+            <aside>
+              <p>Copyright © 2024 - Studious - All Rights Reserved</p>
+            </aside>
+          </footer>
+        </div>
       </div>
     </>
   );

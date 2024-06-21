@@ -3,9 +3,9 @@
 
 const courseSchema = z.object({
   courseId: z.string().uuid("Invalid course ID"),
-  name: z.string().min(3, "Course name must be at least 3 characters").max(50, "Course name must be at most 50 characters"),
-  description: z.string().max(500, "Description must be at most 500 characters"),
-  topics: z.array(z.string().uuid("Invalid topic ID")).min(1, "Course must have at least 1 topic")
+  title: z.string().min(3, "Course name must be at least 3 characters").max(50, "Course name must be at most 50 characters"),
+  courseImg: z.string().max(500, "Description must be at most 500 characters"),
+  setOfTracks: z.array(z.string().uuid("Invalid topic ID")).min(1, "Course must have at least 1 topic")
 });
 
 const trackSchema = z.object({

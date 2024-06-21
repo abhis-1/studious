@@ -42,7 +42,7 @@ function Navbar({ setSearchQuery }) {
     console.log("Logout button clicked");
 
     localStorage.removeItem("token");
-    navigate("/signin");
+    navigate("/home");
 
   };
 

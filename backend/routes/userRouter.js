@@ -85,7 +85,7 @@ router.post("/signup", validate(userSchema), async (req, res) => {
 });
 
 router.post("/verify-otp", async (req, res) => {
-  const { email, otp } = req.body;
+  const { otp } = req.body;
   try {
     const tempUser = req.session.tempUser;
     console.log(tempUser);

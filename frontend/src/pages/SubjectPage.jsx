@@ -19,12 +19,10 @@ function SubjectPage() {
     return (
         <div className='flex flex-col min-h-screen'>
             <Navbar />
-            <div
-            // style={{ width:'full'}}>
-            className='flex-grow'>
+            <div className='flex-grow'>
                 <SubjectContent  />
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div >
     );
 }

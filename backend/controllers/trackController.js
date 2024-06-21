@@ -2,10 +2,13 @@ const Track = require('../models/track');
 
 exports.createTrack = async (req, res) => {
     try {
-        const { trackId, courseId, pdf } = req.body;
-        const track = new Track({ trackId, courseId, pdf });
+        const { trackId, trackTitle, courseId, pdf } = req.body;
+        const track = new Track({ trackId, trackTitle, courseId, pdf });
         await track.save();
-        res.status(201).json(track);
+        res.status(201).json({
+            message: "Track Added Successfully",
+            track
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
