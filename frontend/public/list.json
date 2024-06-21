@@ -1,76 +1,247 @@
 [
-    
     {
-        "id":1,
-        "name":"Mathematical Foundation of Computing",
-        "title":"Semester 1 - Learn about countable structures and their combinatorial, logical properties. Explore graphs, integers, statements in logic.",
+        "id": 101,
+        "name": "Mathematical Foundation of Computing",
+        "title": "Semester 1 - Learn about countable structures and their combinatorial, logical properties. Explore graphs, integers, statements in logic.",
         "image": "https://media.istockphoto.com/id/1442048478/vector/mathematics-vector-colorful-thin-line-banner.jpg?s=612x612&w=0&k=20&c=d9kB3BiLpsl_g_9DBKluKSzapsIYKTWz9pPmKlCu8Ak=",
-        "topics":["Rudiments of Mathematical Logic & Set Theory","Proof Methods","Relations & Functions","Combinatorics","Rudiments of Graph Theory","Trees","Recurrences","Divide & Conquer","Mathematical Logic & Methods of Computation","Regular Set","Finite Automata"]
+        "topics": {
+            "Rudiments of Mathematical Logic & Set Theory": "../../public/courses/101/1",
+            "Proof Methods": "../../public/courses/101/2",
+            "Relations & Functions": "../../public/courses/101/3",
+            "Combinatorics": "../../public/courses/101/4",
+            "Rudiments of Graph Theory": "../../public/courses/101/5",
+            "Trees": "../../public/courses/101/6",
+            "Recurrences": "../../public/courses/101/7",
+            "Divide & Conquer": "../../public/courses/101/8",
+            "Mathematical Logic & Methods of Computation": "../../public/courses/101/9",
+            "Regular Set": "../../public/courses/101/10",
+            "Finite Automata": "../../public/courses/101/11"
+        }
     },
     
     {
-        "id":2,
+        "id":102,
         "name":"Software Design & Programming",
         "title":"Semester 1 - Create efficient, maintainable solutions to problems. Explore C, C++, concepts of OOPS.",
         "image": "https://cdn.sanity.io/images/tlr8oxjg/production/f2fb25c9cafe100e220f0caf70f92cf19a6ec3dc-1456x816.png?w=3840&q=80&fit=clip&auto=format",
-        "topics":["Introduction to Programming Methodlogy","Variables & Expresssions","Types","Operators & Expressions","Control Flow","Functions & Program Structure","Pointers & Arrays","Pointer Conversion","Structures","Structure & Union Declarations","File Descriptors","UNIX System Interface","Enumerators","Declarators","Typedef","Identifiers","Preprocessing","Object Model","Inheritance","Polymorphism","Abstraction","Language Features","Abstract Data Type","Modularity","Using UML","Class Diagram","Design Patterns"],
-        "filepath": "../../public/notion-content-main/subject-"
+        "topics": {
+            "Introduction to Programming Methodlogy": "../../public/courses/102/1",
+            "Variables & Expresssions": "../../public/courses/102/2",
+            "Types": "../../public/courses/102/3",
+            "Operators & Expressions": "../../public/courses/102/4",
+            "Control Flow": "../../public/courses/102/5",
+            "Functions & Program Structure": "../../public/courses/102/6",
+            "Pointers & Arrays": "../../public/courses/102/7",
+            "Pointer Conversion": "../../public/courses/102/8",
+            "Structures": "../../public/courses/102/9",
+            "Structure & Union Declarations": "../../public/courses/102/10",
+            "File Descriptors": "../../public/courses/102/11",
+            "UNIX System Interface": "../../public/courses/102/12",
+            "Enumerators": "../../public/courses/102/13",
+            "Declarators": "../../public/courses/102/14",
+            "Typedef": "../../public/courses/102/15",
+            "Identifiers": "../../public/courses/102/16",
+            "Preprocessing": "../../public/courses/102/17",
+            "Object Model": "../../public/courses/102/18",
+            "Inheritance": "../../public/courses/102/19",
+            "Polymorphism": "../../public/courses/102/20",
+            "Abstraction": "../../public/courses/102/21",
+            "Language Features": "../../public/courses/102/22",
+            "Abstract Data Type": "../../public/courses/102/23",
+            "Modularity": "../../public/courses/102/24",
+            "Using UML": "../../public/courses/102/25",
+            "Class Diagram": "../../public/courses/102/26",
+            "Design Patterns": "../../public/courses/102/27"
+        }
     },
 
     {
-        "id":3,
+        "id":103,
         "name":"Algorithms & Data Structure",
         "title" : "Semester 1 - Learn to organize and store data efficiently and provide methods for processing and manipulating it.",
         "image" : "https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_structure_interview_questions.jpg",
-        "topics":["Analysis of Algorithms","Asymptotic Notation","Recurrence Relation","Linked Lists","Queues","Trees","Tree Traversals","Priority Queues","Binary Search Trees","AVL Trees","Hashing","Graphs","Divide & Conquer","Greedy Methods","Minimum Spanning Trees","Single Source Shortest Paths","Dynamic Programming","All Pair Shortest Paths","Backtracking","Resource Allocation Problem","Branch & Bound","Complexity Theory"]
+        "topics": {
+            "Analysis of Algorithms": "../../public/courses/103/1",
+            "Asymptotic Notation": "../../public/courses/103/2",
+            "Recurrence Relation": "../../public/courses/103/3",
+            "Linked Lists": "../../public/courses/103/4",
+            "Queues": "../../public/courses/103/5",
+            "Trees": "../../public/courses/103/6",
+            "Tree Traversals": "../../public/courses/103/7",
+            "Priority Queues": "../../public/courses/103/8",
+            "Binary Search Trees": "../../public/courses/103/9",
+            "AVL Trees": "../../public/courses/103/10",
+            "Hashing": "../../public/courses/103/11",
+            "Graphs": "../../public/courses/103/12",
+            "Divide & Conquer": "../../public/courses/103/13",
+            "Greedy Methods": "../../public/courses/103/14",
+            "Minimum Spanning Trees": "../../public/courses/103/15",
+            "Single Source Shortest Paths": "../../public/courses/103/16",
+            "Dynamic Programming": "../../public/courses/103/17",
+            "All Pair Shortest Paths": "../../public/courses/103/18",
+            "Backtracking": "../../public/courses/103/19",
+            "Resource Allocation Problem": "../../public/courses/103/20",
+            "Branch & Bound": "../../public/courses/103/21",
+            "Complexity Theory": "../../public/courses/103/22"
+        }
     },
 
     {
-        "id":4,
+        "id":104,
         "name":"Computer System Architecture",
         "title":"Semester 1 - Get to learn about computer system hardware design, digital computer organization principles and operation functionality.",
         "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxcdUqGNGCTbNDFxZLQjA0Q4Kt7yUPnHK7HQ&s",
-        "topics":["Evolution of Computer Architecture","Instruction Set Design","Processor Micro-architecture","Pipelining","Cache & Virtual Memory Organization","Protection & Sharing","I/O & Interrupts","VLIW Machines","Multithreaded Architectures","Symmetric Multiprocessors","Parallel Computers","Segmentation","Paging","CISC & RISC Processors","Addressing Modes","Instruction Sets","Memory Hierarchies","Memory Technologies"]
+        "topics": {
+            "Evolution of Computer Architecture": "../../public/courses/104/1",
+            "Instruction Set Design": "../../public/courses/104/2",
+            "Processor Micro-architecture": "../../public/courses/104/3",
+            "Pipelining": "../../public/courses/104/4",
+            "Cache & Virtual Memory Organization": "../../public/courses/104/5",
+            "Protection & Sharing": "../../public/courses/104/6",
+            "I/O & Interrupts": "../../public/courses/104/7",
+            "VLIW Machines": "../../public/courses/104/8",
+            "Multithreaded Architectures": "../../public/courses/104/9",
+            "Symmetric Multiprocessors": "../../public/courses/104/10",
+            "Parallel Computers": "../../public/courses/104/11",
+            "Segmentation": "../../public/courses/104/12",
+            "Paging": "../../public/courses/104/13",
+            "CISC & RISC Processors": "../../public/courses/104/14",
+            "Addressing Modes": "../../public/courses/104/15",
+            "Instruction Sets": "../../public/courses/104/16",
+            "Memory Hierarchies": "../../public/courses/104/17",
+            "Memory Technologies": "../../public/courses/104/18"
+        }
     },
 
     {
-        "id":5,
+        "id":201,
         "name":"Computer Communication & Networks",
         "title":"Semester 2 - Learn network basics, architecture, data transmission, security, wireless, protocols, routing and management.",
         "image":"https://media.licdn.com/dms/image/D5612AQH7Ka9cpyMa5A/article-cover_image-shrink_600_2000/0/1707035530376?e=2147483647&v=beta&t=5hXiRDV3r9WlOWhZcM4scZck9t3_tAmzhL_ZGFj2t2c",
-        "topics":["Basics of networking","OSI Model","Error Detection Codes","Flow Control","Routing","Medium Access Control","High-speed Networks","Data communications","Network Architectures","Communication Protocols","Data Link Control","LAN, MAN & WAN","Fourier Analysis","Maximum Data Rate of a Channel","Data Transmission Modes","IPv4 & IPv6","Subnetting & IP Routing","UDP & TCP Protocols","Address Resolution Protocol","Network Address Translation","Stream Control Transmission Protocol","Quality of Service","Data Traffic","Congestion Control","WWW & HTTP","Network Management"]
+        "topics": {
+            "Basics of networking": "../../public/courses/201/1",
+            "OSI Model": "../../public/courses/201/2",
+            "Error Detection Codes": "../../public/courses/201/3",
+            "Flow Control": "../../public/courses/201/4",
+            "Routing": "../../public/courses/201/5",
+            "Medium Access Control": "../../public/courses/201/6",
+            "High-speed Networks": "../../public/courses/201/7",
+            "Data communications": "../../public/courses/201/8",
+            "Network Architectures": "../../public/courses/201/9",
+            "Communication Protocols": "../../public/courses/201/10",
+            "Data Link Control": "../../public/courses/201/11",
+            "LAN, MAN & WAN": "../../public/courses/201/12",
+            "Fourier Analysis": "../../public/courses/201/13",
+            "Maximum Data Rate of a Channel": "../../public/courses/201/14",
+            "Data Transmission Modes": "../../public/courses/201/15",
+            "IPv4 & IPv6": "../../public/courses/201/16",
+            "Subnetting & IP Routing": "../../public/courses/201/17",
+            "UDP & TCP Protocols": "../../public/courses/201/18",
+            "Address Resolution Protocol": "../../public/courses/201/19",
+            "Network Address Translation": "../../public/courses/201/20",
+            "Stream Control Transmission Protocol": "../../public/courses/201/21",
+            "Quality of Service": "../../public/courses/201/22",
+            "Data Traffic": "../../public/courses/201/23",
+            "Congestion Control": "../../public/courses/201/24",
+            "WWW & HTTP": "../../public/courses/201/25",
+            "Network Management": "../../public/courses/201/26"
+        }
     },
 
     {
-        "id":6,
+        "id":202,
         "name":"Database Systems",
         "title":"Semester 2 - Explore concepts involving & related to design, modelling, query languages, management, security, relational model, Structured Query Language and performance tuning.",
         "image":"https://s3-us-west-2.amazonaws.com/aa.techdemand.io/wp-content/uploads/2023/09/08174444/Database-Management-Systems.jpg",
-        "topics":["Introduction to Database Concepts","Data Organization & Management Techniques","Goals of DBMS","DBMS Models","Relational Database Design","Functional & Multi Valued Dependencies & Normal Forms","Database Query Optimization","Data Abstraction & Modelling","Normalization","Query Processing","Crash Recovery","Distributed Database","Obect Oriented Database","Data Mining","The ER Model","Relational Model","Relational Algebra & Query Languages","SQL","Data Constraints","Functional Dependencies","Relational Database Design","Transaction Management"]
+        "topics": {
+            "Introduction to Database Concepts": "../../public/courses/202/1",
+            "Data Organization & Management Techniques": "../../public/courses/202/2",
+            "Goals of DBMS": "../../public/courses/202/3",
+            "DBMS Models": "../../public/courses/202/4",
+            "Relational Database Design": "../../public/courses/202/5",
+            "Functional & Multi Valued Dependencies & Normal Forms": "../../public/courses/202/6",
+            "Database Query Optimization": "../../public/courses/202/7",
+            "Data Abstraction & Modelling": "../../public/courses/202/8",
+            "Normalization": "../../public/courses/202/9",
+            "Query Processing": "../../public/courses/202/10",
+            "Crash Recovery": "../../public/courses/202/11",
+            "Distributed Database": "../../public/courses/202/12",
+            "Object Oriented Database": "../../public/courses/202/13",
+            "Data Mining": "../../public/courses/202/14",
+            "The ER Model": "../../public/courses/202/15",
+            "Relational Model": "../../public/courses/202/16",
+            "Relational Algebra & Query Languages": "../../public/courses/202/17",
+            "SQL": "../../public/courses/202/18",
+            "Data Constraints": "../../public/courses/202/19",
+            "Functional Dependencies": "../../public/courses/202/20",
+            "Transaction Management": "../../public/courses/202/21"
+        }
     },
 
     {
-        "id":7,
+        "id":203,
         "name":"Operating Systems",
         "title":"Semester 2 - Learm about process and memory management, different types of operating systems, file systems, scheduling, deadlock conditions, thrashing, resource allocation and networking.",
         "image":"https://media.istockphoto.com/id/1301392763/vector/isometric-projection-of-a-laptop-with-business-graphs-the-concept-of-data-analysis-on.jpg?s=612x612&w=0&k=20&c=B6cr_9qZ5SPWqbgWVYh1hLVXPdpSSH28MCiGmt9brwk=",
-        "topics":["OS Structure","Processes","Deadlocks & Deadlock Handling","Memory Management","Input-Output Management","Disk Devices & File Systems","Security","UNIX System Tools","Inter Process Communication","File Concept","Access Methods","File System Structure","Allocation Methods","Free-Space Management","Critical Section","Mutual Exclusion","IPC Race Conditions","Classical IPC Problems"]
+        "topics": {
+            "Introduction to Operating System": "../../public/courses/203/1",
+            "Processes & Threads": "../../public/courses/203/2",
+            "Process Synchronization": "../../public/courses/203/3",
+            "Deadlocks": "../../public/courses/203/4",
+            "Memory Management": "../../public/courses/203/5",
+            "Virtual Memory": "../../public/courses/203/6",
+            "File Systems": "../../public/courses/203/7",
+            "Storage Management": "../../public/courses/203/8",
+            "I/O Systems": "../../public/courses/203/9",
+            "Security & Protection": "../../public/courses/203/10",
+            "Distributed Systems": "../../public/courses/203/11",
+            "Real-Time Systems": "../../public/courses/203/12",
+            "Performance & Tuning": "../../public/courses/203/13",
+            "Networked Systems": "../../public/courses/203/14",
+            "Case Studies": "../../public/courses/203/15"
+        }
     },
 
     {
-        "id":8,
+        "id":204,
         "name":"Applied Machine Learning",
         "title":"Semester 2 - Covers data preprocessing, model selection, training, evaluation, deployment and optimization.",
         "image":"https://media.licdn.com/dms/image/D4D12AQGurjz_4yVgxQ/article-cover_image-shrink_600_2000/0/1693987602621?e=2147483647&v=beta&t=ICJSg_1lm9Z_ICVaa8OQ5a1MfU0TpehXZez0sZPLCqw",
-        "topics":["Maths & Probability","Naive Bayes","Decision Trees","Generalisation & Evaluation","Linear Regression","Logistic Regression","Optimisation & Regularisation","Support Vector Machines","Nearest Neighbours","K-Means","Prinicipal Component Analysis","Neural Networks","Propositional & First-Order","Artificial Neural Networks","Perceptrons","Language Learning"]
+        "topics":{
+            "Maths & Probability": "../../public/courses/204/1",
+            "Naive Bayes": "../../public/courses/204/2",
+            "Decision Trees": "../../public/courses/204/3",
+            "Generalisation & Evaluation": "../../public/courses/204/4",
+            "Linear Regression": "../../public/courses/204/5",
+            "Logistic Regression": "../../public/courses/204/6",
+            "Optimisation & Regularisation": "../../public/courses/204/7",
+            "Support Vector Machines": "../../public/courses/204/8",
+            "Nearest Neighbours": "../../public/courses/204/9",
+            "K-Means": "../../public/courses/204/10",
+            "Prinicipal Component Analysis": "../../public/courses/204/11",
+            "Neural Networks": "../../public/courses/204/12",
+            "Propositional & First-Order": "../../public/courses/204/13",
+            "Artificial Neural Networks": "../../public/courses/204/14",
+            "Perceptrons": "../../public/courses/204/15",
+            "Language Learning": "../../public/courses/204/16"
+        }
     },
 
     {
-        "id":9,
+        "id":205,
         "name":"Web & Mobile Application Development",
         "title":"Semester 2 - Learn front-end development, back-end development, databases, APIs, security, testing & deployment.",
         "image":"https://tortalabz.com/wp-content/uploads/2022/10/Web-and-Mobile-App-Development.png",
-        "topics":["Coding Techniques","OOP Programming","Mobile App Development","Introduction to Android Platform","Graphical User Interface","Data Persistance","Application Security & Permissions","Network Communication & Internet Applications"]
+        "topics":{
+            "Coding Techniques": "../../public/courses/205/1",
+            "OOP Programming": "../../public/courses/205/2",
+            "Mobile App Development": "../../public/courses/205/3",
+            "Introduction to Android Platform": "../../public/courses/205/4",
+            "Graphical User Interface": "../../public/courses/205/5",
+            "Data Persistance": "../../public/courses/205/6",
+            "Application Security & Permissions": "../../public/courses/205/7",
+            "Network Communication & Internet Applications": "../../public/courses/205/8"
+        }
     },
     
     {
@@ -96,51 +267,120 @@
     },
 
     {
-        "id":11,
+        "id":302,
         "name":"Information System Design",
         "title":"Semester 3 - Learn system analysis, architecture, user interfaces, security, project management.",
         "image":"https://www.aliengen.com/uploads/Information-systems-people-data-processes-aliengen-2.jpg",
-        "topics":["Design Thinking","Prototyping and Parts of Things Design Pattern","Foundations of Systems Development","Systems Development Processes","Object-Oriented Analysis & Design","Design of user interfaces","Systems Analysis and Design Life Cycle","Role of Systems Analyst"]
+        "topics":{
+            "Design Thinking": "../../public/courses/302/1",
+            "Prototyping and Parts of Things Design Pattern": "../../public/courses/302/2",
+            "Foundations of Systems Development": "../../public/courses/302/3",
+            "Systems Development Processes": "../../public/courses/302/4",
+            "Object-Oriented Analysis & Design": "../../public/courses/302/5",
+            "Design of user interfaces": "../../public/courses/302/6",
+            "Systems Analysis and Design Life Cycle": "../../public/courses/302/7",
+            "Role of Systems Analyst": "../../public/courses/302/8"
+        }
     },
 
     {
-        "id":12,
+        "id":303,
         "name":"IT Planning & Management",
         "title":"Semester 3 - Covers strategy development, resource allocation, budgeting, performance evaluation, risk management, project management.",
         "image":"https://img.freepik.com/free-vector/flat-design-business-planning-concept_23-2149151729.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1718236800&semt=ais_user",
-        "topics":["IS, IM, IT Strategy","IT and Software","IT characteristics and applications","IT Processes, Methods, and Tools","IT Manager role definition and KRAs","Software Management","Software Lifecycle","Software Process and Project Metrics","Software Quality Management & Assurance","Software Configuration Management","Software Sizing","Cost Estimation","Project Planning and Management Concepts","Project Scheduling and Tracking"]
+        "topics":{
+            "IS, IM, IT Strategy": "../../public/courses/303/1",
+            "IT and Software": "../../public/courses/303/2",
+            "IT characteristics and applications": "../../public/courses/303/3",
+            "IT Processes, Methods, and Tools": "../../public/courses/303/4",
+            "IT Manager role definition and KRAs": "../../public/courses/303/5",
+            "Software Management": "../../public/courses/303/6",
+            "Software Lifecycle": "../../public/courses/303/7",
+            "Software Process and Project Metrics": "../../public/courses/303/8",
+            "Software Quality Management & Assurance": "../../public/courses/303/9",
+            "Software Configuration Management": "../../public/courses/303/10",
+            "Software Sizing": "../../public/courses/303/11",
+            "Cost Estimation": "../../public/courses/303/12",
+            "Project Planning and Management Concepts": "../../public/courses/303/13",
+            "Project Scheduling and Tracking": "../../public/courses/303/14"
+        }
+
     },
 
     {
-        "id":13,
+        "id":304,
         "name":"Cloud Computing",
         "title":"Semester 3 - Learn cloud architecture, cloud service models, virtualization, security, scalability, cloud deployment models. Explore about delivering computing services over the Internet for innovation, flexible resources, anytime anywhere access and better cost management.",
         "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNEPEPywa5BfdjlPVZCs81R9X6f-UvbJlOQ&s",
-        "topics":["Cloud Computing Architecture","Service Models","Deployment Models","Infrastructure as a Service","Virtualization","Platform as a Service","Software as a Service","Scaling"]
+        "topics":{
+            "Cloud Computing Architecture": "../../public/courses/304/1",
+            "Service Models": "../../public/courses/304/2",
+            "Deployment Models": "../../public/courses/304/3",
+            "Infrastructure as a Service": "../../public/courses/304/4",
+            "Virtualization": "../../public/courses/304/5",
+            "Platform as a Service": "../../public/courses/304/6",
+            "Software as a Service": "../../public/courses/304/7",
+            "Scaling": "../../public/courses/304/8"
+        }
     },
 
     {
-        "id":14,
+        "id":401,
         "name":"Research Methods in Informatics",
         "title":"Semester 4 - Learn literature review, experimental design, result interpretation, qualitative and quantitative analysis.",
         "image":"https://www.aib.world/wp-content/uploads/2020/11/research-methods-covid-webinar-header.jpg",
-        "topics":["Informatics in Research","Research Methods","Quantitative & Qualitative Research Design","Experimental Research Design","Data Analysis and Basic Statistics","Research as a Creative Process","Data Acquisition","Experimental Research Design"]
+        "topics":{
+            "Informatics in Research": "../../public/courses/401/1",
+            "Research Methods": "../../public/courses/401/2",
+            "Quantitative & Qualitative Research Design": "../../public/courses/401/3",
+            "Experimental Research Design": "../../public/courses/401/4",
+            "Data Analysis and Basic Statistics": "../../public/courses/401/5",
+            "Research as a Creative Process": "../../public/courses/401/6",
+            "Data Acquisition": "../../public/courses/401/7"
+        }
+
     },
 
     {
-        "id":15,
+        "id":402,
         "name":"Internet of Things - Systems, Security & Cloud",
         "title":"Semester 4 - Covers device integration, communication protocols, data analytics, cloud services, sensor networks. Learn about the integration of people, processes, data, things and other related phenomemon.",
         "image":"https://clockwise.software/img/blog/consumer-iot-smart-devices-become-a-part-of-average-household/header-background.jpg",
-        "topics":["IoT Systems Architecture","Wireless Technologies & Networking Protocols","Security & Privacy Concepts","Cloud Integration","Defining IoT","Characteristics of IoT","Physical and Logical Design of IoT","Communication Models & APIs","Machine to Machine","Software Defined Network","Challenges in IoT","Developing IoTs","Applications of IoT","Cloud Computing"]
+        "topics":{
+            "IoT Systems Architecture": "../../public/courses/402/1",
+            "Wireless Technologies & Networking Protocols": "../../public/courses/402/2",
+            "Security & Privacy Concepts": "../../public/courses/402/3",
+            "Cloud Integration": "../../public/courses/402/4",
+            "Defining IoT": "../../public/courses/402/5",
+            "Characteristics of IoT": "../../public/courses/402/6",
+            "Physical and Logical Design of IoT": "../../public/courses/402/7",
+            "Communication Models & APIs": "../../public/courses/402/8",
+            "Machine to Machine": "../../public/courses/402/9",
+            "Software Defined Network": "../../public/courses/402/10",
+            "Challenges in IoT": "../../public/courses/402/11",
+            "Developing IoTs": "../../public/courses/402/12",
+            "Applications of IoT": "../../public/courses/402/13",
+            "Cloud Computing": "../../public/courses/402/14"
+        }
     },
 
     {
-        "id":16,
+        "id":403,
         "name":"Data Analytics & Visualization",
         "title":"Semester 4 - Learn data collection, cleaning, analysis, visualization techniques, tools and interpretation.",
         "image":"https://cdn.sanity.io/images/tlr8oxjg/production/2d8450596e26adafc8e47e88a65bce42104b732a-1456x816.png?w=3840&q=80&fit=clip&auto=format",
-        "topics":["Introduction to Data Mining","Language processing","Information Visualization","Regression","Supervised Classification Methods","Data Visuakization","Exploratory Graphical Analysis","Clustering Techniques","Visualization Tools","Analytics Tools"]
+        "topics":{
+            "Introduction to Data Mining": "../../public/courses/403/1",
+            "Language Processing": "../../public/courses/403/2",
+            "Information Visualization": "../../public/courses/403/3",
+            "Regression": "../../public/courses/403/4",
+            "Supervised Classification Methods": "../../public/courses/403/5",
+            "Data Visualization": "../../public/courses/403/6",
+            "Exploratory Graphical Analysis": "../../public/courses/403/7",
+            "Clustering Techniques": "../../public/courses/403/8",
+            "Visualization Tools": "../../public/courses/403/9",
+            "Analytics Tools": "../../public/courses/403/10"
+        }
     }
 
 ]
