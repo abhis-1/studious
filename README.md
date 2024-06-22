@@ -1,6 +1,8 @@
 ﻿# Studious - content management system
 Studious is a platform designed to cater to the growing needs of students for an integrated, consolidated, interactive and user-friendly course-specific learning platform.
 
+![WhatsApp Image 2024-06-23 at 00 15 27_5c87e1e7](https://github.com/abhis-1/studious/assets/153611048/606bf66c-51dd-4e24-b479-c93c9eb77e07)
+
 ## Screenshots
 ![WhatsApp Image 2024-06-20 at 14 24 18_5c06ff08](https://github.com/abhis-1/studious/assets/153611048/1bbad0e1-70e3-4641-8a48-604cfe1510a1)
 ![WhatsApp Image 2024-06-21 at 16 25 39_dd5c7b1d](https://github.com/abhis-1/studious/assets/153611048/4f6f4d9e-4342-47e3-8ab6-ff24fbabbafe)
